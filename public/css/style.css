@@ -1,0 +1,35 @@
+.box-login {
+    padding: 19% 27%;
+}
+.isi-login {
+    background-color: #f59d15;
+}
+.text-login {
+    padding: 17px 25px 17px 145px;
+}
+.form-login {
+    padding: 10px 15px 10px 1px;
+}
+.form-login h3 {
+    padding-right: 35px;
+}
+.tombol-login {
+    text-align: right;
+    padding: 10px 31px;
+}
+.btn-login {
+    padding: 9px 29px;
+    margin-right: 20px;
+}
+.btn-out {
+    padding: 9px 29px;
+}
+.frm {
+    margin-bottom: 10px;
+}
+.foot-login {
+    padding: 10px 35px;
+}
+.foot-login h5 {
+    text-align: center;
+}
