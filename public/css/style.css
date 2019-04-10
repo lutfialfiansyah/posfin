@@ -33,3 +33,53 @@
 .foot-login h5 {
     text-align: center;
 }
+
+
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #337ab7;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin-right: 4%;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+.relative_box {
+	position:relative;
+	width:30px;
+	float:left;
+}
+.relative_box img {
+	width:100%;
+}
+.relative_box a {
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:#000;
+	color:#fff;
+	width:100%;
+	margin:0;
+}
