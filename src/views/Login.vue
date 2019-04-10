@@ -14,7 +14,9 @@
                                 </div>
                             </div>
                             <div class="tombol-login">
-                                <button class="btn-login">Login</button>
+                                <router-link to="/home">
+                                    <button type="submit" class="btn-login">Login</button>
+                                </router-link>
                             </div>
                             <div class="foot-login">
                                 <h5>System Siap Untuk Login</h5>
