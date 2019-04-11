@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
-import Dashboard from './views/Dashboard.vue'
+import Registrasi from './views/registrasi/Registrasi.vue'
 
 Vue.use(Router)
 
@@ -15,9 +15,9 @@ export default new Router({
       component: Login
     },
     {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: Dashboard
+      path: '/registrasi',
+      name: 'registrasi',
+      component: Registrasi
     }
   ]
 })
