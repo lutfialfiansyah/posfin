@@ -72,7 +72,7 @@
                                         <div class="col-xs-9"><input type="text" v-model="user_update" class="form-control"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-3">ID User Update</label>
+                                        <label class="control-label col-xs-3">Date Last Update</label>
                                         <div class="col-xs-9"><date-picker v-model="id_update" :config="optionss"></date-picker></div>
                                     </div>
                                     <div class="form-group">
