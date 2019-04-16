@@ -1,6 +1,35 @@
 <template>
     <div>
-        <div class="contain">
+        <div class="container">
+            <div class="main-header">
+                <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
+                    <img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
+                <div id="navbar-collapse-02" class="collapse navbar-collapse pull-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
+                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
+                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
+                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
+                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
+                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
+                    <li><router-link to="/koordinator" class="active"> <img class="icon-menu" src="../assets/images/outline-supervised-user-circle-24-px@3x.png"><p>KOORD LAPANGAN</p></router-link></li>
+                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
+                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
+                    
+                </ul>
+                </div>
+            </div>
+        </div>  
+        <div class="container">
+            <div class="menu-home">
+                <router-link to="/home"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
+            </div>
           <div class="head-korlap">
             <h4>KOORDINATOR LAPANGAN   X</h4>
           </div>
@@ -71,7 +100,7 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="2">
-                    <div class="body-korlap">
+                    <div class="body-registrasi">
                     <h5>LAPORAN TRANSAKSI KORLAP</h5>
                         <div class="row">
                             <form class="form-horizontal">
@@ -122,15 +151,41 @@
                       </div>
                       <div id="collapse1" class="panel-collapse collapsein" role="tabpanel" aria-labelledby="heading1">
                           <div class="panel-body">
-                              <p>Adalah bantuan produk pinjaman bagi pebisnis yang membutuhkan modal usaha cepat, untuk membantu
-                                  dalam meringankan cashflow pebisnis dengan membayarkan invoice yang belum di bayar klien/supplier
-                              </p>
+                              <p>bagi pebisnis yang membutuhkan modal usaha cepat</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="panel">
+                      <div class="panel-heading active" role="tab" id="heading2">
+                          <h3 class="panel-title">
+                              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                  <h4>LAPORAN DETAIL PER-KORLAP</h4>
+                              </a>
+                          </h3>
+                      </div>
+                      <div id="collapse2" class="panel-collapse collapsein" role="tabpanel" aria-labelledby="heading2">
+                          <div class="panel-body">
+                             <p>bagi pebisnis yang membutuhkan modal usaha cepat</p>
                           </div>
                       </div>
                   </div>
               </div>
           </div>
-      </div>  
+      </div>
+      <div class="container">
+            <div class="footer">
+                <div class="online">
+                    <p><img class="icon-footer" src="../assets/images/outline-language-24-px@3x.png"> ONLINE</p>
+                </div>
+                <div class="ip"> <p>IP Server: 10.33.41.48   Port: 5775</p></div>
+                <div class="akun">
+                    <p><img class="icon-footer" src="../assets/images/outline-account-circle-24-px@3x.png"> 1001 SIDIK PRAMONO 331000086 ADMIN AGENSI</p>
+                </div>
+                <div class="date">
+                    <p>31/12/2019 12:00:00 AM</p>
+                </div>
+            </div>
+        </div>  
     </div>
 </template>
 
@@ -167,6 +222,12 @@ import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
         },
         components: {
         datePicker
+        },
+        methods: {
+            logout () {
+            this.$session.destroy()
+            this.$router.push('/login')
+        }
         },
     }
 </script>
