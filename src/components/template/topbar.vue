@@ -12,7 +12,7 @@
             <img class="img-logo" src="../../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
         <div id="navbar-collapse-02" class="collapse navbar-collapse pull-right">
           <ul class="nav navbar-nav">
-            <li><router-link to="/logout"><img class="icon-menu" src="../../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </router-link></li>
+            <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
             <li><router-link to="/registrasi"> <img class="icon-menu" src="../../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
             <li><router-link to="/registrasi"> <img class="icon-menu" src="../../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
             <li><router-link to="/registrasi"> <img class="icon-menu" src="../../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
@@ -25,15 +25,17 @@
           </ul>
         </div>
       </div>
-      <div class="menu-home">
-        <router-link to="/home"> <p><img class="icon-home" src="../../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
-      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
   export default {
-    
+    methods: {
+        logout () {
+        this.$session.destroy()
+        this.$router.push('/login')
+      }
+    }
   }
 </script>

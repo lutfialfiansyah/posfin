@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
-import Registrasi from './views/registrasi/Registrasi.vue'
+import Registrasi from './views/Registrasi.vue'
 import Koordinator from './views/korlap.vue'
+import Dashboard from './views/Dashboard.vue'
 
 Vue.use(Router)
 
@@ -11,7 +12,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/login',
       name: 'login',
       component: Login
     },
@@ -24,6 +25,11 @@ export default new Router({
       path: '/koordinator',
       name: 'koordinator',
       component: Koordinator
+    },
+    {
+      path: '/',
+      name: 'dashboard',
+      component: Dashboard
     }
   ]
 })
