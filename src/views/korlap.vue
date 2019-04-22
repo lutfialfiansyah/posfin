@@ -14,14 +14,13 @@
                 <ul class="nav navbar-nav">
                     <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
+                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
                     <li><router-link to="/koordinator" class="active"> <img class="icon-menu" src="../assets/images/outline-supervised-user-circle-24-px@3x.png"><p>KOORD LAPANGAN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
-                    
+                    <li><router-link to="/pembatalan"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
+                    <li><router-link to="/about"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
                 </ul>
                 </div>
             </div>
@@ -107,7 +106,7 @@
                               <div class="col-md-12 col-sm-12 korlap">
                                 <div class="col-md-4 col-sm-4">
                                     <div class="radio-korlap">
-                                        <input type="radio">
+                                        <input type="radio" checked>
                                         <label class="">Rekap</label>
                                     </div>
                                     <div class="radio-korlap">
@@ -149,9 +148,32 @@
                               </a>
                           </h3>
                       </div>
-                      <div id="collapse1" class="panel-collapse collapsein" role="tabpanel" aria-labelledby="heading1">
+                      <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
                           <div class="panel-body">
-                              <p>bagi pebisnis yang membutuhkan modal usaha cepat</p>
+                              <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>KODE USER</th>
+                                            <th>KODE AGEN</th>
+                                            <th>KD MITRA</th>
+                                            <th>NAMA MITRA</th>
+                                            <th>JUMLAH</th>
+                                            <th>LEMBAR</th>
+                                            <th>BESAR UANG</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>234</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                           </div>
                       </div>
                   </div>
@@ -163,29 +185,38 @@
                               </a>
                           </h3>
                       </div>
-                      <div id="collapse2" class="panel-collapse collapsein" role="tabpanel" aria-labelledby="heading2">
+                      <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
                           <div class="panel-body">
-                             <p>bagi pebisnis yang membutuhkan modal usaha cepat</p>
+                             <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>TANGGAL</th>
+                                        <th>KODE AGEN</th>
+                                        <th>KD MITRA</th>
+                                        <th>NAMA MITRA</th>
+                                        <th>JUMLAH</th>
+                                        <th>LEMBAR</th>
+                                        <th>BESAR UANG</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>234</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
                           </div>
                       </div>
                   </div>
               </div>
           </div>
-      </div>
-      <div class="container">
-            <div class="footer">
-                <div class="online">
-                    <p><img class="icon-footer" src="../assets/images/outline-language-24-px@3x.png"> ONLINE</p>
-                </div>
-                <div class="ip"> <p>IP Server: 10.33.41.48   Port: 5775</p></div>
-                <div class="akun">
-                    <p><img class="icon-footer" src="../assets/images/outline-account-circle-24-px@3x.png"> 1001 SIDIK PRAMONO 331000086 ADMIN AGENSI</p>
-                </div>
-                <div class="date">
-                    <p>31/12/2019 12:00:00 AM</p>
-                </div>
-            </div>
-        </div>  
+      </div>  
     </div>
 </template>
 

@@ -93,6 +93,21 @@
 }
 
 /*   -----------------------   Template Topbar --------------------   */
+.head-saldo {
+    width: 153px;
+    margin-left: 21px;
+    border-bottom: solid 2px #333333;
+}
+.head-register {
+    width: 133px;
+    margin-left: 21px;
+    border-bottom: solid 2px #333333;
+}
+.head-recon {
+    width: 173px;
+    margin-left: 21px;
+    border-bottom: solid 2px #333333;
+}
 .head-korlap {
     width: 293px;
     margin-left: 21px;
@@ -212,10 +227,6 @@
     width: 22px;
     color: #fff;
 }
-.head-register {
-    width: 133px;
-    border-bottom: solid 2px #333333;
-}
 .body-register {
     border-top: solid 1px #e6e8f1;
     padding: 19px 0;
@@ -243,9 +254,122 @@ a {
     color: #333333;
     text-decoration: none;
 }
+.body-saldo {
+    padding: 15px 45px;
+    background-color: #f9f9f9;
+}
+.saldo {
+    display: inline-block;
+    margin-left: 21px;
+    background-color: #f9f9f9;
+}
+.saldo h5 {
+    padding: 17px 21px;
+    border-bottom: solid 1px #e6e8f1;
+}
+.body-nominal {
+    margin: 21px 10px;
+    padding: 23px;
+    border: solid 1px #e6e8f1;
+    background-color: #f9f9f9;
+}
+.nomi {
+    width: 50%;
+}
+.tombol-nominal {
+    padding: 25px 0px;
+    width: 50%;
+    text-align: right;
+}
+.btn-nominal {
+    font-family: HelveticaNeue-Medium;
+    color: #34495e;
+    font-size: 12px;
+    margin: 9px 25px;
+    padding: 15px 45px;
+    border-radius: 5px;
+    border: solid 1px #e6e8f1;
+    background-color: #efefef;
+}
+.btn-nominals {
+    font-family: HelveticaNeue-Medium;
+    color: #ffffff;
+    font-size: 12px;
+    margin: 9px 25px;
+    padding: 15px 45px;
+    border-radius: 5px;
+    border: solid 1px #e6e8f1;
+    background-color: #f76b1c;
+}
+.col-sm-3 {
+    padding-right: 1px;
+    padding-left: 1px;
+}
+.lap {
+    padding-left: 3%;
+}
+.lap p {
+    padding-left: 11%;
+}
+.top {
+    padding: 11px 41px;
+}
+.topup {
+    width: 76%;
+}
+.body-about {
+    margin: 9% 0;
+}
+.body-about h6 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 13px;
+    color: #f76b1c;
+    letter-spacing: 1px;
+}
+.laptgl {
+    padding-right: 0px;
+    padding-left: 3px;
+}
+.laptgls {
+    margin-left: 21px;
+    padding-right: 0px;
+    padding-left: 3px;
+}
+.btn-tampil-topup {
+    font-family: HelveticaNeue-Medium;
+    color: #ffffff;
+    background-color: #f76b1c;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 13px 39px;
+    margin-left: 23px;
+}
+.panel-title h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    display: inline-block;
+    margin-left: 17px;
+}
+.panel-title:before {
+    font-family: 'Glyphicons Halflings';
+    content:"\e259";
+}
+.panel-title a.collapse.in:before {
+    font-family: 'Glyphicons Halflings';
+    content:"\e259";
+    transform: rotate(180deg);
+}
 
+.table>thead>tr>th {
+    font-family: HelveticaNeue-Medium;
+    text-align: center;
+    font-size: 13px;
+}
+.table>tbody>tr>td {
+    text-align: center;
+}
 .body-registrasi {
-    margin-top: 29px;
     margin: 21px;
     border: solid 1px #e6e8f1;
     background-color: #f9f9f9;
@@ -389,6 +513,10 @@ a {
     display: inline-block;
     margin-right: 59px;
 }
+.radio-korlap label {
+    font-family: HelveticaNeue-Medium;
+    font-size: 13px;
+}
 .radio-korlap > input[type=radio] {
     margin: 4px 15px;
 }
@@ -411,6 +539,16 @@ a {
 .label-kor {
     margin-top: 11px;
 }
+.btn-refresh-lap {
+    font-family: HelveticaNeue-Medium;
+    color: #34495e;
+    font-size: 13px;
+    background-color: #dddddd;
+    border-radius: 5px;
+    text-align: right;
+    margin-left: 26%;
+    padding: 13px 10px;
+}
 .btn-refresh {
     font-family: HelveticaNeue-Medium;
     color: #333d58;
@@ -422,6 +560,7 @@ a {
     font-family: HelveticaNeue-Medium;
     color: #ffffff;
     background-color: #f76b1c;
+    border-radius: 7px;
     font-size: 13px;
     margin-left: 21px;
     padding: 13px 59px;
@@ -468,6 +607,31 @@ a {
     font-family: HelveticaNeue-Medium;
     color: #484a4d;
     font-size: 14px;
+}
+.btn-refresh-recon {
+    font-family: HelveticaNeue-Medium;
+    color: #34495e;
+    font-size: 13px;
+    background-color: #dddddd;
+    border-radius: 7px;
+    margin-left: 22px;
+    padding: 13px 10px;
+}
+.bootstrap-select>.dropdown-toggle {
+    width: 100%;
+    height: 45px;
+    padding-right: 25px;
+    z-index: 1;
+}
+.menu-recon {
+    margin: 25px 0;
+}
+.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+.proses {
+    margin-top: 20%;
 }
 
 

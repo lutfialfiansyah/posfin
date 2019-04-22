@@ -4,7 +4,9 @@ import router from './router'
 import store from './store'
 import VueSession from 'vue-session'
 import onlyInt from 'vue-input-only-number'
+import vSelect from 'vue-select'
 
+Vue.component('v-select', vSelect)
 Vue.use(onlyInt)
 Vue.use(VueSession)
 Vue.config.productionTip = false

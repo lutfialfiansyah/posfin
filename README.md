@@ -10,6 +10,8 @@ npm install axios
 npm install --save jquery
 yarn add vue-input-only-number
 yarn add vue-bootstrap-datetimepicker
+npm i vue-session
+yarn add vue-select
 ```
 
 ### Compiles and hot-reloads for development

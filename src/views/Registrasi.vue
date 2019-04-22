@@ -14,14 +14,13 @@
                 <ul class="nav navbar-nav">
                     <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
                     <li><router-link to="/registrasi" class="active"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
+                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
+                    <li><router-link to="/saldoagent"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
+                    <li><router-link to="/laporan"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
                     <li><router-link to="/koordinator"> <img class="icon-menu" src="../assets/images/outline-supervised-user-circle-24-px@3x.png"><p>KOORD LAPANGAN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
-                    
+                    <li><router-link to="/pembatalan"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
+                    <li><router-link to="/about"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
                 </ul>
                 </div>
             </div>
@@ -106,11 +105,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><select class="selectpicker form-control" v-model="status" title="0 - Aktif">
+                                        <div class="col-xs-9"><v-select v-model="status" :options="option" title="0 - Aktif"></v-select></div>
+                                        <!-- <div class="col-xs-9"><select class="selectpicker form-control" v-model="status" title="0 - Aktif">
                                             <option value="0">0 - Aktif</option>
                                             <option value="1">1 - NonAktif</option>
                                            </select>
-                                         </div>
+                                         </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -250,7 +250,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><input type="text" v-model="status" class="form-control"></div>
+                                        <div class="col-xs-9"><v-select v-model="status" :options="option" title="0 - Aktif"></v-select></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">KPRK POS</label>
@@ -350,10 +350,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><select class="selectpicker form-control" v-model="status" title="0 - Aktif">
-                                            <option value="0">0 - Aktif</option>
-                                            <option value="1">1 - NonAktif</option>
-                                           </select></div>
+                                        <div class="col-xs-9"><v-select v-model="status" :options="option" title="0 - Aktif"></v-select></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
@@ -404,47 +401,68 @@
                 </div>
                 <div class="tab-pane" id="6">
                     <div class="body-registrasi">
-                        <div class="row">
-                            <button type="button" class="btn-tampil">TAMPILKAN</button>
-                        </div>
+                         <h5>DAFTAR AGENT</h5>
                         <div class="row">
                               <form class="form-horizontal">
                                 <div class="col-md-12 col-sm-12">
-                                    <!-- <b-table responsive bordered :items="items"></b-table> -->
-                                    <table class="table table-bordered" style="background-color:#fff;">
-                                            <thead style="font-weight:bold;" align="center">
-                                                <tr>
-                                                    <td>NO.</td>
-                                                    <td>Kode Agent</td>
-                                                    <td>Nama Agent</td>
-                                                    <td>Alamat</td>
-                                                    <td>Kota</td>
-                                                    <td>No.Telpon</td>
-                                                    <td>Kontak Nama</td>
-                                                    <td>Telpon Kontak</td>
-                                                    <td>Account Buffer</td>
-                                                    <td>Koord Agent</td>
-                                                    <td>KPRK</td>
-                                                </tr>
-                                            </thead>
-                                        <tbody  >
-                                            <tr>
-                                                <td>1.</td>
-                                                <td>KA0001</td>
-                                                <td>Say</td>
-                                                <td>Jl. Raya Bendungan</td>
-                                                <td>Bogor</td>
-                                                <td>089991231231</td>
-                                                <td>Saya</td>
-                                                <td>023432</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="top">
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-1">Filter</label>
+                                            <div class="col-sm-2"><v-select v-model="searchno" :options="optio" title="No"></v-select> </div>
+                                            <div class="col-sm-3"><input type="text" class="form-control"></div><button class="btn-tampil-topup">TAMPILKAN</button>
+                                        </div>
+                                    </div>
                                 </div>
                               </form>
+                        </div>
+                    </div>
+                    <div class="lap-korlap">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel">
+                                <div class="panel-heading active" role="tab" id="heading1">
+                                    <h3 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                            <h4>DAFTAR AGENT</h4>
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>KD AGENT</th>
+                                                    <th>NAMA AGENT</th>
+                                                    <th>ALAMAT</th>
+                                                    <th>KOTA</th>
+                                                    <th>NO. TELEPON</th>
+                                                    <th>KONTAK NAMA</th>
+                                                    <th>TELEPON KONTAK</th>
+                                                    <th>ACCOUNT BUFFER</th>
+                                                    <th>KOORD AGEN</th>
+                                                    <th>KPRK</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>2166</td>
+                                                <td>9332459</td>
+                                                <td>619</td>
+                                                <td>612</td>
+                                                <td>619</td>
+                                                <td>619</td>
+                                                <td>615</td>
+                                                <td>613</td>
+                                                <td>619</td>
+                                                <td>619</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>   
                 </div>
@@ -455,10 +473,12 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
+
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
+ import 'vue-select/dist/vue-select.css';
 
     export default {
         name: 'registrasi',
@@ -506,6 +526,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 tglexptugas: '',
                 tglpassword: '',
                 tglreg: '',
+                searchno: null,
                 id_update: new Date(),
                 optionss: {
                 format: 'DD/MM/YYYY',
@@ -515,8 +536,15 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 options: {
                 format: 'DD/MM/YYYY',
                 useCurrent: false,
-                }
-                      
+                },
+                  option: [
+                    '0 - Aktif',
+                    '1 - NonAktif',
+                    ],
+                      optio: [
+                    '0',
+                    '1',
+                    ],  
             }
         },
         components: {

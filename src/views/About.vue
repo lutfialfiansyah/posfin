@@ -16,41 +16,35 @@
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
                     <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
                     <li><router-link to="/saldoagent"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
+                    <li><router-link to="/laporan"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
+                    <li><router-link to="#"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
                     <li><router-link to="/koordinator"> <img class="icon-menu" src="../assets/images/outline-supervised-user-circle-24-px@3x.png"><p>KOORD LAPANGAN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
-                    <li><router-link to="/about"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
-                    
+                    <li><router-link to="/pembatalan"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
+                    <li><router-link to="/about" class="active"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
                 </ul>
                 </div>
             </div>
-        </div>  
+        </div>
         <div class="container">
-             <div class="menu-home">
-                <router-link to="/dashboard"> <img class="icon-dash" src="../assets/images/outline-table-chart-24-px-1@3x.png"><p>DASHBOARD</p></router-link>       
+            <div class="menu-home">
+                    <router-link to="/home"> <img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"><p>HOME</p></router-link>       
+                </div>
+            <div class="head-saldo">
+                <h4>TENTANG APP X</h4>
+            </div>
+            <div class="body-registrasi">
+                <h5>TENTANG APLIKASI</h5>
             </div>
             <div class="body-dashboard">
-                <h2>BACK OFFICE AGENCY</h2>
-                <p>MAIN AGENT VERSI 1.3.0</p>
-                <p>MAIN AGENT: PT. BAKTI WASANTARA NET (BWN) 9830000</p>
+                <h3>APLIKASI BACKOFFICE AGENCY</h3>
+                <p>VERSI 1.2.3 [20-06-2012]</p>
+                <div class="body-about">
+                    <h6>SOPP POS OFFICIAL WEBSITE</h6>
+                    <h6>AUTHOR</h6>
+                </div>
             </div>
             <div class="foot-dashboard">
                 <p>Bangsistek © 2011, SOPPPOS Development Team, All Right Reserved.</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="footer">
-                <div class="online">
-                    <p><img class="icon-footer" src="../assets/images/outline-language-24-px@3x.png"> ONLINE</p>
-                </div>
-                <div class="ip"> <p>IP Server: 10.33.41.48   Port: 5775</p></div>
-                <div class="akun">
-                    <p><img class="icon-footer" src="../assets/images/outline-account-circle-24-px@3x.png"> 1001 SIDIK PRAMONO 331000086 ADMIN AGENSI</p>
-                </div>
-                <div class="date">
-                    <p>31/12/2019 12:00:00 AM</p>
-                </div>
             </div>
         </div>
     </div>
@@ -58,17 +52,12 @@
 
 <script>
     export default {
-        name: 'dashboard',
-        mounted() {
-        if ( this.$session.get('token')) {
-        this.$router.push({name: 'dashboard'})
-        }
-      },
-      methods: {
-        logout () {
-        this.$session.destroy()
-        this.$router.push('/login')
-      }
-    },
+        name: 'about',
+        methods: {
+            logout () {
+            this.$session.destroy()
+            this.$router.push('/login')
+            },
+        },
     }
 </script>
