@@ -31,7 +31,7 @@
                 <router-link to="/home"> <img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"><p>HOME</p></router-link>       
             </div>
           <div class="head-saldo">
-            <h4>SALDO AGENT X</h4>
+            <h4>SALDO AGENT <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
           </div>
           <div class="body-registrasi">
               <h5>MAINTENANCE SALDO AGEN</h5>
@@ -399,6 +399,9 @@ import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
         datePicker
         },
         methods: {
+            close() {
+                this.$router.push('/')
+            },
             logout () {
             this.$session.destroy()
             this.$router.push('/login')

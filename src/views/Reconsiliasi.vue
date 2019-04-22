@@ -19,7 +19,7 @@
                     <li><router-link to="/laporan"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
                     <li><router-link to="#"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
                     <li><router-link to="/koordinator"> <img class="icon-menu" src="../assets/images/outline-supervised-user-circle-24-px@3x.png"><p>KOORD LAPANGAN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
+                    <li><router-link to="/pembatalan"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
                     <li><router-link to="/about"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
                     
                 </ul>
@@ -31,7 +31,7 @@
                 <router-link to="/home"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
             </div>
           <div class="head-recon">
-            <h4>REKONSILIASI   X</h4>
+            <h4>REKONSILIASI <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
           </div>
           <div class="body-registrasi">
             <h5>REKONSILIASI</h5>
@@ -40,12 +40,12 @@
                     <div class="col-md-12 col-sm-12 korlap">
                     <div class="col-md-4 col-sm-4">
                         <div class="radio-korlap">
-                            <input type="radio">
-                            <label class="">Rekap</label>
+                            <input type="radio" id="rekap" name="selector">
+                            <label for="rekap">Rekap</label>
                         </div>
                         <div class="radio-korlap">
-                            <input type="radio">
-                            <label class="">Detail </label>
+                            <input type="radio" id="detail" name="selector"> 
+                            <label for="detail">Detail </label>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-8">
@@ -331,14 +331,13 @@ import 'vue-select/dist/vue-select.css';
         datePicker
         },
         methods: {
+            close() {
+                this.$router.push('/')
+            },
             logout () {
             this.$session.destroy()
             this.$router.push('/login')
-            },
-            changeSelect ({data, text}) {
-                console.log(data)
-                this.defaultSelectText = text
-             }
+            }
         },
     }
 </script>

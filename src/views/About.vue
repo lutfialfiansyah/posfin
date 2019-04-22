@@ -30,7 +30,7 @@
                     <router-link to="/home"> <img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"><p>HOME</p></router-link>       
                 </div>
             <div class="head-saldo">
-                <h4>TENTANG APP X</h4>
+                <h4>TENTANG APP <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
             </div>
             <div class="body-registrasi">
                 <h5>TENTANG APLIKASI</h5>
@@ -54,6 +54,9 @@
     export default {
         name: 'about',
         methods: {
+            close() {
+                this.$router.push('/')
+            },
             logout () {
             this.$session.destroy()
             this.$router.push('/login')

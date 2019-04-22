@@ -94,24 +94,64 @@
 
 /*   -----------------------   Template Topbar --------------------   */
 .head-saldo {
-    width: 153px;
+    width: 137px;
     margin-left: 21px;
     border-bottom: solid 2px #333333;
+}
+.head-saldo h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 1.9;
+    margin-bottom: 3px;
 }
 .head-register {
     width: 133px;
     margin-left: 21px;
     border-bottom: solid 2px #333333;
 }
+.head-register h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 1.9;
+    margin-bottom: 3px;
+}
 .head-recon {
-    width: 173px;
+    width: 137px;
     margin-left: 21px;
     border-bottom: solid 2px #333333;
 }
-.head-korlap {
-    width: 293px;
+.head-recon h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 1.9;
+    margin-bottom: 3px;
+}
+.head-lap {
+    width: 103px;
     margin-left: 21px;
     border-bottom: solid 2px #333333;
+}
+.head-lap h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 1.9;
+    margin-bottom: 3px;
+}
+.head-korlap {
+    width: 221px;
+    margin-left: 21px;
+    border-bottom: solid 2px #333333;
+}
+.head-korlap h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 2;
+    margin-bottom: 3px;
 }
 .nav-tabs {
     border-bottom: 1px solid transparent;
@@ -300,6 +340,23 @@ a {
     border-radius: 5px;
     border: solid 1px #e6e8f1;
     background-color: #f76b1c;
+}
+button.close {
+    -webkit-appearance: none;
+    padding: 0 0 11px 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}
+.close {
+    float: right;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: 1;
 }
 .col-sm-3 {
     padding-right: 1px;

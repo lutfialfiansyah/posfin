@@ -30,7 +30,7 @@
                 <router-link to="/home"> <img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"><p>HOME</p></router-link>       
             </div>
           <div class="head-register">
-            <h4>REGISTRASI X</h4>
+            <h4>REGISTRASI <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
           </div>
           <div class="body-register">
               <ul class="nav nav-tabs">
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Hak Akses</label>
-                                        <div class="col-xs-9"><input type="text" v-model="akses" class="form-control"></div>
+                                        <div class="col-xs-9"><v-select v-model="akses" :options="opti"></v-select></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Email Address</label>
@@ -545,12 +545,20 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     '0',
                     '1',
                     ],  
+                     opti: [
+                        'Admin',
+                        'Agen',
+                        'Koordinator',
+                    ],  
             }
         },
         components: {
         datePicker
         },
         methods: {
+            close() {
+                this.$router.push('/')
+            },
             logout () {
             this.$session.destroy()
             this.$router.push('/login')

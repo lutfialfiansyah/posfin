@@ -29,8 +29,8 @@
             <div class="menu-home">
                 <router-link to="/home"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
             </div>
-          <div class="head-recon">
-            <h4>LAPORAN  X</h4>
+          <div class="head-lap">
+            <h4>LAPORAN <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
           </div>
           <div class="menu-recon">
                 <ul class="nav nav-tabs">
@@ -48,16 +48,16 @@
                                     <div class="col-md-3 lap">
                                         <p>Jenis Laporan</p>
                                         <div class="radio-korlap">
-                                            <input type="radio" checked>
-                                            <label class="">Rekap Per Agen</label>
+                                            <input type="radio" id="agen" name="selector" checked>
+                                            <label for="agen">Rekap Per Agen</label>
                                         </div>
                                         <div class="radio-korlap">
-                                            <input type="radio">
-                                            <label class="">Rekap Per Mitra </label>
+                                            <input type="radio" id="mitra" name="selector">
+                                            <label for="mitra">Rekap Per Mitra </label>
                                         </div>
                                         <div class="radio-korlap">
-                                            <input type="radio">
-                                            <label class="">Rekap Per Koord </label>
+                                            <input type="radio" id="koor" name="selector">
+                                            <label for="koor">Rekap Per Koord </label>
                                         </div>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
@@ -460,6 +460,9 @@ import 'vue-select/dist/vue-select.css';
         datePicker
         },
         methods: {
+            close() {
+                this.$router.push('/')
+            },
             logout () {
             this.$session.destroy()
             this.$router.push('/login')
