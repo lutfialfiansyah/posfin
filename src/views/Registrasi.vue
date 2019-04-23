@@ -579,15 +579,108 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             this.$router.push('/login')
             }
         },
-        // computed: {
-        //     isDisabled() {
-        //         if (this.nama.length > 3 && this.password.length > 4  && this.id_terminal.length > 3 && this.hdd.length > 3 && this.akses.length > 3 && this.email.length > 5 && this.korplap.length > 3 ){
-        //         return false
-        //         }else{
-        //         return true
-        //         }
-        //     }
-        // },
-    
-    }
+        BackEndDateFormat: function(date) {
+        		return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+        	},
+            getKodeAkses(){
+                axios({
+                    method:'get',
+                    url:'http://localhost/posapi/public/userAkses/getKodeUserAkses',
+                }).then(response => {
+                        let codeuser = response.data.code
+                        this.id_user = codeuser
+                        console.log(codeuser)
+                });
+            },
+            checkEnter(){
+               let getid = this.$refs.checkKode.value;
+               axios({
+                    method:'get',
+                    url:'http://localhost/posapi/public/userAkses/getDataUserAksesById/'+getid,
+                }).then(response => {
+                        let datauserakses = response
+                        this.editakses = datauserakses.data.data
+                        console.log(this.editakses)
+                        this.nama = this.editakses.nama
+                        this.password = this.editakses.password
+                        this.id_terminal = this.editakses.id_terminal
+                        this.hdd = this.editakses.hdd_serial_number
+                        this.akses = this.editakses.hak_akses
+                        this.email = this.editakses.email_address
+                        this.korlap = this.editakses.koordinator_lapangan
+                        this.koordinator = this.editakses.nama_koordinator
+                        this.kode = this.editakses.kode_koordinator
+                        this.lastdate = this.BackEndDateFormat(this.editakses.updated_at)
+                        this.user_update = this.editakses.updated_by
+                        this.last_access = this.BackEndDateFormat(this.editakses.access_at)
+                        if (this.editakses.status == 0) {
+                            this.status =  this.editakses.status + ' - Aktif'
+                        }else{
+                            this.status =  this.editakses.status + ' - NonAktif'
+                        }
+                        // console.log(this.lastdate +' '+this.last_access)
+                });
+            },
+            addUserAkses(){
+                axios({
+                method: 'post',
+                url: 'http://localhost/posapi/public/userAkses/addData',
+                crossdomain: true, 
+                "Content-Type": 'application/json',
+                data: {
+                    id_user: this.id_user,
+                    nama: this.nama,
+                    password: this.password,
+                    id_terminal: this.id_terminal,
+                    hdd_serial_number: this.hdd,
+                    hak_akses: this.akses,
+                    email: this.email,
+                    korlap: this.korlap,
+                    nama_koordinator: this.koordinator,
+                    kode_koordinator: this.kode,
+                    date_last_update: this.lastdate,
+                    id_user_update: this.user_update,
+                    last_access: this.id_update,
+                    status_aktif: this.status,
+
+                }
+                }).then(response => {
+                    alert(response.data.message)
+                    console.log(response)
+                }).catch(error => {
+                    console.log(error)
+                });
+            },   
+        updateUserAkses(){
+               let getid = this.$refs.checkKode.value;
+                axios({
+                method: 'post',
+                url: 'http://localhost/posapi/public/userAkses/updateData/' + getid,
+                crossdomain: true, 
+                "Content-Type": 'application/json',
+                data: {
+                    // id_user: this.id_user,
+                    nama: this.nama,
+                    password: this.password,
+                    id_terminal: this.id_terminal,
+                    hdd_serial_number: this.hdd,
+                    hak_akses: this.akses,
+                    email: this.email,
+                    korlap: this.korlap,
+                    nama_koordinator: this.koordinator,
+                    kode_koordinator: this.kode,
+                    date_last_update: this.lastdate,
+                    id_user_update: this.user_update,
+                    last_access: this.id_update,
+                    status_aktif: this.status,
+
+                }
+                }).then(response => {
+                    alert(response.data.message)
+                    console.log(response)
+                }).catch(error => {
+                    console.log(error)
+                });
+            }
+        }
 </script>
