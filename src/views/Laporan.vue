@@ -247,12 +247,12 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
+                                                    <td>A003A</td>
+                                                    <td>TAKAFUL (PEMBAYARAN PREMI)</td>
+                                                    <td>261</td>
+                                                    <td>261</td>
+                                                    <td>93,504,000</td>
+                                                    <td>522,000</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -282,12 +282,12 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
+                                                    <td>A003A</td>
+                                                    <td>TAKAFUL (PEMBAYARAN PREMI)</td>
+                                                    <td>261</td>
+                                                    <td>261</td>
+                                                    <td>93,504,000</td>
+                                                    <td>522,000</td>
                                                 </tr>
                                                 </tbody>
                                             </table>

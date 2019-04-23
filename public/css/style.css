@@ -153,6 +153,24 @@
     line-height: 2;
     margin-bottom: 3px;
 }
+.btn-refresh-reg {
+    font-family: HelveticaNeue-Medium;
+    color: #34495e;
+    font-size: 13px;
+    margin-left: 61px;
+    border-radius: 5px;
+    padding: 13px 25px;
+}
+.btn-delete {
+    font-family: HelveticaNeue-Medium;
+    color: #fff;
+    font-size: 8px;
+    border-radius: 3px;
+    padding: 5px 17px;
+    background-color: #f59d15;
+    float: right;
+    margin-top: 7px;
+}
 .nav-tabs {
     border-bottom: 1px solid transparent;
     margin-left: 21px;

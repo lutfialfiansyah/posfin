@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Date Last Update</label>
-                                        <div class="col-xs-9"><date-picker v-model="id_update" :config="optionss"></date-picker></div>
+                                        <div class="col-xs-9"><date-picker v-model="lastdate" :config="lastdate"></date-picker></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
@@ -172,16 +172,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><date-picker v-model="id_update" :config="options"></date-picker></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_user" placeholder="12345" class="form-control"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tombol-register">
-                                <button type="submit" class="btn-register">TAMBAH</button>
-                                <button type="submit" class="btn-register">UBAH</button>
-                                <button type="submit" class="btn-register">HAPUS</button>
-                                <button type="submit" class="btn-register">REKAM</button>
-                                <button type="submit" class="btn-register">BATAL</button>
+                                <button type="button" class="btn-register">TAMBAH</button>
+                                <button type="button" class="btn-register">UBAH</button>
+                                <button type="button" class="btn-register">HAPUS</button>
+                                <button type="button" class="btn-register">REKAM</button>
+                                <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
                         </div>
@@ -242,11 +242,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Koordinator Agen</label>
-                                        <div class="col-xs-9"><input type="text" v-model="koor_agent" class="form-control"></div>
+                                        <div class="col-xs-5"><v-select v-model="koor_agent" :options="opsi_koor"></v-select></div><button type="button" class="btn-refresh-reg">REFRESH</button>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Waktu Regional</label>
-                                        <div class="col-xs-9"><input type="text" v-model="waktu" class="form-control"></div>
+                                        <div class="col-xs-9"><v-select v-model="waktu" :options="opsi_waktu"></v-select></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
@@ -266,16 +266,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><date-picker v-model="id_update" :config="options"></date-picker></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update" class="form-control"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tombol-register">
-                                <button type="submit" class="btn-register">TAMBAH</button>
-                                <button type="submit" class="btn-register">UBAH</button>
-                                <button type="submit" class="btn-register">HAPUS</button>
-                                <button type="submit" class="btn-register">REKAM</button>
-                                <button type="submit" class="btn-register">BATAL</button>
+                                <button type="button" class="btn-register">TAMBAH</button>
+                                <button type="button" class="btn-register">UBAH</button>
+                                <button type="button" class="btn-register">HAPUS</button>
+                                <button type="button" class="btn-register">REKAM</button>
+                                <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
                         </div>
@@ -298,16 +298,22 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Account Buffer</label>
-                                        <div class="col-xs-9"><input type="text" v-model="account" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="account" class="form-control" readonly></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-3">Virtual Account</label>
+                                        <div class="col-xs-9"><input type="text" v-model="va" class="form-control" readonly></div>
                                     </div>
                                 </div>
                               </div>
                               <div class="tombol-register">
-                                <button type="submit" class="btn-register">TAMBAH</button>
-                                <button type="submit" class="btn-register">UBAH</button>
-                                <button type="submit" class="btn-register">HAPUS</button>
-                                <button type="submit" class="btn-register">REKAM</button>
-                                <button type="submit" class="btn-register">BATAL</button>
+                                <button type="button" class="btn-register">TAMBAH</button>
+                                <button type="button" class="btn-register">UBAH</button>
+                                <button type="button" class="btn-register">HAPUS</button>
+                                <button type="button" class="btn-register">REKAM</button>
+                                <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
                         </div>
@@ -330,7 +336,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID PETUGAS</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_petugas" readonly class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_petugas" class="form-control"></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Petugas</label>
@@ -346,7 +352,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Hak Akses</label>
-                                        <div class="col-xs-9"><input type="text" v-model="akses" class="form-control"></div>
+                                        <div class="col-xs-9"><v-select v-model="akses" :options="opti"></v-select></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
@@ -384,16 +390,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><date-picker v-model="id_update" :config="options"></date-picker></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update" class="form-control"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tombol-register">
-                                <button type="submit" class="btn-register">TAMBAH</button>
-                                <button type="submit" class="btn-register">UBAH</button>
-                                <button type="submit" class="btn-register">HAPUS</button>
-                                <button type="submit" class="btn-register">REKAM</button>
-                                <button type="submit" class="btn-register">BATAL</button>
+                                <button type="button" class="btn-register">TAMBAH</button>
+                                <button type="button" class="btn-register">UBAH</button>
+                                <button type="button" class="btn-register">HAPUS</button>
+                                <button type="button" class="btn-register">REKAM</button>
+                                <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
                         </div>
@@ -422,7 +428,7 @@
                                 <div class="panel-heading active" role="tab" id="heading1">
                                     <h3 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                            <h4>DAFTAR AGENT</h4>
+                                            <h4>DAFTAR AGENT</h4><button class="btn-delete"><i class="glyphicon glyphicon-trash"></i>&nbsp;&nbsp; DELETE</button>
                                         </a>
                                     </h3>
                                 </div>
@@ -442,6 +448,7 @@
                                                     <th>ACCOUNT BUFFER</th>
                                                     <th>KOORD AGEN</th>
                                                     <th>KPRK</th>
+                                                    <th>ACTION</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -457,6 +464,7 @@
                                                 <td>613</td>
                                                 <td>619</td>
                                                 <td>619</td>
+                                                <td><input type="checkbox" class="custom-control-input"></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -526,12 +534,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 tglexptugas: '',
                 tglpassword: '',
                 tglreg: '',
+                va: null,
+                id_update: null,
                 searchno: null,
-                id_update: new Date(),
-                optionss: {
-                format: 'DD/MM/YYYY',
-                useCurrent: false,
-                },  
                 lastdate: new Date(),
                 options: {
                 format: 'DD/MM/YYYY',
@@ -546,9 +551,19 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     '1',
                     ],  
                      opti: [
+                        '1001 - Petugas Agen',
+                        '1002 - Petugas Koordinator',
+                        '1003 - Petugas Admin',
+                    ], 
+                    opsi_koor: [
                         'Admin',
                         'Agen',
                         'Koordinator',
+                    ], 
+                    opsi_waktu: [
+                        'WIB',
+                        'WITA',
+                        'WIT',
                     ],  
             }
         },
