@@ -9,12 +9,12 @@
                     <span class="icon-bar"></span>
                     </button>
                     <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
-                    <img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
+                    <img class="img-fin" src="../assets/images/logo-pos-fin-new@3x.png"><img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
                 <div id="navbar-collapse-02" class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
                     <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
-                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
+                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>REKONSILIASI</p></router-link></li>
                     <li><router-link to="/saldoagent" class="active"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
                     <li><router-link to="/laporan"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
                     <li><router-link to="#"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
@@ -62,7 +62,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-xs-4">Virtual Account</label>
-                                            <div class="col-xs-8"><input type="text" v-model="va" class="form-control" disabled></div>
+                                            <div class="col-xs-6"><input type="text" v-model="va" class="form-control"></div><p>ENTER</p>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-xs-4">Nama Agent</label>
@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-xs-4">Virtual Account</label>
-                                            <div class="col-xs-8"><input type="text" v-model="va" class="form-control" disabled></div>
+                                            <div class="col-xs-6"><input type="text" v-model="va" class="form-control"></div><p>ENTER</p>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-xs-4">Nama Agent</label>
@@ -99,7 +99,7 @@
                                     <div class="body-nominal">
                                         <div class="form-group nomi">
                                             <label class="control-label col-xs-4">Besar Uang Rp.</label>
-                                            <div class="col-xs-8"><input type="text" v-model="nominal" class="form-control"></div>
+                                            <div class="col-xs-8"><input type="text" v-model="nominal" class="form-control" name="nominal" v-validate="'required|numeric|min:3'" data-vv-as="field" :class="{error: errors.has('nominal')}" style="letter-spacing: 1px"><span class="error" v-if="errors.has('nominal')">{{errors.first('nominal')}}</span></div>
                                         </div>
                                         <div class="form-group nomi">
                                             <label class="control-label col-xs-4">Keterangan</label>
@@ -124,7 +124,7 @@
                                   <div class="top">
                                       <div class="form-group topup">
                                             <label class="control-label col-xs-1 laptgl">Tanggal</label>
-                                            <div class="col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-xs-1 laptgls">s.d</label><div class="col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
+                                            <div class="col-sm-3 col-xs-4"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-xs-1 laptgls">s.d</label><div class="col-sm-3 colxs-4"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
                                       </div>
                                   </div>
                               </div>

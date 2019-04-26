@@ -12,6 +12,7 @@ yarn add vue-input-only-number
 yarn add vue-bootstrap-datetimepicker
 npm i vue-session
 yarn add vue-select
+npm install vee-validate --save
 ```
 
 ### Compiles and hot-reloads for development

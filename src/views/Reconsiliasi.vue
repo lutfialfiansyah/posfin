@@ -9,12 +9,12 @@
                     <span class="icon-bar"></span>
                     </button>
                     <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
-                    <img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
+                    <img class="img-fin" src="../assets/images/logo-pos-fin-new@3x.png"><img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
                 <div id="navbar-collapse-02" class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
                     <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
-                    <li><router-link to="/reconsiliasi" class="active"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
+                    <li><router-link to="/reconsiliasi" class="active"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>REKONSILIASI</p></router-link></li>
                     <li><router-link to="/saldoagent"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
                     <li><router-link to="/laporan"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
                     <li><router-link to="#"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
@@ -38,9 +38,10 @@
             <div class="row">
                 <form class="form-horizontal">
                     <div class="col-md-12 col-sm-12 korlap">
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-3 lapkor">
+                        <p>Jenis Laporan</p>
                         <div class="radio-korlap">
-                            <input type="radio" id="rekap" name="selector">
+                            <input type="radio" id="rekap" name="selector" checked>
                             <label for="rekap">Rekap</label>
                         </div>
                         <div class="radio-korlap">
@@ -131,7 +132,40 @@
                                 </div>
                                 <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
                                     <div class="panel-body">
-                                        <p>bagi pebisnis yang membutuhkan modal usaha cepat</p>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>NO</th>
+                                                    <th>NOSI</th>
+                                                    <th>LOKET</th>
+                                                    <th>KDAGENT</th>
+                                                    <th>TANGGAL</th>
+                                                    <th>JAM</th>
+                                                    <th>USER ID</th>
+                                                    <th>KD MITRA</th>
+                                                    <th>ID PELANGGAN</th>
+                                                    <th>BESAR UANG</th>
+                                                    <th>NO REF</th>
+                                                    <th>OPTIONALFIELDS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>2166</td>
+                                                <td>9332459</td>
+                                                <td>619</td>
+                                                <td>612</td>
+                                                <td>619</td>
+                                                <td>617</td>
+                                                <td>612</td>
+                                                <td>612</td>
+                                                <td>612</td>
+                                                <td>612</td>
+                                                <td>612</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +232,34 @@
                                 </div>
                                 <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
                                     <div class="panel-body">
-                                        <p>bagi pebisnis yang membutuhkan modal usaha cepat</p>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>NO</th>
+                                                    <th>ACCOUNT BUFFER</th>
+                                                    <th>NOREF</th>
+                                                    <th>JNSTRANS</th>
+                                                    <th>JAM</th>
+                                                    <th>USER ID</th>
+                                                    <th>BSU DEBET</th>
+                                                    <th>BSU KREDIT</th>
+                                                    <th>KETERANGAN</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>2166</td>
+                                                <td>9332459</td>
+                                                <td>619</td>
+                                                <td>612</td>
+                                                <td>619</td>
+                                                <td>617</td>
+                                                <td>612</td>
+                                                <td>612</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -222,7 +283,7 @@
                                                     <th>JAM</th>
                                                     <th>USER ID</th>
                                                     <th>BSU DEBET</th>
-                                                    <th>BSU DEBIT</th>
+                                                    <th>BSU KREDIT</th>
                                                     <th>KETERANGAN</th>
                                                 </tr>
                                             </thead>
@@ -253,7 +314,7 @@
                                 <div class="panel-heading active" role="tab" id="heading7">
                                     <h3 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="true" aria-controls="collapse7">
-                                            <h4>REKAPITULASI TRANSAKSI DANREKENING KORAN</h4>
+                                            <h4>REKAPITULASI TRANSAKSI DAN REKENING KORAN</h4>
                                         </a>
                                     </h3>
                                 </div>
@@ -262,28 +323,70 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>NO</th>
-                                                    <th>ACCOUNT BUFFER</th>
-                                                    <th>NOREF</th>
-                                                    <th>JNSTRANS</th>
-                                                    <th>JAM</th>
-                                                    <th>USER ID</th>
-                                                    <th>BSU DEBET</th>
-                                                    <th>BSU DEBIT</th>
-                                                    <th>KETERANGAN</th>
+                                                    <th rowspan="3">KDAGENT</th>
+                                                    <th rowspan="3">ACCOUNT BUFFER</th>
+                                                    <th colspan="6">TRANSAKSI KREDIT</th>
+                                                    <th colspan="14">TRANSAKSI DEBET</th>
                                                 </tr>
+                                                    <tr>
+                                                        <th colspan="2">Topup</th>
+                                                        <th colspan="2">Rekening Koran</th>
+                                                        <th colspan="2">Selisih</th>
+                                                        <th colspan="2">Transagency</th>
+                                                        <th colspan="2">RK Debet</th>
+                                                        <th colspan="2">RK Auto Kredit</th>
+                                                        <th colspan="2">Selisih</th>
+                                                        <th colspan="2">RK AutoKoreksi kredit</th>
+                                                        <th colspan="2">RK AutoKoreksi Debet</th>
+                                                        <th colspan="2">Selisih</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                        <th>trx</th>
+                                                        <th>Besar Uang</th>
+                                                    </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>1</td>
+                                                <td>303</td>
                                                 <td>2166</td>
-                                                <td>9332459</td>
-                                                <td>619</td>
-                                                <td>612</td>
-                                                <td>619</td>
-                                                <td>617</td>
-                                                <td>612</td>
-                                                <td>612</td>
+                                                <td>12</td>
+                                                <td>200</td>
+                                                <td>11</td>
+                                                <td>300</td>
+                                                <td>9</td>
+                                                <td>210</td>
+                                                <td>8</td>
+                                                <td>220</td>
+                                                <td>8</td>
+                                                <td>230</td>
+                                                <td>8</td>
+                                                <td>240</td>
+                                                <td>8</td>
+                                                <td>250</td>
+                                                <td>8</td>
+                                                <td>260</td>
+                                                <td>8</td>
+                                                <td>270</td>
+                                                <td>8</td>
+                                                <td>280</td>
                                             </tr>
                                             </tbody>
                                         </table>

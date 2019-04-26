@@ -9,12 +9,12 @@
                     <span class="icon-bar"></span>
                     </button>
                     <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
-                    <img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
+                    <img class="img-fin" src="../assets/images/logo-pos-fin-new@3x.png"><img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
                 <div id="navbar-collapse-02" class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
                     <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
-                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
+                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>REKONSILIASI</p></router-link></li>
                     <li><router-link to="/saldoagent"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
                     <li><router-link to="/laporan" class="active"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
                     <li><router-link to="#"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
@@ -45,25 +45,27 @@
                             <div class="row">
                                 <form class="form-horizontal">
                                     <div class="col-md-12 col-sm-12 korlap">
-                                    <div class="col-md-3 lap">
-                                        <p>Jenis Laporan</p>
-                                        <div class="radio-korlap">
-                                            <input type="radio" id="agen" name="selector" checked>
-                                            <label for="agen">Rekap Per Agen</label>
-                                        </div>
-                                        <div class="radio-korlap">
-                                            <input type="radio" id="mitra" name="selector">
-                                            <label for="mitra">Rekap Per Mitra </label>
-                                        </div>
-                                        <div class="radio-korlap">
-                                            <input type="radio" id="koor" name="selector">
-                                            <label for="koor">Rekap Per Koord </label>
+                                    <div class="col-xs-3 lap">
+                                        <div class="lapo">
+                                            <p>Jenis Laporan</p>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="agen" name="selector" checked>
+                                                <label for="agen">Rekap Per Agen</label>
+                                            </div>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="mitra" name="selector">
+                                                <label for="mitra">Rekap Per Mitra </label>
+                                            </div>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="koor" name="selector">
+                                                <label for="koor">Rekap Per Koord </label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
                                         <div class="form-group">
                                             <label class="control-label col-xs-2">Tanggal</label>
-                                            <div class="col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-xs-1 laptgls">s.d</label><div class="col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
+                                            <div class="col-xs-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-xs-1 laptgls">s.d</label><div class="col-xs-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-xs-2">Koordinator Agent</label>
@@ -197,14 +199,16 @@
                                 <form class="form-horizontal">
                                     <div class="col-md-12 col-sm-12 korlap">
                                     <div class="col-md-3 lap">
-                                        <p>Jenis Laporan</p>
-                                        <div class="radio-korlap">
-                                            <input type="radio" checked>
-                                            <label class="">Rekap Agent - Produk </label>
-                                        </div>
-                                        <div class="radio-korlap">
-                                            <input type="radio">
-                                            <label class="">Detail Per User </label>
+                                        <div class="lapo">
+                                            <p>Jenis Laporan</p>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="produk" name="selector" checked>
+                                                <label for="produk">Rekap Agent - Produk </label>
+                                            </div>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="detail" name="selector">
+                                                <label for="detail">Detail Per User </label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
@@ -304,14 +308,16 @@
                                 <form class="form-horizontal">
                                     <div class="col-md-12 col-sm-12 korlap">
                                     <div class="col-md-3 lap">
-                                        <p>Jenis Laporan</p>
-                                        <div class="radio-korlap">
-                                            <input type="radio" checked>
-                                            <label class="">Rekap Agent - Produk </label>
-                                        </div>
-                                        <div class="radio-korlap">
-                                            <input type="radio">
-                                            <label class="">Detail Per User </label>
+                                        <div class="lapo">
+                                            <p>Jenis Laporan</p>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="produks" name="selector" checked>
+                                                <label for="produks">Rekap Agent - Produk </label>
+                                            </div>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="details" name="selector">
+                                                <label for="details">Detail Per User </label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
@@ -452,7 +458,12 @@ import 'vue-select/dist/vue-select.css';
                  ],
                  optio: [
                     '0 - Aktif',
-                    '1 - NonAktif',
+                    '1 - Sedang Login',
+                    '2 - Cetak Backsheet',
+                    '3 - Blokir',
+                    '4 - Expire',
+                    '5 - Belum Validasi',
+                    '6 - Sudah Validasi'
                  ],
             }
         },

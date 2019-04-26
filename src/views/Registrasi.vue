@@ -9,12 +9,12 @@
                     <span class="icon-bar"></span>
                     </button>
                     <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
-                    <img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
+                    <img class="img-fin" src="../assets/images/logo-pos-fin-new@3x.png"><img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
                 <div id="navbar-collapse-02" class="collapse navbar-collapse pull-right">
                 <ul class="nav navbar-nav">
                     <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
                     <li><router-link to="/registrasi" class="active"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
-                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
+                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>REKONSILIASI</p></router-link></li>
                     <li><router-link to="/saldoagent"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
                     <li><router-link to="/laporan"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
@@ -48,77 +48,89 @@
                         <div class="row">
                             <form class="form-horizontal">
                               <div class="col-md-12 col-sm-12">
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">ID User</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_user" :disabled="isDisabled" class="form-control"></div>
+                                      <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-3">ID User</label>
+                                            <div class="col-xs-7"><input type="text" v-model="id_user" class="form-control" autofocus></div><p>ENTER</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="field" :class="{error: errors.has('nama')}">
+                                                <label class="control-label col-xs-3">Nama User</label>
+                                                <div class="col-xs-9"><input type="text" name="nama" v-model="nama" v-validate="'required|min:4'" data-vv-as="field" class="form-control" :class="{error: errors.has('nama')}"><span class="error" v-if="errors.has('nama')">{{errors.first('nama')}}</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="field" :class="{error: errors.has('password')}"></div>
+                                            <label class="control-label col-xs-3">Password</label>
+                                            <div class="col-xs-9"><input type="password" name="password" v-validate="'required|min:5'" data-vv-as="field" v-model="password" class="form-control" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="field" :class="{error: errors.has('id')}">
+                                                <label class="control-label col-xs-3">ID Terminal</label>
+                                            <div class="col-xs-9"><input type="text" name="id" v-validate="'required|numeric|min:3'" data-vv-as="field" v-model="id_terminal" class="form-control" placeholder="- - - - -" :class="{error: errors.has('id')}"><span class="error" v-if="errors.has('id')">{{errors.first('id')}}</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="field" :class="{error: errors.has('hdd')}">
+                                                <label class="control-label col-xs-3">HDD Serial Number</label>
+                                                <div class="col-xs-9"><input type="text" name="hdd" v-validate="'required|max:4'" data-vv-as="field" v-model="hdd" class="form-control" :class="{error: errors.has('hdd')}"><span class="error" v-if="errors.has('hdd')">{{errors.first('hdd')}}</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-3">Hak Akses</label>
+                                            <div class="col-xs-9"><v-select v-model="akses" :options="opti"></v-select></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="field" :class="{error: errors.has('email')}">
+                                                <label class="control-label col-xs-3">Email Address</label>
+                                                <div class="col-xs-9"><input type="text" name="email" v-validate="'required|email'" data-vv-as="field" v-model="email" class="form-control" :class="{error: errors.has('email')}"><span class="error" v-if="errors.has('email')">{{errors.first('email')}}</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="field" :class="{error: errors.has('korlap')}">
+                                                <label class="control-label col-xs-3">Koordinator Lapangan</label>
+                                                <div class="col-xs-9"><input type="text" name="korlap" v-validate="'required|min:3'" data-vv-as="field" v-model="korlap" class="form-control" :class="{error: errors.has('korlap')}"><span class="error" v-if="errors.has('korlap')">{{errors.first('korlap')}}</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="field" :class="{error: errors.has('koordinator')}">
+                                                <label class="control-label col-xs-3">Nama Koordinator</label>
+                                                <div class="col-xs-9"><input type="text" name="koordinator" v-validate="'required|min:3'" data-vv-as="field" v-model="koordinator" class="form-control" :class="{error: errors.has('koordinator')}"><span class="error" v-if="errors.has('koordinator')">{{errors.first('koordinator')}}</span></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Nama User</label>
-                                        <div class="col-xs-9"><input type="text" v-model="nama" class="form-control"></div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <div class="field" :class="{error: errors.has('koordinator')}">
+                                                <label class="control-label col-xs-3">Ref User/Kode Koordinator</label>
+                                                <div class="col-xs-9"><input type="text" name="kode" v-model="kode" v-validate="'required'" data-vv-as="field" class="form-control" :class="{error: errors.has('kode')}"><span class="error" v-if="errors.has('kode')">{{errors.first('kode')}}</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-3">Date Last Update</label>
+                                            <div class="col-xs-9"><date-picker v-model="lastdate" :config="options"></date-picker></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-3">ID User Update</label>
+                                            <div class="col-xs-9"><input type="text" v-model="user_update" class="form-control"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-3">Date Last Akses</label>
+                                            <div class="col-xs-9"><date-picker v-model="lastakses" :config="options"></date-picker></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-3">Status Aktif</label>
+                                            <div class="col-xs-9"><v-select v-model="status" :options="option" name="status" v-validate="'required'" data-vv-as="selected" :class="{error: errors.has('status')}"></v-select><span class="error" v-if="errors.has('status')">{{errors.first('status')}}</span></v-select></div>
+                                        
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Password</label>
-                                        <div class="col-xs-9"><input type="password" v-model="password" class="form-control"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">ID Terminal</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_terminal" class="form-control"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">HDD Serial Number</label>
-                                        <div class="col-xs-9"><input type="text" v-model="hdd" class="form-control"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Hak Akses</label>
-                                        <div class="col-xs-9"><v-select v-model="akses" :options="opti"></v-select></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Email Address</label>
-                                        <div class="col-xs-9"><input type="text" v-model="email" class="form-control"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Koordinator Lapangan</label>
-                                        <div class="col-xs-9"><input type="text" v-model="korlap" class="form-control"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Nama Koordinator</label>
-                                        <div class="col-xs-9"><input type="text" v-model="koordinator" class="form-control"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Ref User/Kode Koordinator</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kode" class="form-control"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Date Last Update</label>
-                                        <div class="col-xs-9"><date-picker v-model="lastdate" :config="options"></date-picker></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="user_update" class="form-control"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Date Last Update</label>
-                                        <div class="col-xs-9"><date-picker v-model="lastdate" :config="lastdate"></date-picker></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><v-select v-model="status" :options="option" title="0 - Aktif"></v-select></div>
-                                        <!-- <div class="col-xs-9"><select class="selectpicker form-control" v-model="status" title="0 - Aktif">
-                                            <option value="0">0 - Aktif</option>
-                                            <option value="1">1 - NonAktif</option>
-                                           </select>
-                                         </div> -->
-                                    </div>
-                                </div>
+                                  
                             </div>
                             <div class="tombol-register">
-                                <button type="button" @click="isDisabled = !isDisabled" class="btn-register">TAMBAH</button>
+                                <button type="button" class="btn-register">TAMBAH</button>
                                 <button type="button" @click="isDisabled = !isDisabled" class="btn-register">UBAH</button>
                                 <button type="button" class="btn-register">HAPUS</button>
-                                <button type="button" v-bind:class="{disabled: isDisabled}" class="btn-register">REKAM</button>
+                                <button type="button" v-on:click.prevent="addUserAkses" class="btn-register">REKAM</button>
                                 <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
@@ -134,45 +146,45 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Koordinator</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kd_koor" class="form-control"></div>
+                                        <div class="col-xs-7"><input type="text" v-model="kd_koor" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Koordinator</label>
-                                        <div class="col-xs-9"><input type="text" v-model="nama_koor" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" name="nama_koor" v-model="nama_koor" v-validate="'required|min:3'" data-vv-as="field" class="form-control" :class="{error: errors.has('nama_koor')}"><span class="error" v-if="errors.has('nama_koor')">{{errors.first('nama_koor')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Alamat</label>
-                                        <div class="col-xs-9"><input type="text" v-model="alamat_koor" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" name="alamat_koor"  v-model="alamat_koor" class="form-control" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('alamat_koor')}"><span class="error" v-if="errors.has('alamat_koor')">{{errors.first('alamat_koor')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3"></label>
-                                        <div class="col-xs-9"><input type="text" v-model="alamat_koor" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="alamat_koor" class="form-control" name="alamat_koor" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('alamat_koor')}"><span class="error" v-if="errors.has('alamat_koor')">{{errors.first('alamat_koor')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kota</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kota" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" name="kota" v-model="kota" class="form-control" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('kota')}"><span class="error" v-if="errors.has('kota')">{{errors.first('kota')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Kontak Person</label>
-                                        <div class="col-xs-9"><input type="text" v-model="pic" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="pic" name="pic" class="form-control" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('pic')}"><span class="error" v-if="errors.has('pic')">{{errors.first('pic')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">No. Telp/HP</label>
-                                        <div class="col-xs-9"><input type="text" v-model="no_telp" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" name="no_telp" v-model="no_telp" class="form-control" v-validate="'required|numeric|max:12'" data-vv-as="field" :class="{error: errors.has('no_telp')}"><span class="error" v-if="errors.has('no_telp')">{{errors.first('no_telp')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Email Address</label>
-                                        <div class="col-xs-9"><input type="text" v-model="email_koor" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" name="email_koor" v-model="email_koor" class="form-control" v-validate="'required|email'" data-vv-as="field" :class="{error: errors.has('email_koor')}"><span class="error" v-if="errors.has('email_koor')">{{errors.first('email_koor')}}</span></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <div class="form-group">
+                                    <div class="form-group"> 
                                         <label class="control-label col-xs-3">Date Last Update</label>
                                         <div class="col-xs-9"><date-picker v-model="lastdate" :config="options"></date-picker></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_user" placeholder="12345" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" name="id_user" v-model="id_user" placeholder="12345" class="form-control" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_user')}"><span class="error" v-if="errors.has('id_user')">{{errors.first('id_user')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -196,49 +208,49 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kode_agent" class="form-control"></div>
+                                        <div class="col-xs-7"><input type="text" v-model="kode_agent" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
-                                        <div class="col-xs-9"><input type="text" v-model="nama_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="nama_agent" class="form-control" name="nama_agent" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('nama_agent')}"><span class="error" v-if="errors.has('nama_agent')">{{errors.first('nama_agent')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Alamat</label>
-                                        <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control" name="alamat_agent" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('alamat_agent')}"><span class="error" v-if="errors.has('alamat_agent')">{{errors.first('alamat_agent')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3"></label>
-                                        <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control" name="alamat_agent" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('alamat_agent')}"><span class="error" v-if="errors.has('alamat_agent')">{{errors.first('alamat_agent')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kota</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kota_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="kota_agent" class="form-control" name="kota_agent" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('kota_agent')}"><span class="error" v-if="errors.has('kota_agent')">{{errors.first('kota_agent')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Pos</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kodepos" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="kodepos" class="form-control" name="kodepos" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('kodepos')}"><span class="error" v-if="errors.has('kodepos')">{{errors.first('kodepos')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Propinsi</label>
-                                        <div class="col-xs-9"><input type="text" v-model="propinsi" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="propinsi" class="form-control" name="propinsi" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('propinsi')}"><span class="error" v-if="errors.has('propinsi')">{{errors.first('propinsi')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">No. Telp/HP</label>
-                                        <div class="col-xs-9"><input type="text" v-model="telp" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="telp" class="form-control" name="telp" v-validate="'required|max:12'" data-vv-as="field" :class="{error: errors.has('telp')}"><span class="error" v-if="errors.has('telp')">{{errors.first('telp')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Email Address</label>
-                                        <div class="col-xs-9"><input type="text" v-model="email_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="email_agent" class="form-control" name="email_agent" v-validate="'required|email'" data-vv-as="field" :class="{error: errors.has('email_agent')}"><span class="error" v-if="errors.has('email_agent')">{{errors.first('email_agent')}}</span></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kontak Person</label>
-                                        <div class="col-xs-9"><input type="text" v-model="pic_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="pic_agent" class="form-control" name="pic_agent" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('pic_agent')}"><span class="error" v-if="errors.has('pic_agent')">{{errors.first('pic_agent')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">No. Telpon Kontak Person</label>
-                                        <div class="col-xs-9"><input type="text" v-model="telp_pic" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="telp_pic" class="form-control" name="telp_pic" v-validate="'required|max:12'" data-vv-as="field" :class="{error: errors.has('telp_pic')}"><span class="error" v-if="errors.has('telp_pic')">{{errors.first('telp_pic')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Koordinator Agen</label>
@@ -254,7 +266,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">KPRK POS</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kprk_pos" class="form-control"></div>
+                                        <div class="col-xs-7"><input type="text" v-model="kprk_pos" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama KPRK</label>
@@ -266,7 +278,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -290,7 +302,7 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kode_agent" class="form-control"></div>
+                                        <div class="col-xs-7"><input type="text" v-model="kode_agent" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
@@ -328,7 +340,7 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kode_agent" class="form-control"></div>
+                                        <div class="col-xs-7"><input type="text" v-model="kode_agent" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
@@ -336,27 +348,27 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID PETUGAS</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_petugas" class="form-control"></div>
+                                        <div class="col-xs-7"><input type="text" v-model="id_petugas" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Petugas</label>
-                                        <div class="col-xs-9"><input type="text" v-model="nm_petugas" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="nm_petugas" class="form-control" name="nm_petugas" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('nm_petugas')}"><span class="error" v-if="errors.has('nm_petugas')">{{errors.first('nm_petugas')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Password</label>
-                                        <div class="col-xs-9"><input type="text" v-model="password" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="password" class="form-control" name="password" v-validate="'required|min:5'" data-vv-as="field" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID Terminal</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_terminal" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_terminal" class="form-control" placeholder="- - - -" name="id_terminal" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_terminal')}"><span class="error" v-if="errors.has('id_terminal')">{{errors.first('id_terminal')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Hak Akses</label>
-                                        <div class="col-xs-9"><v-select v-model="akses" :options="opti"></v-select></div>
+                                        <div class="col-xs-9"><v-select v-model="akses" :options="opti" name="status" v-validate="'required'" data-vv-as="selected" :class="{error: errors.has('status')}"></v-select><span class="error" v-if="errors.has('status')">{{errors.first('status')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><v-select v-model="status" :options="option" title="0 - Aktif"></v-select></div>
+                                        <div class="col-xs-9"><v-select v-model="status" :options="option"></v-select></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
@@ -382,15 +394,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">HDD Serial Number</label>
-                                        <div class="col-xs-9"><input type="text" v-model="hdd" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="hdd" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Email Address</label>
-                                        <div class="col-xs-9"><input type="text" v-model="email_petugas" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="email_petugas" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -414,7 +426,7 @@
                                     <div class="top">
                                         <div class="form-group">
                                             <label class="control-label col-xs-1">Filter</label>
-                                            <div class="col-sm-2"><v-select v-model="searchno" :options="optio" title="No"></v-select> </div>
+                                            <div class="col-md-2 col-sm-3 col-xs-8"><v-select v-model="searchno" :options="optio" title="No"></v-select> </div>
                                             <div class="col-sm-3"><input type="text" class="form-control"></div><button class="btn-tampil-topup">TAMPILKAN</button>
                                         </div>
                                     </div>
@@ -434,40 +446,46 @@
                                 </div>
                                 <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>KD AGENT</th>
-                                                    <th>NAMA AGENT</th>
-                                                    <th>ALAMAT</th>
-                                                    <th>KOTA</th>
-                                                    <th>NO. TELEPON</th>
-                                                    <th>KONTAK NAMA</th>
-                                                    <th>TELEPON KONTAK</th>
-                                                    <th>ACCOUNT BUFFER</th>
-                                                    <th>KOORD AGEN</th>
-                                                    <th>KPRK</th>
-                                                    <th>ACTION</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2166</td>
-                                                <td>9332459</td>
-                                                <td>619</td>
-                                                <td>612</td>
-                                                <td>619</td>
-                                                <td>619</td>
-                                                <td>615</td>
-                                                <td>613</td>
-                                                <td>619</td>
-                                                <td>619</td>
-                                                <td><input type="checkbox" class="custom-control-input"></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>KD AGENT</th>
+                                                            <th>NAMA AGENT</th>
+                                                            <th>ALAMAT</th>
+                                                            <th>KOTA</th>
+                                                            <th>NO. TELEPON</th>
+                                                            <th>KONTAK NAMA</th>
+                                                            <th>TELEPON KONTAK</th>
+                                                            <th>ACCOUNT BUFFER</th>
+                                                            <th>KOORD AGEN</th>
+                                                            <th>KPRK</th>
+                                                            <th>Create User</th>
+                                                            <th>ACTION</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>2166</td>
+                                                        <td>9332459</td>
+                                                        <td>619</td>
+                                                        <td>612</td>
+                                                        <td>619</td>
+                                                        <td>619</td>
+                                                        <td>615</td>
+                                                        <td>613</td>
+                                                        <td>619</td>
+                                                        <td>619</td>
+                                                        <td>Lufti</td>
+                                                        <td><input type="checkbox" class="custom-control-input"></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -492,7 +510,6 @@ import datePicker from 'vue-bootstrap-datetimepicker';
         name: 'registrasi',
         data () {
             return {
-                isDisabled: true, 
                 id_user: '',
                 nama: '',
                 password: '',
@@ -528,12 +545,28 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 kprk_pos: '',
                 nm_kprk: '',
                 account: '',
-                lastakses: '',
                 id_petugas: '',
                 nm_petugas: '',
-                tglexptugas: '',
-                tglpassword: '',
-                tglreg: '',
+                lastakses: new Date(),
+                options: {
+                format: 'DD/MM/YYYY',
+                useCurrent: false,
+                },
+                tglexptugas: new Date(),
+                options: {
+                format: 'DD/MM/YYYY',
+                useCurrent: false,
+                },
+                tglpassword: new Date(),
+                options: {
+                format: 'DD/MM/YYYY',
+                useCurrent: false,
+                },
+                tglreg: new Date(),
+                options: {
+                format: 'DD/MM/YYYY',
+                useCurrent: false,
+                },
                 va: null,
                 id_update: null,
                 searchno: null,
@@ -544,7 +577,12 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 },
                   option: [
                     '0 - Aktif',
-                    '1 - NonAktif',
+                    '1 - Sedang Login',
+                    '2 - Cetak Backsheet',
+                    '3 - Blokir',
+                    '4 - Expire',
+                    '5 - Belum Validasi',
+                    '6 - Sudah Validasi'
                     ],
                       optio: [
                     '0',
@@ -577,9 +615,8 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             logout () {
             this.$session.destroy()
             this.$router.push('/login')
-            }
-        },
-        BackEndDateFormat: function(date) {
+            },
+            BackEndDateFormat: function(date) {
         		return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
         	},
             getKodeAkses(){
@@ -622,6 +659,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 });
             },
             addUserAkses(){
+                this.$validator.validateAll()
                 axios({
                 method: 'post',
                 url: 'http://localhost/posapi/public/userAkses/addData',
@@ -682,5 +720,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     console.log(error)
                 });
             }
-        }
+        },
+        
+    }
 </script>
