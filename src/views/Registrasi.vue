@@ -158,7 +158,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3"></label>
-                                        <div class="col-xs-9"><input type="text" v-model="alamat_koor" class="form-control" name="alamat_koor" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('alamat_koor')}"><span class="error" v-if="errors.has('alamat_koor')">{{errors.first('alamat_koor')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="alamat_koor" class="form-control"></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kota</label>
@@ -220,7 +220,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3"></label>
-                                        <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control" name="alamat_agent" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('alamat_agent')}"><span class="error" v-if="errors.has('alamat_agent')">{{errors.first('alamat_agent')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control"></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kota</label>
