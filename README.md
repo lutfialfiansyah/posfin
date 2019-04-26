@@ -6,13 +6,13 @@ yarn install
 ```
 ## Install Plugin
 ```
-npm install axios
-npm install --save jquery
+yarn add axios
+yarn add jquery
 yarn add vue-input-only-number
 yarn add vue-bootstrap-datetimepicker
-npm i vue-session
+yarn add vue-session
 yarn add vue-select
-npm install vee-validate --save
+yarn add vee-validate --save
 ```
 
 ### Compiles and hot-reloads for development
