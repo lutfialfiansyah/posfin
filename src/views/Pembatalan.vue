@@ -27,7 +27,7 @@
         </div>
         <div class="container">
             <div class="menu-home">
-                    <router-link to="/home"> <img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"><p>HOME</p></router-link>       
+                    <router-link to="/"> <img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"><p>HOME</p></router-link>       
                 </div>
             <div class="head-saldo">
                 <h4>PEMBATALAN <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
@@ -39,16 +39,16 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">ID User</label>
-                                    <div class="col-xs-9"><input type="text" v-model="id_user" class="form-control"></div>
+                                    <label class="control-label col-md-3 col-sm-3">ID User</label>
+                                    <div class="col-md-9 col-sm-9"><input type="text" v-model="id_user" class="form-control"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">Nomor Resi</label>
-                                    <div class="col-xs-9"><input type="text" v-model="noresi" class="form-control"></div>
+                                    <label class="control-label col-md-3 col-sm-3">Nomor Resi</label>
+                                    <div class="col-md-9 col-sm-9"><input type="text" v-model="noresi" class="form-control"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">No. Pelanggan / No. Barcode</label>
-                                    <div class="col-xs-9"><input type="text" v-model="nopelanggan" class="form-control" disabled></div>
+                                    <label class="control-label col-md-3 col-sm-3">No. Pelanggan / No. Barcode</label>
+                                    <div class="col-md-9 col-sm-9"><input type="text" v-model="nopelanggan" class="form-control" disabled></div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -108,12 +108,12 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">Nomor Resi</label>
-                                    <div class="col-xs-9"><input type="text" v-model="noresi" class="form-control"></div>
+                                    <label class="control-label col-md-3 col-sm-3">Nomor Resi</label>
+                                    <div class="col-md-9 col-sm-9"><input type="text" v-model="noresi" class="form-control"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-xs-3">No. Pelanggan </label>
-                                    <div class="col-xs-9"><input type="text" v-model="nopelanggan" class="form-control" disabled></div>
+                                    <label class="control-label col-md-3 col-sm-3">No. Pelanggan </label>
+                                    <div class="col-md-9 col-sm-9"><input type="text" v-model="nopelanggan" class="form-control" disabled></div>
                                 </div>
                             </div>
                         </div>

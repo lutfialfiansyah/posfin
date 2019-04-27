@@ -28,7 +28,7 @@
         </div>  
         <div class="container">
             <div class="menu-home">
-                <router-link to="/home"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
+                <router-link to="/"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
             </div>
           <div class="head-recon">
             <h4>REKONSILIASI <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
@@ -87,32 +87,36 @@
                                 </div>
                                 <div id="collapse1" class="panel-collapse collapsein" role="tabpanel" aria-labelledby="heading1">
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <div class="col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NO</th>
+                                                        <th>KODE AGEN</th>
+                                                        <th>NO ACCOUNT</th>
+                                                        <th>SALDO AWAL</th>
+                                                        <th>SURPLUS-MINUS(DEPOSIT TRANSAKSI)</th>
+                                                        <th>SALDO AKHIR</th>
+                                                        <th>SALDO TRANSAKSI</th>
+                                                        <th>SELISIH</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
                                                 <tr>
-                                                    <th>NO</th>
-                                                    <th>KODE AGEN</th>
-                                                    <th>NO ACCOUNT</th>
-                                                    <th>SALDO AWAL</th>
-                                                    <th>SURPLUS-MINUS(DEPOSIT TRANSAKSI)</th>
-                                                    <th>SALDO AKHIR</th>
-                                                    <th>SALDO TRANSAKSI</th>
-                                                    <th>SELISIH</th>
+                                                    <td>1</td>
+                                                    <td>2166</td>
+                                                    <td>9332459</td>
+                                                    <td>619</td>
+                                                    <td>612</td>
+                                                    <td>619</td>
+                                                    <td>617</td>
+                                                    <td>612</td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2166</td>
-                                                <td>9332459</td>
-                                                <td>619</td>
-                                                <td>612</td>
-                                                <td>619</td>
-                                                <td>617</td>
-                                                <td>612</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -132,40 +136,44 @@
                                 </div>
                                 <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <div class="col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NO</th>
+                                                        <th>NOSI</th>
+                                                        <th>LOKET</th>
+                                                        <th>KDAGENT</th>
+                                                        <th>TANGGAL</th>
+                                                        <th>JAM</th>
+                                                        <th>USER ID</th>
+                                                        <th>KD MITRA</th>
+                                                        <th>ID PELANGGAN</th>
+                                                        <th>BESAR UANG</th>
+                                                        <th>NO REF</th>
+                                                        <th>OPTIONALFIELDS</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
                                                 <tr>
-                                                    <th>NO</th>
-                                                    <th>NOSI</th>
-                                                    <th>LOKET</th>
-                                                    <th>KDAGENT</th>
-                                                    <th>TANGGAL</th>
-                                                    <th>JAM</th>
-                                                    <th>USER ID</th>
-                                                    <th>KD MITRA</th>
-                                                    <th>ID PELANGGAN</th>
-                                                    <th>BESAR UANG</th>
-                                                    <th>NO REF</th>
-                                                    <th>OPTIONALFIELDS</th>
+                                                    <td>1</td>
+                                                    <td>2166</td>
+                                                    <td>9332459</td>
+                                                    <td>619</td>
+                                                    <td>612</td>
+                                                    <td>619</td>
+                                                    <td>617</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2166</td>
-                                                <td>9332459</td>
-                                                <td>619</td>
-                                                <td>612</td>
-                                                <td>619</td>
-                                                <td>617</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -179,40 +187,44 @@
                                 </div>
                                 <div id="collapse4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading4">
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <div class="col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NO</th>
+                                                        <th>NOSI</th>
+                                                        <th>LOKET</th>
+                                                        <th>KDAGENT</th>
+                                                        <th>TANGGAL</th>
+                                                        <th>JAM</th>
+                                                        <th>USER ID</th>
+                                                        <th>KD MITRA</th>
+                                                        <th>ID PELANGGAN</th>
+                                                        <th>BESAR UANG</th>
+                                                        <th>NO REF</th>
+                                                        <th>OPTIONALFIELDS</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
                                                 <tr>
-                                                    <th>NO</th>
-                                                    <th>NOSI</th>
-                                                    <th>LOKET</th>
-                                                    <th>KDAGENT</th>
-                                                    <th>TANGGAL</th>
-                                                    <th>JAM</th>
-                                                    <th>USER ID</th>
-                                                    <th>KD MITRA</th>
-                                                    <th>ID PELANGGAN</th>
-                                                    <th>BESAR UANG</th>
-                                                    <th>NO REF</th>
-                                                    <th>OPTIONALFIELDS</th>
+                                                    <td>1</td>
+                                                    <td>2166</td>
+                                                    <td>9332459</td>
+                                                    <td>619</td>
+                                                    <td>612</td>
+                                                    <td>619</td>
+                                                    <td>617</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2166</td>
-                                                <td>9332459</td>
-                                                <td>619</td>
-                                                <td>612</td>
-                                                <td>619</td>
-                                                <td>617</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -232,34 +244,38 @@
                                 </div>
                                 <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <div class="col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NO</th>
+                                                        <th>ACCOUNT BUFFER</th>
+                                                        <th>NOREF</th>
+                                                        <th>JNSTRANS</th>
+                                                        <th>JAM</th>
+                                                        <th>USER ID</th>
+                                                        <th>BSU DEBET</th>
+                                                        <th>BSU KREDIT</th>
+                                                        <th>KETERANGAN</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
                                                 <tr>
-                                                    <th>NO</th>
-                                                    <th>ACCOUNT BUFFER</th>
-                                                    <th>NOREF</th>
-                                                    <th>JNSTRANS</th>
-                                                    <th>JAM</th>
-                                                    <th>USER ID</th>
-                                                    <th>BSU DEBET</th>
-                                                    <th>BSU KREDIT</th>
-                                                    <th>KETERANGAN</th>
+                                                    <td>1</td>
+                                                    <td>2166</td>
+                                                    <td>9332459</td>
+                                                    <td>619</td>
+                                                    <td>612</td>
+                                                    <td>619</td>
+                                                    <td>617</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2166</td>
-                                                <td>9332459</td>
-                                                <td>619</td>
-                                                <td>612</td>
-                                                <td>619</td>
-                                                <td>617</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -273,34 +289,38 @@
                                 </div>
                                 <div id="collapse6" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading6">
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <div class="col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NO</th>
+                                                        <th>ACCOUNT BUFFER</th>
+                                                        <th>NOREF</th>
+                                                        <th>JNSTRANS</th>
+                                                        <th>JAM</th>
+                                                        <th>USER ID</th>
+                                                        <th>BSU DEBET</th>
+                                                        <th>BSU KREDIT</th>
+                                                        <th>KETERANGAN</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
                                                 <tr>
-                                                    <th>NO</th>
-                                                    <th>ACCOUNT BUFFER</th>
-                                                    <th>NOREF</th>
-                                                    <th>JNSTRANS</th>
-                                                    <th>JAM</th>
-                                                    <th>USER ID</th>
-                                                    <th>BSU DEBET</th>
-                                                    <th>BSU KREDIT</th>
-                                                    <th>KETERANGAN</th>
+                                                    <td>1</td>
+                                                    <td>2166</td>
+                                                    <td>9332459</td>
+                                                    <td>619</td>
+                                                    <td>612</td>
+                                                    <td>619</td>
+                                                    <td>617</td>
+                                                    <td>612</td>
+                                                    <td>612</td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2166</td>
-                                                <td>9332459</td>
-                                                <td>619</td>
-                                                <td>612</td>
-                                                <td>619</td>
-                                                <td>617</td>
-                                                <td>612</td>
-                                                <td>612</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -320,76 +340,80 @@
                                 </div>
                                 <div id="collapse7" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading7">
                                     <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <div class="col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="3">KDAGENT</th>
+                                                        <th rowspan="3">ACCOUNT BUFFER</th>
+                                                        <th colspan="6">TRANSAKSI KREDIT</th>
+                                                        <th colspan="14">TRANSAKSI DEBET</th>
+                                                    </tr>
+                                                        <tr>
+                                                            <th colspan="2">Topup</th>
+                                                            <th colspan="2">Rekening Koran</th>
+                                                            <th colspan="2">Selisih</th>
+                                                            <th colspan="2">Transagency</th>
+                                                            <th colspan="2">RK Debet</th>
+                                                            <th colspan="2">RK Auto Kredit</th>
+                                                            <th colspan="2">Selisih</th>
+                                                            <th colspan="2">RK AutoKoreksi kredit</th>
+                                                            <th colspan="2">RK AutoKoreksi Debet</th>
+                                                            <th colspan="2">Selisih</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                            <th>trx</th>
+                                                            <th>Besar Uang</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
                                                 <tr>
-                                                    <th rowspan="3">KDAGENT</th>
-                                                    <th rowspan="3">ACCOUNT BUFFER</th>
-                                                    <th colspan="6">TRANSAKSI KREDIT</th>
-                                                    <th colspan="14">TRANSAKSI DEBET</th>
+                                                    <td>303</td>
+                                                    <td>2166</td>
+                                                    <td>12</td>
+                                                    <td>200</td>
+                                                    <td>11</td>
+                                                    <td>300</td>
+                                                    <td>9</td>
+                                                    <td>210</td>
+                                                    <td>8</td>
+                                                    <td>220</td>
+                                                    <td>8</td>
+                                                    <td>230</td>
+                                                    <td>8</td>
+                                                    <td>240</td>
+                                                    <td>8</td>
+                                                    <td>250</td>
+                                                    <td>8</td>
+                                                    <td>260</td>
+                                                    <td>8</td>
+                                                    <td>270</td>
+                                                    <td>8</td>
+                                                    <td>280</td>
                                                 </tr>
-                                                    <tr>
-                                                        <th colspan="2">Topup</th>
-                                                        <th colspan="2">Rekening Koran</th>
-                                                        <th colspan="2">Selisih</th>
-                                                        <th colspan="2">Transagency</th>
-                                                        <th colspan="2">RK Debet</th>
-                                                        <th colspan="2">RK Auto Kredit</th>
-                                                        <th colspan="2">Selisih</th>
-                                                        <th colspan="2">RK AutoKoreksi kredit</th>
-                                                        <th colspan="2">RK AutoKoreksi Debet</th>
-                                                        <th colspan="2">Selisih</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                        <th>trx</th>
-                                                        <th>Besar Uang</th>
-                                                    </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>303</td>
-                                                <td>2166</td>
-                                                <td>12</td>
-                                                <td>200</td>
-                                                <td>11</td>
-                                                <td>300</td>
-                                                <td>9</td>
-                                                <td>210</td>
-                                                <td>8</td>
-                                                <td>220</td>
-                                                <td>8</td>
-                                                <td>230</td>
-                                                <td>8</td>
-                                                <td>240</td>
-                                                <td>8</td>
-                                                <td>250</td>
-                                                <td>8</td>
-                                                <td>260</td>
-                                                <td>8</td>
-                                                <td>270</td>
-                                                <td>8</td>
-                                                <td>280</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

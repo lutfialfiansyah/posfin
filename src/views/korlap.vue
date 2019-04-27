@@ -15,9 +15,9 @@
                     <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
                     <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
                     <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>REKONSILIASI</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
+                    <li><router-link to="/saldoagent"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
+                    <li><router-link to="/laporan"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
+                    <li><router-link to="#"><img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
                     <li><router-link to="/koordinator" class="active"> <img class="icon-menu" src="../assets/images/outline-supervised-user-circle-24-px@3x.png"><p>KOORD LAPANGAN</p></router-link></li>
                     <li><router-link to="/pembatalan"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
                     <li><router-link to="/about"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
@@ -27,7 +27,7 @@
         </div>  
         <div class="container">
             <div class="menu-home">
-                <router-link to="/home"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
+                <router-link to="/"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
             </div>
           <div class="head-korlap">
             <h4>KOORDINATOR LAPANGAN <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
@@ -104,7 +104,7 @@
                         <div class="row">
                             <form class="form-horizontal">
                               <div class="col-md-12 col-sm-12 korlap">
-                                <div class="col-md-4 col-sm-3">
+                                <div class="col-md-4 col-sm-4">
                                     <div class="lapkorlap">
                                         <p>Tipe Laporan</p>
                                         <div class="radio-korlap">
@@ -119,21 +119,14 @@
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <div class="form-group">
-                                        <label class="control-label col-xs-1">User Korlap</label>
-                                        <div class="col-xs-5"><input type="text" class="form-control"></div><button class="btn-refresh">REFRESH USER</button>
+                                        <label class="control-label col-md-1 col-sm-2">User Korlap</label>
+                                        <div class="col-md-5 col-sm-5"><input type="text" class="form-control"></div><button class="btn-refresh">REFRESH USER</button>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-1">Tanggal</label>
-                                        <div class="col-xs-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="col-xs-1 label-koor">s.d</label><div class="col-xs-3"><date-picker v-model="lastdate" :config="options"></date-picker></div><button class="btn-tampilkan">TAMPILKAN</button>
+                                        <label class="control-label col-md-1 col-sm-2">Tanggal</label>
+                                        <div class="col-md-3 col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="col-md-1 col-sm-1 label-koor">s.d</label><div class="col-md-3 col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker></div><button class="btn-tampilkan">TAMPILKAN</button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tombol-register">
-                                <button type="button" class="btn-register">TAMBAH</button>
-                                <button type="button" class="btn-register">UBAH</button>
-                                <button type="button" class="btn-register">HAPUS</button>
-                                <button type="button" class="btn-register">REKAM</button>
-                                <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
                         </div>

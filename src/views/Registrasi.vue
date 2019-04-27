@@ -27,7 +27,7 @@
         </div>  
       <div class="container">
           <div class="menu-home">
-                <router-link to="/home"> <img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"><p>HOME</p></router-link>       
+                <router-link to="/"> <img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"><p>HOME</p></router-link>       
             </div>
           <div class="head-register">
             <h4>REGISTRASI <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
@@ -426,7 +426,7 @@
                                     <div class="top">
                                         <div class="form-group">
                                             <label class="control-label col-xs-1">Filter</label>
-                                            <div class="col-md-2 col-sm-3 col-xs-8"><v-select v-model="searchno" :options="optio" title="No"></v-select> </div>
+                                            <div class="col-md-3 col-sm-5 col-xs-8"><v-select v-model="searchno" :options="optio" title="No"></v-select> </div>
                                             <div class="col-sm-3"><input type="text" class="form-control"></div><button class="btn-tampil-topup">TAMPILKAN</button>
                                         </div>
                                     </div>
@@ -585,8 +585,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     '6 - Sudah Validasi'
                     ],
                       optio: [
-                    '0',
-                    '1',
+                        '1001 - Petugas Agen',
+                        '1002 - Petugas Koordinator',
+                        '1003 - Petugas Admin',
                     ],  
                      opti: [
                         '1001 - Petugas Agen',

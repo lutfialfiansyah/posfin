@@ -198,7 +198,6 @@
 }
 .img-fin {
     width: 85px;
-    height: auto;
     margin-top: 7px;
     margin-left: 11px;
     margin-right: 7px;
@@ -325,13 +324,12 @@ a {
     text-decoration: none;
 }
 .body-saldo {
-    padding: 15px 45px;
+    padding: 15px 35px;
     background-color: #f9f9f9;
+    margin: 0 15px;
 }
 .saldo {
     display: inline-block;
-    margin-left: 21px;
-    background-color: #f9f9f9;
 }
 .saldo h5 {
     padding: 17px 21px;
@@ -416,6 +414,7 @@ button.close {
 .laptgl {
     padding-right: 0px;
     padding-left: 3px;
+    margin-right: 0px;
 }
 .laptgls {
     margin-left: 21px;
@@ -666,15 +665,17 @@ span.error {
     background-color: #dddddd;
     border-radius: 5px;
     text-align: right;
-    margin-left: 26%;
+    margin-left: 18%;
     padding: 13px 10px;
 }
 .btn-refresh {
     font-family: HelveticaNeue-Medium;
     color: #333d58;
     font-size: 13px;
+    border-radius: 5px;
     margin-left: 151px;
     padding: 13px 45px;
+    background-color: #efefef;
 }
 .btn-tampilkan {
     font-family: HelveticaNeue-Medium;
@@ -799,13 +800,16 @@ span.error {
         height: 63px;
     }
     .main-header .navbar-nav {
-        margin: 2px -4px;
+        margin: 1px 0px;
     }
     .main-header .navbar-nav > li {
         padding: 0 0px;
     }
     .navbar-left h4 {
         font-size: 14px;
+    }
+    .img-fin {
+        width: 77px;
     }
     .img-logo {
         width: 77px;
@@ -815,13 +819,13 @@ span.error {
         width: 99%;
     }
     .main-header h4 {
-        display: none;
+        font-size: 13px;
     }
     .main-header .navbar-nav > li > p {
         font-size: 10px;
     }
     .main-header .navbar-nav > li > a {
-        font-size: 10px;
+        font-size: 9px;
         padding: 7px 5px 0;
     }
     .nav > li > a {
@@ -860,13 +864,156 @@ span.error {
         height: 63px;
     }
     .main-header .navbar-nav {
-        margin: 2px -4px;
+        margin: 1px 0px;
     }
     .main-header .navbar-nav > li {
         padding: 0 0px;
     }
     .navbar-left h4 {
         font-size: 14px;
+    }
+    .btn-refresh-reg {
+        margin-left: 7px;
+        padding: 12px 19px;
+        border-radius: 3px;
+    }
+    .btn-tampilkan {
+        border-radius: 5px;
+        font-size: 12px;
+        margin-left: 1px;
+        padding: 12px 19px;
+    }
+    .proses {
+        margin-top: 35%;
+    }
+    .img-logo {
+        width: 41px;
+        margin-top: 17px;
+        margin-right: 3px;
+    }
+    .img-fin {
+        width: 59px;
+        margin-top: 18px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    .topup {
+        width: 99%;
+    }
+    .lapkor {
+        margin: 0 4%;
+        padding: 15px 13px;
+    }
+    .korlap {
+        padding: 25px 0;
+    }
+    .radio-korlap {
+        margin-right: 5px;
+    }
+    .radio-korlap > input[type=radio]:checked {
+        margin: 4px 15px;
+    }
+    .laptgls {
+        margin-left: 7px;
+    }
+    .radio-korlap label {
+        font-size: 10px;
+    }
+    .btn-refresh {
+        font-size: 12px;
+        margin-left: 21px;
+        padding: 13px 25px;
+
+    }
+    .btn-tampil-topup {
+        padding: 12px 17px;
+        margin-left: 2px;
+    }
+    .btn-refresh-lap {
+        font-size: 12px;
+        margin-left: 7%;
+    }
+    .table>thead>tr>th {
+        font-size: 10px;
+    }
+    .btn-refresh-recon {
+        font-size: 11px;
+        border-radius: 5px;
+        margin-left: 2px;
+        padding: 12px 7px;
+    }
+    .main-header .navbar-nav > li > p {
+        font-size: 8px;
+    }
+    .main-header .navbar-nav > li > a {
+        font-size: 7px;
+        padding: 7px 3px 0;
+    }
+    .main-header h4 {
+        font-size: 13px;
+    }
+    .icon-menu {
+        width: 19px;
+        height: 19px;
+    }
+    .tombol-nominal {
+        text-align: right;
+    }
+    .btn-nominals {
+        margin: 9px 15px;
+        padding: 15px 25px;
+    }
+    .btn-nominal {
+        margin: 9px 15px;
+        padding: 15px 25px;
+    }
+    .body-saldo {
+        padding: 15px 21px;
+    }
+    .nav > li > a {
+        font-size: 10px;
+        padding: 10px 13px;
+    }
+    .btn-register {
+        margin: 9px 11px;
+        padding: 15px 31px;
+    }
+    .ip {
+        padding: 0 17px;
+    }
+    .ip p {
+        font-size: 10px;
+    }
+    .akun p {
+        font-size: 10px;
+    }
+    .date {
+        margin-right: 17px;
+    }
+    .date p {
+        font-size: 10px;
+    }
+    .laptgl {
+        margin-right: 9px;
+    }
+}
+
+@media (min-width: 414px) and (max-width: 767px) {
+    .box-login {
+        padding: 30% 1%;
+    }
+    .foot-login {
+        margin-left: 18%;
+    }
+    .foot-login p {
+        margin-right: 9px;
+    }
+    .main-header {
+        margin: 2px 0 0;
+    }
+    .nav > li > a {
+        font-size: 10px;
+        padding: 10px 16px;
     }
     .btn-refresh-reg {
         margin-left: 7px;
@@ -884,6 +1031,12 @@ span.error {
     }
     .topup {
         width: 99%;
+    }
+    .lapkor {
+        margin: 0 15%;
+    }
+    .korlap {
+        padding: 15px 15px;
     }
     .radio-korlap {
         margin-right: 5px;
@@ -909,69 +1062,13 @@ span.error {
         border-radius: 5px;
         margin-left: 2px;
         padding: 12px 7px;
+        margin-top: 9px;
     }
-    .main-header .navbar-nav > li > p {
-        font-size: 8px;
-    }
-    .main-header .navbar-nav > li > a {
-        font-size: 9px;
-        padding: 7px 5px 0;
-    }
-    .main-header h4 {
-        display: none;
-    }
-    .icon-menu {
-        width: 19px;
-        height: 19px;
-    }
-    
-    .nav > li > a {
-        font-size: 10px;
-        padding: 10px 13px;
-    }
-    .btn-register {
-        margin: 9px 14px;
-        padding: 15px 35px;
-    }
-    .ip {
-        padding: 0 17px;
-    }
-    .ip p {
-        font-size: 10px;
-    }
-    .akun p {
-        font-size: 10px;
-    }
-    .date {
-        margin-right: 17px;
-    }
-    .date p {
-        font-size: 10px;
-    }
-    
-}
-
-@media (min-width: 414px) and (max-width: 767px) {
-    .box-login {
-        padding: 30% 1%;
-    }
-    .foot-login {
-        margin-left: 18%;
-    }
-    .foot-login p {
-        margin-right: 9px;
-    }
-    .main-header {
-        margin: 2px 0 0;
-    }
-    .nav > li > a {
-        font-size: 10px;
-        padding: 10px 16px;
-    }
-    .btn-refresh-reg {
-        margin-left: 7px;
-        padding: 12px 19px;
-        border-radius: 3px;
+    .btn-tampilkan {
+        border-radius: 5px;
+        font-size: 12px;
+        margin-left: 2px;
+        padding: 13px 19px;
     }
     .col-xs-8 {
         padding-right: 1px;
@@ -1035,13 +1132,85 @@ span.error {
     .main-header {
         margin: 2px 0 0;
     }
+    .main-header h4 {
+        font-size: 13px;
+    }
+    .korlap {
+        padding: 25px 0;
+    }
+    .lapkor {
+        margin: 0 11%;
+    }
+    .main-header .navbar-nav > li > a {
+        font-size: 10px;
+        padding: 7px 7px 0;
+    }
     .nav > li > a {
+        font-size: 9px;
+        padding: 10px 9px;
+    }
+    .btn-refresh-reg {
+        margin-left: 7px;
+        padding: 12px 19px;
+        border-radius: 3px;
+    }
+    .img-logo {
+        width: 43px;
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+    .img-fin {
+        width: 67px;
+        margin-top: 20px;
+    }
+    .topup {
+        width: 99%;
+    }
+    .radio-korlap {
+        margin-right: 5px;
+    }
+    .radio-korlap > input[type=radio]:checked {
+        margin: 4px 15px;
+    }
+    .laptgls {
+        margin-left: 0px;
+    }
+    .radio-korlap label {
+        font-size: 12px;
+    }
+    .btn-tampil-topup {
+        padding: 12px 23px;
+        margin-left: 6px;
+    }
+    .table>thead>tr>th {
+        font-size: 10px;
+    }
+    .btn-refresh-recon {
         font-size: 11px;
-        padding: 10px 10px;
+        border-radius: 5px;
+        margin-left: 2px;
+        padding: 12px 7px;
+        margin-top: 7px;
+    }
+    .btn-tampilkan {
+        border-radius: 7px;
+        font-size: 12px;
+        margin-left: 1px;
+        padding: 12px 19px;     
+    }
+    .col-xs-8 {
+        padding-right: 1px;
+        padding-left: 41px;
+        margin-bottom: 7px;
+    }
+    .col-sm-3 {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 7px;
     }
     .btn-register {
         margin: 9px 4px;
-        padding: 15px 25px;
+        padding: 15px 35px;
     }
     .online p {
         font-size: 12px;

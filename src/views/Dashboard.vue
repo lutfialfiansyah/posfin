@@ -27,16 +27,16 @@
             </div>
         </div>  
         <div class="container">
-             <div class="menu-home">
+             <!-- <div class="menu-home">
                 <router-link to="/dashboard"> <img class="icon-dash" src="../assets/images/outline-table-chart-24-px-1@3x.png"><p>DASHBOARD</p></router-link>       
-            </div>
+            </div> -->
             <div class="body-dashboard">
                 <h2>BACK OFFICE AGENCY</h2>
                 <p>MAIN AGENT VERSI 1.3.0</p>
                 <p>MAIN AGENT: PT. BAKTI WASANTARA NET (BWN) 9830000</p>
             </div>
             <div class="foot-dashboard">
-                <p>Bangsistek © 2011, SOPPPOS Development Team, All Right Reserved.</p>
+                <p>Digiasia © 2019, SOPPPOS Development Team, All Right Reserved.</p>
             </div>
         </div>
     </div>
