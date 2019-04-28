@@ -41,18 +41,18 @@
                     <div class="col-md-3 col-sm-3 lapkor">
                         <p>Jenis Laporan</p>
                         <div class="radio-korlap">
-                            <input type="radio" id="rekap" name="selector" checked>
+                            <input type="radio" id="rekap" v-model="rekap" name="selector" value="1">
                             <label for="rekap">Rekap</label>
                         </div>
                         <div class="radio-korlap">
-                            <input type="radio" id="detail" name="selector"> 
+                            <input type="radio" id="detail" v-model="rekap" name="selector" value="2"> 
                             <label for="detail">Detail </label>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-8">
                         <div class="form-group">
                             <label class="control-label col-xs-2">Kode Agent</label>
-                            <div class="col-xs-4"><v-select v-model="select" :options="option" aria-placeholder="0 - Aktif"></v-select></div>
+                            <div class="col-xs-4"><v-select v-model="select" :options="option" :disabled="rekap == 1"></v-select></div>
                                 <button class="btn-refresh-recon">REFRESH USER / AMBIL DAFTAR AGENT</button>
                         </div>
                         <div class="form-group">
@@ -435,8 +435,9 @@ import 'vue-select/dist/vue-select.css';
         name: 'reconsiliasi',
         data() {
             return {
-                kode_agent: '',
-                nama_agent: '',
+                rekap: null,
+                kode_agent: null,
+                nama_agent: null,
                 select: null,
                 startdate: new Date(),
                 options: {

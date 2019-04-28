@@ -4,7 +4,7 @@
             <div class="box-login">
                 <div class="isi-login">
                     <div class="head-login">
-                        <img class="img-login" src="../assets/images/logo@3x.png">
+                        <img class="img-fin-login" src="../assets/images/logo-pos-fin-new@3x.png"><img class="img-login" src="../assets/images/logo@3x.png"><br>
                         <p>BACK OFFICE AGENT</p>
                     </div>
                     <div class="alert alert-danger" v-for="error in errors">

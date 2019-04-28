@@ -38,15 +38,15 @@
           </div>
           <div class="body-register">
               <ul class="nav nav-tabs">
-                    <li><a  href="#" data-toggle="tab">OVERBOOKING SALDO</a></li>
+                    <li><a  href="#" data-toggle="tab" class="disabledTab">OVERBOOKING SALDO</a></li>
                     <li class="active"><a  href="#2" data-toggle="tab">LAPORAN TOP UP</a></li>
-                    <li><a  href="#3" data-toggle="tab">LAPORAN OVERBOOKING</a></li>
+                    <li><a  href="#" data-toggle="tab" class="disabledTab">LAPORAN OVERBOOKING</a></li>
                     <li><a  href="#4" data-toggle="tab">REK. KORAN MAIN AGEN</a></li>
                     <li><a  href="#5" data-toggle="tab">LAPORAN DEPOSIT</a></li>
               </ul>
              
               <div class="tab-content">
-                <div class="tab-pane active" id="1">
+                <div class="tab-pane" id="1">
                         <div class="row">
                              <div class="body-registrasi">
                                 <h5>OVER BOOKING SALDO</h5>
@@ -115,7 +115,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="tab-pane" id="2">
+                <div class="tab-pane active" id="2">
                     <div class="body-registrasi">
                         <h5>LAPORAN TOP UP</h5>
                         <div class="row">

@@ -17,7 +17,7 @@
                     <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>REKONSILIASI</p></router-link></li>
                     <li><router-link to="/saldoagent"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
                     <li><router-link to="/laporan" class="active"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
-                    <li><router-link to="#" onclick="javascript:xport.toXLS('testTable');"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
+                    <li><router-link to="/excel"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
                     <li><router-link to="/koordinator"> <img class="icon-menu" src="../assets/images/outline-supervised-user-circle-24-px@3x.png"><p>KOORD LAPANGAN</p></router-link></li>
                     <li><router-link to="/pembatalan"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
                     <li><router-link to="/about"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
@@ -49,32 +49,32 @@
                                         <div class="lapo">
                                             <p>Jenis Laporan</p>
                                             <div class="radio-korlap">
-                                                <input type="radio" id="agen" v-model="checkagen" name="selector">
-                                                <label for="agen">Rekap Per Agen</label>
+                                                <input type="radio" id="rekap" v-model="rekap" name="selector" value="5">
+                                                <label for="rekap">Rekap Per Agen</label>
                                             </div>
                                             <div class="radio-korlap">
-                                                <input type="radio" id="mitra" v-model="checkmitra" name="selector">
+                                                <input type="radio" id="mitra" v-model="rekap" name="selector" >
                                                 <label for="mitra">Rekap Per Mitra </label>
                                             </div>
                                             <div class="radio-korlap">
-                                                <input type="radio" id="koor" v-model="checkkoor" name="selector">
-                                                <label for="koor">Rekap Per Koord </label>
+                                                <input type="radio" id="koord" v-model="rekap" name="selector" value="6">
+                                                <label for="koord">Rekap Per Koord </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
-                                        <div class="form-group">
+                                        <div class="form-group"> 
                                             <label class="control-label col-md-2 col-sm-2">Tanggal</label>
                                             <div class="col-md-2 col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-md-1 col-sm-1 laptgls">s.d</label><div class="col-md-2 col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-2 col-sm-2">Koordinator Agent</label>
-                                            <div class="col-md-4 col-sm-4"><v-select v-model="koragent" :options="option" :disabled="false"></v-select></div>
+                                            <div class="col-md-4 col-sm-4"><v-select v-model="koragent" :options="option" :disabled="rekap == 5"></v-select></div>
                                                 <button class="btn-refresh-recon">REFRESH DAFTAR KOORD AGENT</button>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-2 col-sm-2"> Agent</label>
-                                            <div class="col-md-4 col-sm-4"><v-select v-model="agent" :options="optio" ></v-select></div>
+                                            <div class="col-md-4 col-sm-4"><v-select v-model="agent" :options="optio" :disabled="rekap == 6"></v-select></div>
                                                 <button class="btn-refresh-recon">REFRESH DAFTAR AGENT</button>
                                         </div>
                                     </div>
@@ -202,11 +202,11 @@
                                         <div class="lapo">
                                             <p>Jenis Laporan</p>
                                             <div class="radio-korlap">
-                                                <input type="radio" id="produk" name="selector" checked>
+                                                <input type="radio" id="produk" v-model="produk" name="selector" value="1">
                                                 <label for="produk">Rekap Agent - Produk </label>
                                             </div>
                                             <div class="radio-korlap">
-                                                <input type="radio" id="detail" name="selector">
+                                                <input type="radio" id="detail" v-model="produk" name="selector" value="2">
                                                 <label for="detail">Detail Per User </label>
                                             </div>
                                         </div>
@@ -214,7 +214,7 @@
                                     <div class="col-md-9 col-sm-9">
                                         <div class="form-group">
                                             <label class="control-label col-md-1 col-sm-2"> Agent</label>
-                                            <div class="col-md-5 col-sm-5"><v-select v-model="agent" :options="optio" ></v-select></div>
+                                            <div class="col-md-5 col-sm-5"><v-select v-model="agent" :options="optio" :disabled="produk == 1"></v-select></div>
                                                 <button class="btn-refresh-lap">REFRESH DAFTAR AGENT</button>
                                         </div>
                                         <div class="form-group">
@@ -311,11 +311,11 @@
                                         <div class="lapo">
                                             <p>Jenis Laporan</p>
                                             <div class="radio-korlap">
-                                                <input type="radio" id="produks" name="selector" checked>
+                                                <input type="radio" id="produks" v-model="produks" name="selector" value="3">
                                                 <label for="produks">Rekap Agent - Produk </label>
                                             </div>
                                             <div class="radio-korlap">
-                                                <input type="radio" id="details" name="selector">
+                                                <input type="radio" id="details" v-model="produks" name="selector" value="4">
                                                 <label for="details">Detail Per User </label>
                                             </div>
                                         </div>
@@ -323,7 +323,7 @@
                                     <div class="col-md-9 col-sm-9">
                                         <div class="form-group">
                                             <label class="control-label col-md-1 col-sm-1"> Agent</label>
-                                            <div class="col-md-5 col-sm-5"><v-select v-model="agent" :options="opsi" ></v-select></div>
+                                            <div class="col-md-5 col-sm-5"><v-select v-model="agent" :options="opsi" :disabled="produks == 3"></v-select></div>
                                                 <button class="btn-refresh-lap">REFRESH DAFTAR AGENT</button>
                                         </div>
                                         <div class="form-group">
@@ -437,10 +437,13 @@ import 'vue-select/dist/vue-select.css';
         name: 'laporan',
             data() {
             return {
-                agen: true,
-                checkagen: null,
-                checkmitra: null,
-                checkkoor: null,
+                produks: true,
+                details: null,
+                detail: null,
+                produk: null,
+                rekap: true,
+                mitra: null,
+                koord: null,
                 id_user: null,
                 noresi: null,
                 nopelanggan: null,
@@ -476,9 +479,6 @@ import 'vue-select/dist/vue-select.css';
         datePicker
         },
         methods: {
-            // checkagent() {
-                
-            // },
             close() {
                 this.$router.push('/')
             },

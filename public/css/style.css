@@ -20,6 +20,14 @@
     display: inline-block;
     vertical-align: middle;
 }
+.img-fin-login {
+    width: 125px;
+    margin-top: 7px;
+    margin-left: 11px;
+    margin-right: 7px;
+    display: inline-block;
+    vertical-align: middle;
+}
 .login {
     background-color: #f9f9f9;
 }
@@ -175,6 +183,15 @@
     border-bottom: 1px solid transparent;
     margin-left: 21px;
 }
+.disabledTab {
+    pointer-events: none;
+    background-color: #ccc;
+}
+.nav-tabs > li.disabled {
+    float: left;
+    margin-bottom: -1px;
+    background-color: #ccc;
+}
 .navbar-toggle .icon-bar {
     background-color: #333333;
 }
@@ -195,6 +212,21 @@
     font-family: HelveticaNeue-Medium;
     font-size: 12px;
     margin: 10px 0 0;
+}
+.menu-excel {
+    margin: 25px 0 25px 17px;
+    width: 141px;
+    height: 41px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f76b1c;
+}
+.menu-excel > a {
+    vertical-align: middle;
+    height: 41px;
+    color: #fff;
+    padding: 0 20px;
+    display: table-cell;
 }
 .img-fin {
     width: 85px;
