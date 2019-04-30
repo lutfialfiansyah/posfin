@@ -14,6 +14,9 @@ Vue.use(VueSession)
 Vue.config.productionTip = false
 
 window.$ = window.jQuery = require('jquery')
+global.jQuery = require('jquery');
+var $ = global.jQuery;
+window.$ = $;
 
 new Vue({
   router,

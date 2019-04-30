@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <!-- <div class="container">
             <div class="main-header">
                 <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
                     <span class="sr-only">Toggle navigation</span>
@@ -25,7 +25,7 @@
                 </ul>
                 </div>
             </div>
-        </div>  
+        </div>   -->
         <div class="container">
              <!-- <div class="menu-home">
                 <router-link to="/dashboard"> <img class="icon-dash" src="../assets/images/outline-table-chart-24-px-1@3x.png"><p>DASHBOARD</p></router-link>       
@@ -36,7 +36,7 @@
                 <p>MAIN AGENT: PT. BAKTI WASANTARA NET (BWN) 9830000</p>
             </div>
             <div class="foot-dashboard">
-                <p>Digiasia © 2019, SOPPPOS Development Team, All Right Reserved.</p>
+                <P>POSFIN(c)2019 , subsidiary of PT. Pos Indonesia , all right reserved.</P>
             </div>
         </div>
     </div>
