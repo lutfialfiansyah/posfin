@@ -1,36 +1,11 @@
 <template>
     <div>
         <div class="container">
-            <div class="main-header">
-                <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
-                    <img class="img-logo" src="../assets/images/logo@3x.png"><h4>BACK OFFICE AGENT</h4>
-                <div id="navbar-collapse-02" class="collapse navbar-collapse pull-right">
-                <ul class="nav navbar-nav">
-                    <li><a href="javascript:void(0)" v-on:click="logout"><img class="icon-menu" src="../assets/images/outline-lock-24-px@3x.png"><p>LOGOUT</p> </a></li>
-                    <li><router-link to="/registrasi"> <img class="icon-menu" src="../assets/images/outline-assignment-24-px@3x.png"><p>REGISTRASI</p></router-link></li>
-                    <li><router-link to="/reconsiliasi"> <img class="icon-menu" src="../assets/images/outline-table-chart-24-px@3x.png"><p>RECONSILIASI</p></router-link></li>
-                    <li><router-link to="/saldoagent"> <img class="icon-menu" src="../assets/images/outline-account-balance-wallet-24-px@3x.png"><p>SALDO AGEN</p></router-link></li>
-                    <li><router-link to="/laporan" class="active"> <img class="icon-menu" src="../assets/images/outline-class-24-px@3x.png"><p>LAPORAN</p></router-link></li>
-                    <li><router-link to="#"> <img class="icon-menu" src="../assets/images/outline-description-24-px@3x.png"><p>REKAM EXCEL</p></router-link></li>
-                    <li><router-link to="/koordinator"> <img class="icon-menu" src="../assets/images/outline-supervised-user-circle-24-px@3x.png"><p>KOORD LAPANGAN</p></router-link></li>
-                    <li><router-link to="/pembatalan"> <img class="icon-menu" src="../assets/images/outline-cancel-24-px@3x.png"><p>PEMBATALAN</p></router-link></li>
-                    <li><router-link to="/about"> <img class="icon-menu" src="../assets/images/outline-info-24-px@3x.png"><p>TENTANG APP</p></router-link></li>
-                </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container">
             <div class="menu-home">
-                <router-link to="/home"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
+                <router-link to="/"> <p><img class="icon-home" src="../assets/images/outline-home-24-px@3x.png"> HOME</p></router-link>       
             </div>
-          <div class="head-recon">
-            <h4>LAPORAN  X</h4>
+          <div class="head-lap">
+            <h4>LAPORAN <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
           </div>
           <div class="menu-recon">
                 <ul class="nav nav-tabs">
@@ -45,34 +20,36 @@
                             <div class="row">
                                 <form class="form-horizontal">
                                     <div class="col-md-12 col-sm-12 korlap">
-                                    <div class="col-md-3 lap">
-                                        <p>Jenis Laporan</p>
-                                        <div class="radio-korlap">
-                                            <input type="radio" checked>
-                                            <label class="">Rekap Per Agen</label>
-                                        </div>
-                                        <div class="radio-korlap">
-                                            <input type="radio">
-                                            <label class="">Rekap Per Mitra </label>
-                                        </div>
-                                        <div class="radio-korlap">
-                                            <input type="radio">
-                                            <label class="">Rekap Per Koord </label>
+                                    <div class="col-md-3 col-sm-3 lap">
+                                        <div class="lapo">
+                                            <p>Jenis Laporan</p>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="rekap" v-model="rekap" name="selector" value="5">
+                                                <label for="rekap">Rekap Per Agen</label>
+                                            </div>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="mitra" v-model="rekap" name="selector" >
+                                                <label for="mitra">Rekap Per Mitra </label>
+                                            </div>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="koord" v-model="rekap" name="selector" value="6">
+                                                <label for="koord">Rekap Per Koord </label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-2">Tanggal</label>
-                                            <div class="col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-xs-1 laptgls">s.d</label><div class="col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
+                                        <div class="form-group"> 
+                                            <label class="control-label col-md-2 col-sm-2">Tanggal</label>
+                                            <div class="col-md-2 col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-md-1 col-sm-1 laptgls">s.d</label><div class="col-md-2 col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-xs-2">Koordinator Agent</label>
-                                            <div class="col-xs-4"><v-select v-model="koragent" :options="option"></v-select></div>
+                                            <label class="control-label col-md-2 col-sm-2">Koordinator Agent</label>
+                                            <div class="col-md-4 col-sm-4"><v-select v-model="koragent" :options="option" :disabled="rekap == 5"></v-select></div>
                                                 <button class="btn-refresh-recon">REFRESH DAFTAR KOORD AGENT</button>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-xs-2"> Agent</label>
-                                            <div class="col-xs-4"><v-select v-model="agent" :options="optio" ></v-select></div>
+                                            <label class="control-label col-md-2 col-sm-2"> Agent</label>
+                                            <div class="col-md-4 col-sm-4"><v-select v-model="agent" :options="optio" :disabled="rekap == 6"></v-select></div>
                                                 <button class="btn-refresh-recon">REFRESH DAFTAR AGENT</button>
                                         </div>
                                     </div>
@@ -196,26 +173,28 @@
                             <div class="row">
                                 <form class="form-horizontal">
                                     <div class="col-md-12 col-sm-12 korlap">
-                                    <div class="col-md-3 lap">
-                                        <p>Jenis Laporan</p>
-                                        <div class="radio-korlap">
-                                            <input type="radio" checked>
-                                            <label class="">Rekap Agent - Produk </label>
-                                        </div>
-                                        <div class="radio-korlap">
-                                            <input type="radio">
-                                            <label class="">Detail Per User </label>
+                                    <div class="col-md-3 col-sm-3 lap">
+                                        <div class="lapo">
+                                            <p>Jenis Laporan</p>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="produk" v-model="produk" name="selector" value="1">
+                                                <label for="produk">Rekap Agent - Produk </label>
+                                            </div>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="detail" v-model="produk" name="selector" value="2">
+                                                <label for="detail">Detail Per User </label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-2"> Agent</label>
-                                            <div class="col-xs-4"><v-select v-model="agent" :options="optio" ></v-select></div>
+                                            <label class="control-label col-md-1 col-sm-2"> Agent</label>
+                                            <div class="col-md-5 col-sm-5"><v-select v-model="agent" :options="optio" :disabled="produk == 1"></v-select></div>
                                                 <button class="btn-refresh-lap">REFRESH DAFTAR AGENT</button>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-xs-2">Tanggal</label>
-                                            <div class="col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-xs-1 laptgls">s.d</label><div class="col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
+                                            <label class="control-label col-md-1 col-sm-2">Tanggal</label>
+                                            <div class="col-md-3 col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-md-1 col-sm-1 laptgls">s.d</label><div class="col-md-3 col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
                                         </div>
                                     </div>
                                   </div>
@@ -247,12 +226,12 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
+                                                    <td>A003A</td>
+                                                    <td>TAKAFUL (PEMBAYARAN PREMI)</td>
+                                                    <td>261</td>
+                                                    <td>261</td>
+                                                    <td>93,504,000</td>
+                                                    <td>522,000</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -282,12 +261,12 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
+                                                    <td>A003A</td>
+                                                    <td>TAKAFUL (PEMBAYARAN PREMI)</td>
+                                                    <td>261</td>
+                                                    <td>261</td>
+                                                    <td>93,504,000</td>
+                                                    <td>522,000</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -303,26 +282,28 @@
                             <div class="row">
                                 <form class="form-horizontal">
                                     <div class="col-md-12 col-sm-12 korlap">
-                                    <div class="col-md-3 lap">
-                                        <p>Jenis Laporan</p>
-                                        <div class="radio-korlap">
-                                            <input type="radio" checked>
-                                            <label class="">Rekap Agent - Produk </label>
-                                        </div>
-                                        <div class="radio-korlap">
-                                            <input type="radio">
-                                            <label class="">Detail Per User </label>
+                                    <div class="col-md-3 col-sm-3 lap">
+                                        <div class="lapo">
+                                            <p>Jenis Laporan</p>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="produks" v-model="produks" name="selector" value="3">
+                                                <label for="produks">Rekap Agent - Produk </label>
+                                            </div>
+                                            <div class="radio-korlap">
+                                                <input type="radio" id="details" v-model="produks" name="selector" value="4">
+                                                <label for="details">Detail Per User </label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-1"> Agent</label>
-                                            <div class="col-xs-4"><v-select v-model="agent" :options="optio" ></v-select></div>
+                                            <label class="control-label col-md-1 col-sm-1"> Agent</label>
+                                            <div class="col-md-5 col-sm-5"><v-select v-model="agent" :options="opsi" :disabled="produks == 3"></v-select></div>
                                                 <button class="btn-refresh-lap">REFRESH DAFTAR AGENT</button>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-1">Tanggal</label>
-                                            <div class="col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-xs-1 laptgls">s.d</label><div class="col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
+                                            <label class="control-label col-md-1 col-sm-1 laptgl">Tanggal</label>
+                                            <div class="col-md-3 col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-md-1 col-sm-1 laptgls">s.d</label><div class="col-md-3 col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
                                         </div>
                                     </div>
                                   </div>
@@ -431,6 +412,13 @@ import 'vue-select/dist/vue-select.css';
         name: 'laporan',
             data() {
             return {
+                produks: true,
+                details: null,
+                detail: null,
+                produk: null,
+                rekap: true,
+                mitra: null,
+                koord: null,
                 id_user: null,
                 noresi: null,
                 nopelanggan: null,
@@ -447,12 +435,18 @@ import 'vue-select/dist/vue-select.css';
                 useCurrent: false,
                 },
                 option: [
-                    '0 - Aktif',
-                    '1 - NonAktif',
+                    '0011 - Agus',
+                    '0012 - Ahmad',
                  ],
                  optio: [
-                    '0 - Aktif',
-                    '1 - NonAktif',
+                    '1001 - Ahland',
+                    '1002 - Muhamad',
+                    '1003 - Sadmin',
+                 ],
+                 opsi: [
+                    '1004 - Ahland',
+                    '1005 - Muhamad',
+                    '1006 - Sadmin',
                  ],
             }
         },
@@ -460,6 +454,9 @@ import 'vue-select/dist/vue-select.css';
         datePicker
         },
         methods: {
+            close() {
+                this.$router.push('/')
+            },
             logout () {
             this.$session.destroy()
             this.$router.push('/login')

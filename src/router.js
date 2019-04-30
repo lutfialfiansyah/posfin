@@ -9,6 +9,7 @@ import Saldoagent from './views/Saldoagent.vue'
 import About from './views/About.vue'
 import Pembatalan from './views/Pembatalan.vue'
 import Laporan from './views/Laporan.vue'
+import Excel from './views/Excel.vue'
 
 Vue.use(Router)
 
@@ -60,6 +61,11 @@ export default new Router({
       path: '/laporan',
       name: 'laporan',
       component: Laporan
+    },
+    {
+      path: '/excel',
+      name: 'excel',
+      component: Excel
     }
   ]
 })

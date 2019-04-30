@@ -20,6 +20,14 @@
     display: inline-block;
     vertical-align: middle;
 }
+.img-fin-login {
+    width: 125px;
+    margin-top: 7px;
+    margin-left: 11px;
+    margin-right: 7px;
+    display: inline-block;
+    vertical-align: middle;
+}
 .login {
     background-color: #f9f9f9;
 }
@@ -94,28 +102,95 @@
 
 /*   -----------------------   Template Topbar --------------------   */
 .head-saldo {
-    width: 153px;
+    width: 137px;
     margin-left: 21px;
     border-bottom: solid 2px #333333;
+}
+.head-saldo h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 1.9;
+    margin-bottom: 3px;
 }
 .head-register {
     width: 133px;
     margin-left: 21px;
     border-bottom: solid 2px #333333;
 }
+.head-register h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 1.9;
+    margin-bottom: 3px;
+}
 .head-recon {
-    width: 173px;
+    width: 137px;
     margin-left: 21px;
     border-bottom: solid 2px #333333;
 }
-.head-korlap {
-    width: 293px;
+.head-recon h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 1.9;
+    margin-bottom: 3px;
+}
+.head-lap {
+    width: 103px;
     margin-left: 21px;
     border-bottom: solid 2px #333333;
+}
+.head-lap h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 1.9;
+    margin-bottom: 3px;
+}
+.head-korlap {
+    width: 221px;
+    margin-left: 21px;
+    border-bottom: solid 2px #333333;
+}
+.head-korlap h4 {
+    font-family: HelveticaNeue-Medium;
+    font-size: 15px;
+    color: #003366;
+    line-height: 2;
+    margin-bottom: 3px;
+}
+.btn-refresh-reg {
+    font-family: HelveticaNeue-Medium;
+    color: #34495e;
+    font-size: 13px;
+    margin-left: 61px;
+    border-radius: 5px;
+    padding: 13px 25px;
+}
+.btn-delete {
+    font-family: HelveticaNeue-Medium;
+    color: #fff;
+    font-size: 8px;
+    border-radius: 3px;
+    padding: 5px 17px;
+    background-color: #f59d15;
+    float: right;
+    margin-top: 7px;
 }
 .nav-tabs {
     border-bottom: 1px solid transparent;
     margin-left: 21px;
+}
+.disabledTab {
+    pointer-events: none;
+    background-color: #ccc;
+}
+.nav-tabs > li.disabled {
+    float: left;
+    margin-bottom: -1px;
+    background-color: #ccc;
 }
 .navbar-toggle .icon-bar {
     background-color: #333333;
@@ -138,8 +213,31 @@
     font-size: 12px;
     margin: 10px 0 0;
 }
+.menu-excel {
+    margin: 25px 0 25px 17px;
+    width: 141px;
+    height: 41px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f76b1c;
+}
+.menu-excel > a {
+    vertical-align: middle;
+    height: 41px;
+    color: #fff;
+    padding: 0 20px;
+    display: table-cell;
+}
+.img-fin {
+    width: 85px;
+    margin-top: 7px;
+    margin-left: 11px;
+    margin-right: 7px;
+    display: inline-block;
+    vertical-align: middle
+}
 .img-logo {
-    width: 91px;
+    width: 69px;
     margin-top: 7px;
     margin-right: 11px;
     display: inline-block;
@@ -152,6 +250,9 @@
     font-size: 15px;
 }
 .main-header h4 {
+    font-family: HelveticaNeue-Medium;
+    padding-top: 15px;
+    font-size: 15px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -255,13 +356,12 @@ a {
     text-decoration: none;
 }
 .body-saldo {
-    padding: 15px 45px;
+    padding: 15px 35px;
     background-color: #f9f9f9;
+    margin: 0 15px;
 }
 .saldo {
     display: inline-block;
-    margin-left: 21px;
-    background-color: #f9f9f9;
 }
 .saldo h5 {
     padding: 17px 21px;
@@ -301,6 +401,23 @@ a {
     border: solid 1px #e6e8f1;
     background-color: #f76b1c;
 }
+button.close {
+    -webkit-appearance: none;
+    padding: 0 0 11px 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}
+.close {
+    float: right;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: 1;
+}
 .col-sm-3 {
     padding-right: 1px;
     padding-left: 1px;
@@ -329,6 +446,7 @@ a {
 .laptgl {
     padding-right: 0px;
     padding-left: 3px;
+    margin-right: 0px;
 }
 .laptgls {
     margin-left: 21px;
@@ -360,11 +478,32 @@ a {
     content:"\e259";
     transform: rotate(180deg);
 }
-
+span.error {
+    color: #9F3A38;
+}
+.field.error {
+    border-color: #E0B4B4;
+    color: #9F3A38;
+}
+.form-control.error {
+    border-color: #E0B4B4;
+    color: #9F3A38;
+}
+.lapkor {
+    margin: 0 3%;
+    padding: 15px 5px;
+    border: solid 1px #333333;
+}
+.lapkor p {
+    font-family: HelveticaNeue-Medium;
+    font-size: 13px;
+    margin-left: 11px;
+}
 .table>thead>tr>th {
     font-family: HelveticaNeue-Medium;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
+    vertical-align: middle;
 }
 .table>tbody>tr>td {
     text-align: center;
@@ -401,7 +540,13 @@ a {
     padding-top: 7px;
     text-align: left;
 }
-
+.panel-body {
+    padding: 0px;
+}
+.col-xs-12 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
 .form-control {
     display: block;
     width: 100%;
@@ -419,6 +564,12 @@ a {
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-group p {
+    font-family: HelveticaNeue-Medium;
+    color: #7c8495;
+    margin: 15px 0 0;
+    letter-spacing: 1px;
 }
 .tombol-register {
     text-align: center;
@@ -546,15 +697,17 @@ a {
     background-color: #dddddd;
     border-radius: 5px;
     text-align: right;
-    margin-left: 26%;
+    margin-left: 18%;
     padding: 13px 10px;
 }
 .btn-refresh {
     font-family: HelveticaNeue-Medium;
     color: #333d58;
     font-size: 13px;
+    border-radius: 5px;
     margin-left: 151px;
     padding: 13px 45px;
+    background-color: #efefef;
 }
 .btn-tampilkan {
     font-family: HelveticaNeue-Medium;
@@ -633,7 +786,17 @@ a {
 .proses {
     margin-top: 20%;
 }
-
+.lapo {
+    border: solid 1px #333333;
+}
+.lapkorlap {
+    margin-left: 21px;
+    padding: 7px 12px;
+    border: solid 1px #333333;
+}
+.lapkorlap p {
+    margin-left: 9px;
+}
 
 
 /*   ---------------------------------------  Mobile View ------------------------------------   */
@@ -659,7 +822,9 @@ a {
     .foot-login p {
         margin-right: 11px;
     }
-
+    .radio-korlap {
+        margin-right: 5px;
+    }
     .container {
         border: solid 1px #e6e8f1;
     }
@@ -667,7 +832,7 @@ a {
         height: 63px;
     }
     .main-header .navbar-nav {
-        margin: 2px -4px;
+        margin: 1px 0px;
     }
     .main-header .navbar-nav > li {
         padding: 0 0px;
@@ -675,18 +840,24 @@ a {
     .navbar-left h4 {
         font-size: 14px;
     }
+    .img-fin {
+        width: 77px;
+    }
     .img-logo {
         width: 77px;
         margin-right: 11px;
     }
+    .topup {
+        width: 99%;
+    }
     .main-header h4 {
-        display: none;
+        font-size: 13px;
     }
     .main-header .navbar-nav > li > p {
         font-size: 10px;
     }
     .main-header .navbar-nav > li > a {
-        font-size: 10px;
+        font-size: 9px;
         padding: 7px 5px 0;
     }
     .nav > li > a {
@@ -725,7 +896,7 @@ a {
         height: 63px;
     }
     .main-header .navbar-nav {
-        margin: 2px -4px;
+        margin: 1px 0px;
     }
     .main-header .navbar-nav > li {
         padding: 0 0px;
@@ -733,32 +904,111 @@ a {
     .navbar-left h4 {
         font-size: 14px;
     }
+    .btn-refresh-reg {
+        margin-left: 7px;
+        padding: 12px 19px;
+        border-radius: 3px;
+    }
+    .btn-tampilkan {
+        border-radius: 5px;
+        font-size: 12px;
+        margin-left: 1px;
+        padding: 12px 19px;
+    }
+    .proses {
+        margin-top: 35%;
+    }
     .img-logo {
-        width: 69px;
-        margin-right: 9px;
+        width: 41px;
+        margin-top: 17px;
+        margin-right: 3px;
+    }
+    .img-fin {
+        width: 59px;
+        margin-top: 18px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    .topup {
+        width: 99%;
+    }
+    .lapkor {
+        margin: 0 4%;
+        padding: 15px 13px;
+    }
+    .korlap {
+        padding: 25px 0;
+    }
+    .radio-korlap {
+        margin-right: 5px;
+    }
+    .radio-korlap > input[type=radio]:checked {
+        margin: 4px 15px;
+    }
+    .laptgls {
+        margin-left: 7px;
+    }
+    .radio-korlap label {
+        font-size: 10px;
+    }
+    .btn-refresh {
+        font-size: 12px;
+        margin-left: 21px;
+        padding: 13px 25px;
+
+    }
+    .btn-tampil-topup {
+        padding: 12px 17px;
+        margin-left: 2px;
+    }
+    .btn-refresh-lap {
+        font-size: 12px;
+        margin-left: 7%;
+    }
+    .table>thead>tr>th {
+        font-size: 10px;
+    }
+    .btn-refresh-recon {
+        font-size: 11px;
+        border-radius: 5px;
+        margin-left: 2px;
+        padding: 12px 7px;
     }
     .main-header .navbar-nav > li > p {
         font-size: 8px;
     }
     .main-header .navbar-nav > li > a {
-        font-size: 9px;
-        padding: 7px 5px 0;
+        font-size: 7px;
+        padding: 7px 3px 0;
     }
     .main-header h4 {
-        display: none;
+        font-size: 13px;
     }
     .icon-menu {
         width: 19px;
         height: 19px;
     }
-    
+    .tombol-nominal {
+        text-align: right;
+    }
+    .btn-nominals {
+        margin: 9px 15px;
+        padding: 15px 25px;
+    }
+    .btn-nominal {
+        margin: 9px 15px;
+        padding: 15px 25px;
+    }
+    .body-saldo {
+        padding: 15px 21px;
+    }
     .nav > li > a {
         font-size: 10px;
-        padding: 10px 15px;
+        padding: 10px 13px;
     }
     .btn-register {
-        margin: 9px 14px;
-        padding: 15px 35px;
+        margin: 9px 11px;
+        padding: 15px 31px;
     }
     .ip {
         padding: 0 17px;
@@ -775,7 +1025,9 @@ a {
     .date p {
         font-size: 10px;
     }
-    
+    .laptgl {
+        margin-right: 9px;
+    }
 }
 
 @media (min-width: 414px) and (max-width: 767px) {
@@ -792,8 +1044,73 @@ a {
         margin: 2px 0 0;
     }
     .nav > li > a {
-        font-size: 11px;
+        font-size: 10px;
         padding: 10px 16px;
+    }
+    .btn-refresh-reg {
+        margin-left: 7px;
+        padding: 12px 19px;
+        border-radius: 3px;
+    }
+    .img-logo {
+        width: 41px;
+        margin-top: 23px;
+        margin-right: 5px;
+    }
+    .img-fin {
+        width: 51px;
+        margin-top: 26px;
+    }
+    .topup {
+        width: 99%;
+    }
+    .lapkor {
+        margin: 0 15%;
+    }
+    .korlap {
+        padding: 15px 15px;
+    }
+    .radio-korlap {
+        margin-right: 5px;
+    }
+    .radio-korlap > input[type=radio]:checked {
+        margin: 4px 15px;
+    }
+    .laptgls {
+        margin-left: 0px;
+    }
+    .radio-korlap label {
+        font-size: 12px;
+    }
+    .btn-tampil-topup {
+        padding: 12px 23px;
+        margin-left: 6px;
+    }
+    .table>thead>tr>th {
+        font-size: 10px;
+    }
+    .btn-refresh-recon {
+        font-size: 11px;
+        border-radius: 5px;
+        margin-left: 2px;
+        padding: 12px 7px;
+        margin-top: 9px;
+    }
+    .btn-tampilkan {
+        border-radius: 5px;
+        font-size: 12px;
+        margin-left: 2px;
+        padding: 13px 19px;
+    }
+    .col-xs-8 {
+        padding-right: 1px;
+        padding-left: 41px;
+        margin-bottom: 7px;
+    }
+    .col-sm-3 {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 7px;
     }
     .btn-register {
         margin: 9px 4px;
@@ -847,13 +1164,85 @@ a {
     .main-header {
         margin: 2px 0 0;
     }
+    .main-header h4 {
+        font-size: 13px;
+    }
+    .korlap {
+        padding: 25px 0;
+    }
+    .lapkor {
+        margin: 0 11%;
+    }
+    .main-header .navbar-nav > li > a {
+        font-size: 10px;
+        padding: 7px 7px 0;
+    }
     .nav > li > a {
+        font-size: 9px;
+        padding: 10px 9px;
+    }
+    .btn-refresh-reg {
+        margin-left: 7px;
+        padding: 12px 19px;
+        border-radius: 3px;
+    }
+    .img-logo {
+        width: 43px;
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+    .img-fin {
+        width: 67px;
+        margin-top: 20px;
+    }
+    .topup {
+        width: 99%;
+    }
+    .radio-korlap {
+        margin-right: 5px;
+    }
+    .radio-korlap > input[type=radio]:checked {
+        margin: 4px 15px;
+    }
+    .laptgls {
+        margin-left: 0px;
+    }
+    .radio-korlap label {
+        font-size: 12px;
+    }
+    .btn-tampil-topup {
+        padding: 12px 23px;
+        margin-left: 6px;
+    }
+    .table>thead>tr>th {
+        font-size: 10px;
+    }
+    .btn-refresh-recon {
         font-size: 11px;
-        padding: 10px 10px;
+        border-radius: 5px;
+        margin-left: 2px;
+        padding: 12px 7px;
+        margin-top: 7px;
+    }
+    .btn-tampilkan {
+        border-radius: 7px;
+        font-size: 12px;
+        margin-left: 1px;
+        padding: 12px 19px;     
+    }
+    .col-xs-8 {
+        padding-right: 1px;
+        padding-left: 41px;
+        margin-bottom: 7px;
+    }
+    .col-sm-3 {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 7px;
     }
     .btn-register {
         margin: 9px 4px;
-        padding: 15px 25px;
+        padding: 15px 35px;
     }
     .online p {
         font-size: 12px;
