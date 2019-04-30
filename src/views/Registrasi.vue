@@ -436,7 +436,7 @@
                                         </a>
                                     </h3>
                                 </div>
-                                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="xeading1">
+                                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
                                     <div class="panel-body">
                                         <div class="col-xs-12">
                                             <div class="table-responsive">
