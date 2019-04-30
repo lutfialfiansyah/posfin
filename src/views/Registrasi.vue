@@ -316,7 +316,7 @@
                                 <button type="button" class="btn-register">TAMBAH</button>
                                 <button type="button" class="btn-register">UBAH</button>
                                 <button type="button" class="btn-register">HAPUS</button>
-                                <button type="button" class="btn-register" ref="btnupdtRek" :disabled="vaBank == undefined || vaBank == 0 ? true : false" @click="addDataRekening()">REKAM</button>
+                                <button type="button" class="btn-register" ref="btnupdtRek" :disabled="vaBank == undefined || vaBank == 0 ? false : true" @click="addDataRekening()">REKAM</button>
                                 <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
@@ -436,7 +436,7 @@
                                         </a>
                                     </h3>
                                 </div>
-                                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="xeading1">
                                     <div class="panel-body">
                                         <div class="col-xs-12">
                                             <div class="table-responsive">
