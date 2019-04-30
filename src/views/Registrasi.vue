@@ -183,7 +183,7 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-7"><input type="text" v-model="kode_agent" class="form-control"></div><p>ENTER</p>
+                                        <div class="col-xs-7"><input type="text" ref="checkKodeAgent" v-model="kode_agent" v-on:keyup.enter="InquiryAgent()" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
@@ -195,7 +195,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3"></label>
-                                        <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="alamat_agents" class="form-control"></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kota</label>
@@ -211,7 +211,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">No. Telp/HP</label>
-                                        <div class="col-xs-9"><input type="text" v-model="telp" class="form-control" name="telp" v-validate="'required|max:12'" data-vv-as="field" :class="{error: errors.has('telp')}"><span class="error" v-if="errors.has('telp')">{{errors.first('telp')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="telp" class="form-control" name="telp" v-validate="'required|max:15'" data-vv-as="field" :class="{error: errors.has('telp')}"><span class="error" v-if="errors.has('telp')">{{errors.first('telp')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Email Address</label>
@@ -225,7 +225,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">No. Telpon Kontak Person</label>
-                                        <div class="col-xs-9"><input type="text" v-model="telp_pic" class="form-control" name="telp_pic" v-validate="'required|max:12'" data-vv-as="field" :class="{error: errors.has('telp_pic')}"><span class="error" v-if="errors.has('telp_pic')">{{errors.first('telp_pic')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="telp_pic" class="form-control" name="telp_pic" v-validate="'required|max:15'" data-vv-as="field" :class="{error: errors.has('telp_pic')}"><span class="error" v-if="errors.has('telp_pic')">{{errors.first('telp_pic')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Koordinator Agen</label>
@@ -237,7 +237,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><v-select v-model="status" :options="option" title="0 - Aktif"></v-select></div>
+                                        <div class="col-xs-9"><v-select v-model="status_agent" :options="option" title="0 - Aktif"></v-select></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">KPRK POS</label>
@@ -249,19 +249,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Date Last Update</label>
-                                        <div class="col-xs-9"><date-picker v-model="lastdate" :config="options"></date-picker></div>
+                                        <div class="col-xs-9"><date-picker v-model="lastdate_agent" :config="options"></date-picker></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tombol-register">
                                 <button type="button" class="btn-register">TAMBAH</button>
                                 <button type="button" class="btn-register">UBAH</button>
-                                <button type="button" class="btn-register">HAPUS</button>
-                                <button type="button" class="btn-register">REKAM</button>
+                                <button type="button" class="btn-register" @click="DeleteAgent()">HAPUS</button>
+                                <button type="button" class="btn-register" @click="addDataAgentDb()">REKAM</button>
                                 <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
@@ -277,11 +277,12 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-7"><input type="text" v-model="kode_agent" class="form-control"></div><p>ENTER</p>
+                                        <div class="col-xs-7"><input type="text" ref="checkKodeRek" v-on:keyup.enter="checkRekening" v-model="kode_agent_rekening" class="form-control">
+                                        <input type="hidden" ref="checkToken" :value="this.getToken"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
-                                        <div class="col-xs-9"><input type="text" v-model="nama_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="nama_rekening" class="form-control"></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Account Buffer</label>
@@ -290,8 +291,24 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label class="control-label col-xs-3">Virtual Account</label>
-                                        <div class="col-xs-9"><input type="text" v-model="va" class="form-control" readonly></div>
+                                        <!-- <label class="control-label col-xs-3">Virtual Account</label> -->
+                                        <!-- <div class="col-xs-9"><input type="text" v-model="va" class="form-control" readonly></div> -->
+                                    <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>BANK</th>
+                                                            <th>Virtual Account</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr v-for="(dataBank,index) in vaBank">                                                    
+                                                        <td>{{ dataBank.BankName }}</td>
+                                                        <td>{{ dataBank.VaNo }}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                     </div>
                                 </div>
                               </div>
@@ -299,7 +316,7 @@
                                 <button type="button" class="btn-register">TAMBAH</button>
                                 <button type="button" class="btn-register">UBAH</button>
                                 <button type="button" class="btn-register">HAPUS</button>
-                                <button type="button" class="btn-register">REKAM</button>
+                                <button type="button" class="btn-register" ref="btnupdtRek" :disabled="vaBank == undefined || vaBank == 0 ? true : false" @click="addDataRekening()">REKAM</button>
                                 <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
@@ -315,11 +332,11 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-7"><input type="text" v-model="kode_agent" class="form-control"></div><p>ENTER</p>
+                                        <div class="col-xs-7"><input type="text" v-model="kode_agent_petugas" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
-                                        <div class="col-xs-9"><input type="text" v-model="nama_agent" class="form-control"></div>
+                                        <div class="col-xs-9"><input type="text" v-model="nama_agent_petugas" class="form-control"></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID PETUGAS</label>
@@ -480,6 +497,7 @@ import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
  import 'vue-select/dist/vue-select.css';
+ import moment from 'moment';
 
     export default {
         name: 'registrasi',
@@ -508,6 +526,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 nama_agent: '',
                 kota_agent: '',
                 alamat_agent: '',
+                alamat_agents: '',
                 kodepos: '',
                 propinsi: '',
                 telp: '',
@@ -517,11 +536,19 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 telp_pic: '',
                 koor_agent: '',
                 waktu: '',
+                status_agent: '',
                 kprk_pos: '',
                 nm_kprk: '',
+                lastdate_agent: '',
+                id_update_agent: '',
                 account: '',
                 id_petugas: '',
                 nm_petugas: '',
+                nama_rekening:'',
+                getToken:'',
+                kode_agent_rekening:'',
+                kode_agent_petugas:'',
+                nama_agent_petugas:'',
                 lastakses: new Date(),
                 options: {
                 format: 'DD/MM/YYYY',
@@ -546,6 +573,8 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 id_update: null,
                 searchno: null,
                 lastdate: new Date(),
+                dateRequest: new Date(),
+                vaBank: [],
                 options: {
                 format: 'DD/MM/YYYY',
                 useCurrent: false,
@@ -584,6 +613,10 @@ import datePicker from 'vue-bootstrap-datetimepicker';
         components: {
         datePicker
         },
+        mounted()
+       {
+        this.getTokenAPI();
+       },
         methods: {
             close() {
                 this.$router.push('/')
@@ -593,8 +626,35 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             this.$router.push('/login')
             },
             BackEndDateFormat: function(date) {
+        		return moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
+            },
+            FrontEndDateFormat: function(date) {
         		return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
-        	},
+            },
+            RequestTime: function(date) {
+        		return moment(date, 'YYYY-MM-DD').format('YYYYMMDDHHmmss');
+            },
+            getTokenAPI(){
+            axios({
+                method: 'post',
+                url: 'https://149.129.242.191/v1/pos/jwt-token',
+                crossdomain: true, 
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": 'Basic YWRtaW46Y2hhbmdlbWU=',
+                },
+                data: {
+                }
+                }).then(response => {
+                    let Token = response.data.Token
+                    this.getToken = Token
+                    // this.addDataAgentDb(this.getToken)
+                    console.log(response)
+                }).catch(error => {
+                    console.log(error)
+                }); 
+
+            }, 
             getKodeAkses(){
                 axios({
                     method:'get',
@@ -634,6 +694,104 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         // console.log(this.lastdate +' '+this.last_access)
                 });
             },
+            checkRekening(){
+            let getid = this.$refs.checkKodeRek.value;
+            let getToken = this.$refs.checkToken.value;
+            //    console.log()
+               axios({
+                    method:'post',
+                    url:'https://149.129.242.191/v1/pos/agent/inquiry',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data: {
+                        "TxnRefNo":"INQ0003",
+                        "ChannelId":"BOA",
+                        "RequestTime":"20190224120000",
+                        "ServiceCode":"INQUIRY_AGENT",
+                        "KodeAgen":getid,
+                        "KodeMainAgent":"",
+                        "InquiryType":"1"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.editakses = datauserakses
+                        this.vaBank = datauserakses.data.Accounts
+                        console.log(this.vaBank)
+                       
+                        // alert(this.editakses)
+                        // this.va = this.editakses.Accounts
+                        this.nama_rekening = this.editakses.data.NamaAgen
+                });
+            },
+            InquiryAgent(){
+               let getid = this.$refs.checkKodeAgent.value;
+               let getToken = this.$refs.checkToken.value;
+            //    console.log(getToken)
+               axios({
+                    method:'post',
+                    url:'https://149.129.242.191/v1/pos/agent/inquiry',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data: {
+                        "TxnRefNo":"APPS01203903",
+                        "ChannelId":"BOA",
+                        "RequestTime":this.RequestTime(this.dateRequest),
+                        "ServiceCode":"INQUIRY_AGENT",
+                        "KodeAgen": getid,
+                        "KodeMainAgent": "",
+                        "InquiryType":"1"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.editakses = datauserakses.data
+                        console.log(this.editakses)
+                            this.nama_agent = this.editakses.NamaAgen
+                            this.alamat_agent = this.editakses.Alamat1
+                            this.alamat_agents = this.editakses.Alamat1
+                            this.kota_agent = this.editakses.Kota
+                            this.kodepos = this.editakses.KodePos
+                            this.propinsi = this.editakses.Propinsi
+                            this.telp = this.editakses.NoTelp
+                            this.email_agent = this.editakses.Email
+                            this.pic_agent = this.editakses.KontakPerson
+                            this.telp_pic = this.editakses.NoTelpKontakPerson
+                            this.koor_agent = this.editakses.KoordinatorAgen
+                            // "KoordinatorLapangan":"0000948",
+                            // "MainAgen":"843",
+                            if (this.editakses.StatusAktif == 0) {
+                                this.status_agent =  this.editakses.StatusAktif + ' - Aktif'
+                            }else if (this.editakses.StatusAktif == 1){
+                                this.status_agent =  this.editakses.StatusAktif + ' - Sedang Login'
+                            }else if (this.editakses.StatusAktif == 2){
+                                this.status_agent =  this.editakses.StatusAktif + ' - Cetak Backsheet'
+                            }else if (this.editakses.StatusAktif == 3){
+                                this.status_agent =  this.editakses.StatusAktif + ' - Blokir'
+                            }else if (this.editakses.StatusAktif == 4){
+                                this.status_agent =  this.editakses.StatusAktif + ' - Expire'
+                            }else if (this.editakses.StatusAktif == 5){
+                                this.status_agent =  this.editakses.StatusAktif + ' - Belum Validasi'
+                            }else if (this.editakses.StatusAktif == 6){
+                                this.status_agent =  this.editakses.StatusAktif + ' - Sudah Validasi'
+                            }
+                            this.waktu = this.editakses.WaktuRegional
+                            this.lastdate_agent =  this.FrontEndDateFormat(this.editakses.LastUpdate)
+                            this.id_update_agent = this.editakses.IdUserUpdate
+                        // this.nama_rekening = this.editakses.namaAgen
+                        // this.password = this.editakses.password
+                        // if (this.editakses.status == 0) {
+                        //     this.status =  this.editakses.status + ' - Aktif'
+                        // }else{
+                        //     this.status =  this.editakses.status + ' - NonAktif'
+                        // }
+                        // console.log(this.lastdate +' '+this.last_access)
+                });
+            },
             addUserAkses(){
                 this.$validator.validateAll()
                 axios({
@@ -664,7 +822,109 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 }).catch(error => {
                     console.log(error)
                 });
-            },   
+            },
+            addDataAgentDb(){
+                // console.log(parseInt(this.status_agent))
+               let getToken = this.$refs.checkToken.value;
+                axios({
+                        method: 'post',
+                        // url: 'https://dev-ip/v1/agent/registration',
+                        url: 'https://149.129.242.191/v1/pos/agent/registration',
+                        crossdomain: true, 
+                        headers: {
+                            "Content-Type": 'application/json',
+                            "ESB-JWT": "Token " + getToken,
+                        },
+                        data: {
+                            "TxnRefNo": "APPS01203902",
+                            "ChannelId": "APPS01",
+                            "RequestTime":this.RequestTime(this.dateRequest),
+                            "ServiceCode": "CREATE_AGENT",
+                            "TipeAgen":"Agen",
+                            "NamaAgen":this.nama_agent,
+                            "Alamat1":this.alamat_agent,
+                            "Alamat2":this.alamat_agents,
+                            "Kota":this.kota_agent,
+                            "KodePos":this.kodepos,
+                            "Propinsi":this.propinsi,
+                            "NoTelp":this.telp,
+                            "Email":this.email_agent,
+                            "KontakPerson":this.pic_agent,
+                            "NoTelpKontakPerson":this.telp_pic,
+                            "KoordinatorAgen":"00000208",
+                            "KoordinatorLapangan":"0000948",
+                            "MainAgen":"843",
+                            "StatusActive":this.status_agent,
+                            "WaktuRegional":this.waktu,
+                            "DateLastUpdate":this.BackEndDateFormat(this.lastdate_agent),
+                            "UserId":this.id_update_agent 
+                        }
+                        }).then(response => {
+                            // alert('')
+                            console.log(response)
+                            alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
+                        }).catch(error => {
+                            console.log(error)
+                        }); 
+            },
+            addDataRekening(){
+            let getid = this.$refs.checkKodeRek.value;
+            let getToken = this.$refs.checkToken.value;
+            //    console.log(getToken)
+               axios({
+                    method:'post',
+                    url:'https://149.129.242.191/v1/pos/account/registration',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data: {
+                        "TxnRefNo":"APPS01203902",
+                        "ChannelId":"APPS01",
+                        "RequestTime":"20190224120000",
+                        "ServiceCode":"CREATE_ACCT_AGENT",
+                        "KodeAgen": getid,
+                        "KodeMainAgent": "0000001",
+                        "UserId":"01"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.editakses = datauserakses
+                        console.log(this.editakses)
+                        alert(this.editakses.data.ResponseMessage)
+                        // this.va = this.editakses.Accounts
+                        // this.nama_rekening = this.editakses.data.NamaAgen
+                });
+            },
+            DeleteAgent(){
+                //  let getid = this.$refs.checkKodeA.value;
+            let getToken = this.$refs.checkToken.value;
+            //    console.log(getToken)
+               axios({
+                    method:'post',
+                    url:'https://149.129.242.191/v1/pos/agent/delete',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data:{
+                        "TxnRefNo":"APPS01203903",
+                        "ChannelId":"APPS01",
+                        "RequestTime":"20190224120000",
+                        "ServiceCode":"DELETE_AGENT",
+                        "KodeAgent": this.kode_agent
+                    }
+                }).then(response => {
+                        let datauserakses = response
+                        this.deleteAgent = datauserakses
+                        console.log(this.deleteAgent)
+                        alert(this.deleteAgent.data.ResponseDesc + ' to Delete')
+                        // this.va = this.editakses.Accounts
+                        // this.nama_rekening = this.editakses.data.NamaAgen
+                });
+            },
         updateUserAkses(){
                let getid = this.$refs.checkKode.value;
                 axios({

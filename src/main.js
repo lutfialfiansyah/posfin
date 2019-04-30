@@ -18,6 +18,7 @@ global.jQuery = require('jquery');
 var $ = global.jQuery;
 window.$ = $;
 
+
 new Vue({
   router,
   store,
