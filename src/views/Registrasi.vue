@@ -183,11 +183,11 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-7"><input type="text" ref="checkKodeAgent" v-model="kode_agent" v-on:keyup.enter="InquiryAgent()" class="form-control"></div><p>ENTER</p>
+                                        <div class="col-xs-7"><input type="text" ref="checkKodeAgent" v-model="kode_agent" v-on:keyup.enter="InquiryAgent()" :disabled="btntambahAgent" class="form-control"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
-                                        <div class="col-xs-9"><input type="text" v-model="nama_agent" class="form-control" name="nama_agent" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('nama_agent')}"><span class="error" v-if="errors.has('nama_agent')">{{errors.first('nama_agent')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="nama_agent" class="form-control" name="nama_agent" :autofocus="btntambahAgent" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('nama_agent')}"><span class="error" v-if="errors.has('nama_agent')">{{errors.first('nama_agent')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Alamat</label>
@@ -258,10 +258,10 @@
                                 </div>
                             </div>
                             <div class="tombol-register">
-                                <button type="button" class="btn-register">TAMBAH</button>
-                                <button type="button" class="btn-register">UBAH</button>
-                                <button type="button" class="btn-register" @click="DeleteAgent()">HAPUS</button>
-                                <button type="button" class="btn-register" @click="addDataAgentDb()">REKAM</button>
+                                <button type="button" class="btn-register" @click="btntambahAgent=true" :disabled="btntambahAgent">TAMBAH</button>
+                                <button type="button" class="btn-register" :disabled="editAgentRes != 'Success' ? true : false">UBAH</button>
+                                <button type="button" class="btn-register" @click="DeleteAgent()" :disabled="editAgentRes != 'Success' ? true : false">HAPUS</button>
+                                <button type="button" class="btn-register" @click="addDataAgentDb()" :disabled="btntambahAgent != true ? true :false">REKAM</button>
                                 <button type="button" class="btn-register">BATAL</button>
                             </div>
                             </form>
@@ -549,7 +549,10 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 kode_agent_rekening:'',
                 kode_agent_petugas:'',
                 nama_agent_petugas:'',
+                btntambahAgent:false,
                 lastakses: new Date(),
+                editAgent:'',
+                editAgentRes:'',
                 options: {
                 format: 'DD/MM/YYYY',
                 useCurrent: false,
@@ -749,39 +752,43 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }
                 }).then(response => {
                         let datauserakses = response
-                        this.editakses = datauserakses.data
-                        console.log(this.editakses)
-                            this.nama_agent = this.editakses.NamaAgen
-                            this.alamat_agent = this.editakses.Alamat1
-                            this.alamat_agents = this.editakses.Alamat1
-                            this.kota_agent = this.editakses.Kota
-                            this.kodepos = this.editakses.KodePos
-                            this.propinsi = this.editakses.Propinsi
-                            this.telp = this.editakses.NoTelp
-                            this.email_agent = this.editakses.Email
-                            this.pic_agent = this.editakses.KontakPerson
-                            this.telp_pic = this.editakses.NoTelpKontakPerson
-                            this.koor_agent = this.editakses.KoordinatorAgen
+                        this.editAgent = datauserakses.data
+                        this.editAgentRes = datauserakses.data.ResponseDesc
+                        if (this.editAgentRes != "Success") {
+                            alert(this.editAgentRes)
+                        }
+                        console.log(this.editAgent)
+                            this.nama_agent = this.editAgent.NamaAgen
+                            this.alamat_agent = this.editAgent.Alamat1
+                            this.alamat_agents = this.editAgent.Alamat1
+                            this.kota_agent = this.editAgent.Kota
+                            this.kodepos = this.editAgent.KodePos
+                            this.propinsi = this.editAgent.Propinsi
+                            this.telp = this.editAgent.NoTelp
+                            this.email_agent = this.editAgent.Email
+                            this.pic_agent = this.editAgent.KontakPerson
+                            this.telp_pic = this.editAgent.NoTelpKontakPerson
+                            this.koor_agent = this.editAgent.KoordinatorAgen
                             // "KoordinatorLapangan":"0000948",
                             // "MainAgen":"843",
-                            if (this.editakses.StatusAktif == 0) {
-                                this.status_agent =  this.editakses.StatusAktif + ' - Aktif'
-                            }else if (this.editakses.StatusAktif == 1){
-                                this.status_agent =  this.editakses.StatusAktif + ' - Sedang Login'
-                            }else if (this.editakses.StatusAktif == 2){
-                                this.status_agent =  this.editakses.StatusAktif + ' - Cetak Backsheet'
-                            }else if (this.editakses.StatusAktif == 3){
-                                this.status_agent =  this.editakses.StatusAktif + ' - Blokir'
-                            }else if (this.editakses.StatusAktif == 4){
-                                this.status_agent =  this.editakses.StatusAktif + ' - Expire'
-                            }else if (this.editakses.StatusAktif == 5){
-                                this.status_agent =  this.editakses.StatusAktif + ' - Belum Validasi'
-                            }else if (this.editakses.StatusAktif == 6){
-                                this.status_agent =  this.editakses.StatusAktif + ' - Sudah Validasi'
+                            if (this.editAgent.StatusAktif == 0) {
+                                this.status_agent =  this.editAgent.StatusAktif + ' - Aktif'
+                            }else if (this.editAgent.StatusAktif == 1){
+                                this.status_agent =  this.editAgent.StatusAktif + ' - Sedang Login'
+                            }else if (this.editAgent.StatusAktif == 2){
+                                this.status_agent =  this.editAgent.StatusAktif + ' - Cetak Backsheet'
+                            }else if (this.editAgent.StatusAktif == 3){
+                                this.status_agent =  this.editAgent.StatusAktif + ' - Blokir'
+                            }else if (this.editAgent.StatusAktif == 4){
+                                this.status_agent =  this.editAgent.StatusAktif + ' - Expire'
+                            }else if (this.editAgent.StatusAktif == 5){
+                                this.status_agent =  this.editAgent.StatusAktif + ' - Belum Validasi'
+                            }else if (this.editAgent.StatusAktif == 6){
+                                this.status_agent =  this.editAgent.StatusAktif + ' - Sudah Validasi'
                             }
-                            this.waktu = this.editakses.WaktuRegional
-                            this.lastdate_agent =  this.FrontEndDateFormat(this.editakses.LastUpdate)
-                            this.id_update_agent = this.editakses.IdUserUpdate
+                            this.waktu = this.editAgent.WaktuRegional
+                            this.lastdate_agent =  this.FrontEndDateFormat(this.editAgent.LastUpdate)
+                            this.id_update_agent = this.editAgent.IdUserUpdate
                         // this.nama_rekening = this.editakses.namaAgen
                         // this.password = this.editakses.password
                         // if (this.editakses.status == 0) {
@@ -824,8 +831,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 });
             },
             addDataAgentDb(){
-               let getToken = this.$refs.checkToken.value;
-               let status = String(parseInt(this.status_agent))
+                this.$validator.validateAll()
+                let getToken = this.$refs.checkToken.value;
+                let status = String(parseInt(this.status_agent))
                 axios({
                         method: 'post',
                         // url: 'https://dev-ip/v1/agent/registration',
