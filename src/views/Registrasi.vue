@@ -178,7 +178,7 @@
                     <div class="body-registrasi">
                         <h5>PENDAFTARAN AGENT</h5>
                         <div class="row">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" id="daftar-agent">
                               <div class="col-md-12 col-sm-12">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
@@ -262,7 +262,7 @@
                                 <button type="button" class="btn-register" :disabled="editAgentRes != 'Success' ? true : false">UBAH</button>
                                 <button type="button" class="btn-register" @click="DeleteAgent()" :disabled="editAgentRes != 'Success' ? true : false">HAPUS</button>
                                 <button type="button" class="btn-register" @click="addDataAgentDb()" :disabled="btntambahAgent != true ? true :false">REKAM</button>
-                                <button type="button" class="btn-register">BATAL</button>
+                                <button type="button" class="btn-register" @click="Clearagent()" value="Reset form">BATAL</button>
                             </div>
                             </form>
                         </div>
@@ -625,6 +625,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
         this.getTokenAPI();
        },
         methods: {
+            Clearagent() {
+                document.getElementById("daftar-agent").reset()
+            },
             close() {
                 this.$router.push('/')
             },
@@ -828,6 +831,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 }
                 }).then(response => {
                     alert(response.data.message)
+                    window.location.reload(true)
                     console.log(response)
                 }).catch(error => {
                     console.log(error)
@@ -869,12 +873,12 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             "WaktuRegional":this.waktu,
                             "DateLastUpdate":this.BackEndDateFormat(this.lastdate_agent),
                             "UserId":this.id_update_agent
-                            
                         }
                         }).then(response => {
                             // alert('')
                             console.log(response)
                             alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
+                             window.location.reload(true)
                         }).catch(error => {
                             console.log(error)
                         }); 
@@ -905,8 +909,6 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         this.editakses = datauserakses
                         console.log(this.editakses)
                         alert(this.editakses.data.ResponseMessage)
-                        // this.va = this.editakses.Accounts
-                        // this.nama_rekening = this.editakses.data.NamaAgen
                 });
             },
             DeleteAgent(){
@@ -933,8 +935,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         this.deleteAgent = datauserakses
                         console.log(this.deleteAgent)
                         alert(this.deleteAgent.data.ResponseDesc + ' to Delete')
-                        // this.va = this.editakses.Accounts
-                        // this.nama_rekening = this.editakses.data.NamaAgen
+                      window.location.reload(true)
                 });
             },
         updateUserAkses(){
@@ -958,8 +959,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     date_last_update: this.lastdate,
                     id_user_update: this.user_update,
                     last_access: this.id_update,
-                    status_aktif: this.status,
-
+                    status_aktif: this.status
                 }
                 }).then(response => {
                     alert(response.data.message)
