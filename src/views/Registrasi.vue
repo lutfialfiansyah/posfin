@@ -183,7 +183,7 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-7"><input type="text" ref="checkKodeAgent" v-model="kode_agent" v-on:keyup.enter="InquiryAgent()" class="form-control"></div><p>ENTER</p>
+                                        <div class="col-xs-7"><input type="text" ref="checkKodeAgent" v-model="kode_agent" v-on:keyup.enter="InquiryAgent()" id="kode_agent" class="form-control" ></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
@@ -258,8 +258,8 @@
                                 </div>
                             </div>
                             <div class="tombol-register">
-                                <button type="button" class="btn-register">TAMBAH</button>
-                                <button type="button" class="btn-register">UBAH</button>
+                                <button type="button" class="btn-register" >TAMBAH</button>
+                                <button type="button" class="btn-register" >UBAH</button>
                                 <button type="button" class="btn-register" @click="DeleteAgent()">HAPUS</button>
                                 <button type="button" class="btn-register" @click="addDataAgentDb()">REKAM</button>
                                 <button type="button" class="btn-register">BATAL</button>

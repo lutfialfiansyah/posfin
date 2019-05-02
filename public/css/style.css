@@ -169,6 +169,10 @@
     border-radius: 5px;
     padding: 13px 25px;
 }
+button[disabled], html input[disabled] {
+    cursor: default;
+    background-color: #ccc;
+}
 .btn-delete {
     font-family: HelveticaNeue-Medium;
     color: #fff;
