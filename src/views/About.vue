@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="foot-dashboard">
-                <p>POSFIN(c)2019 , subsidiary of PT. Pos Indonesia , all right reserved.</p>
+                <p>POSFIN <i class="glyphicon glyphicon-copyright-mark"></i> 2019 , subsidiary of PT. Pos Indonesia , all right reserved.</p>
             </div>
         </div>
     </div>
