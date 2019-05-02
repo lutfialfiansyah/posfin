@@ -36,7 +36,7 @@
                 <p>MAIN AGENT: PT. BAKTI WASANTARA NET (BWN) 9830000</p>
             </div>
             <div class="foot-dashboard">
-                <P>POSFIN(c)2019 , subsidiary of PT. Pos Indonesia , all right reserved.</P>
+                <P>POSFIN <i class="glyphicon glyphicon-copyright-mark"></i> 2019 , subsidiary of PT. Pos Indonesia , all right reserved.</P>
             </div>
         </div>
     </div>

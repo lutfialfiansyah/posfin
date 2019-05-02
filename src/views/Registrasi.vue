@@ -539,7 +539,11 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 status_agent: '',
                 kprk_pos: '',
                 nm_kprk: '',
-                lastdate_agent: '',
+                lastdate_agent: new Date(),
+                options: {
+                format: 'DD/MM/YYYY',
+                useCurrent: false,
+                },
                 id_update_agent: '',
                 account: '',
                 id_petugas: '',
