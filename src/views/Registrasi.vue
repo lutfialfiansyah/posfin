@@ -203,7 +203,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Pos</label>
-                                        <div class="col-xs-9"><input type="text" v-model="kodepos" class="form-control" name="kodepos" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('kodepos')}"><span class="error" v-if="errors.has('kodepos')">{{errors.first('kodepos')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="kodepos" class="form-control" name="kodepos" v-validate="'required|max:5'" data-vv-as="field" :class="{error: errors.has('kodepos')}"><span class="error" v-if="errors.has('kodepos')">{{errors.first('kodepos')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Propinsi</label>
@@ -828,8 +828,8 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 });
             },
             addDataAgentDb(){
-                // console.log(parseInt(this.status_agent))
                let getToken = this.$refs.checkToken.value;
+               let status = String(parseInt(this.status_agent))
                 axios({
                         method: 'post',
                         // url: 'https://dev-ip/v1/agent/registration',
@@ -858,10 +858,11 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             "KoordinatorAgen":"00000208",
                             "KoordinatorLapangan":"0000948",
                             "MainAgen":"843",
-                            "StatusActive":this.status_agent,
+                            "StatusActive":status,
                             "WaktuRegional":this.waktu,
                             "DateLastUpdate":this.BackEndDateFormat(this.lastdate_agent),
-                            "UserId":this.id_update_agent 
+                            "UserId":this.id_update_agent
+                            
                         }
                         }).then(response => {
                             // alert('')
