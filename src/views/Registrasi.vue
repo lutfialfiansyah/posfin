@@ -31,40 +31,24 @@
                                         <div class="form-group">
                                             <div class="field" :class="{error: errors.has('nama')}">
                                                 <label class="control-label col-xs-3">Nama User</label>
-<<<<<<< HEAD
-                                                <div class="col-xs-9"><input type="text" name="nama" v-model="nama_user" v-validate="'required|min:4'" data-vv-as="field" class="form-control" :class="{error: errors.has('nama')}"><span class="error" v-if="errors.has('nama')">{{errors.first('nama')}}</span></div>
-=======
-                                                <div class="col-xs-9"><input type="text" name="nama" v-model="nama" v-validate="'required|min:4'" data-vv-as="nama" class="form-control" :class="{error: errors.has('nama')}"><span class="error" v-if="errors.has('nama')">{{errors.first('nama')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                                <div class="col-xs-9"><input type="text" name="nama" v-model="nama_user" v-validate="'required|min:4'" data-vv-as="nama" class="form-control" :class="{error: errors.has('nama')}"><span class="error" v-if="errors.has('nama')">{{errors.first('nama')}}</span></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field" :class="{error: errors.has('password')}"></div>
                                             <label class="control-label col-xs-3">Password</label>
-<<<<<<< HEAD
-                                            <div class="col-xs-9"><input type="password" name="password" v-validate="'required|min:5'" data-vv-as="field" v-model="password_user" class="form-control" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
-=======
-                                            <div class="col-xs-9"><input type="password" name="password" v-validate="'required|min:5'" data-vv-as="password" v-model="password" class="form-control" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                            <div class="col-xs-9"><input type="password" name="password" v-validate="'required|min:5'" data-vv-as="password" v-model="password_user" class="form-control" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field" :class="{error: errors.has('id')}">
                                                 <label class="control-label col-xs-3">ID Terminal</label>
-<<<<<<< HEAD
-                                            <div class="col-xs-9"><input type="text" name="id" v-validate="'required|numeric|min:3'" data-vv-as="field" v-model="id_terminal_user" class="form-control" placeholder="- - - - -" :class="{error: errors.has('id')}"><span class="error" v-if="errors.has('id')">{{errors.first('id')}}</span></div>
-=======
-                                            <div class="col-xs-9"><input type="text" name="id" v-validate="'required|numeric|min:3'" data-vv-as="id terminal" v-model="id_terminal" class="form-control" placeholder="- - - - -" :class="{error: errors.has('id')}"><span class="error" v-if="errors.has('id')">{{errors.first('id')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                            <div class="col-xs-9"><input type="text" name="id" v-validate="'required|numeric|min:3'" data-vv-as="id_terminal" v-model="id_terminal_user" class="form-control" placeholder="- - - - -" :class="{error: errors.has('id')}"><span class="error" v-if="errors.has('id')">{{errors.first('id')}}</span></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field" :class="{error: errors.has('hdd')}">
                                                 <label class="control-label col-xs-3">HDD Serial Number</label>
-<<<<<<< HEAD
-                                                <div class="col-xs-9"><input type="text" name="hdd" v-validate="'required|max:4'" data-vv-as="field" v-model="hdd_user" class="form-control" :class="{error: errors.has('hdd')}"><span class="error" v-if="errors.has('hdd')">{{errors.first('hdd')}}</span></div>
-=======
-                                                <div class="col-xs-9"><input type="text" name="hdd" v-validate="'required|max:4'" data-vv-as="hdd" v-model="hdd" class="form-control" :class="{error: errors.has('hdd')}"><span class="error" v-if="errors.has('hdd')">{{errors.first('hdd')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                                <div class="col-xs-9"><input type="text" name="hdd" v-validate="'required|max:4'" data-vv-as="hdd" v-model="hdd_user" class="form-control" :class="{error: errors.has('hdd')}"><span class="error" v-if="errors.has('hdd')">{{errors.first('hdd')}}</span></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -74,31 +58,19 @@
                                         <div class="form-group">
                                             <div class="field" :class="{error: errors.has('email')}">
                                                 <label class="control-label col-xs-3">Email Address</label>
-<<<<<<< HEAD
-                                                <div class="col-xs-9"><input type="text" name="email" v-validate="'required|email'" data-vv-as="field" v-model="email_user" class="form-control" :class="{error: errors.has('email')}"><span class="error" v-if="errors.has('email')">{{errors.first('email')}}</span></div>
-=======
-                                                <div class="col-xs-9"><input type="text" name="email" v-validate="'required|email'" data-vv-as="email" v-model="email" class="form-control" :class="{error: errors.has('email')}"><span class="error" v-if="errors.has('email')">{{errors.first('email')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                                <div class="col-xs-9"><input type="text" name="email" v-validate="'required|email'" data-vv-as="email" v-model="email_user" class="form-control" :class="{error: errors.has('email')}"><span class="error" v-if="errors.has('email')">{{errors.first('email')}}</span></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field" :class="{error: errors.has('korlap')}">
                                                 <label class="control-label col-xs-3">Koordinator Lapangan</label>
-<<<<<<< HEAD
-                                                <div class="col-xs-9"><input type="text" name="korlap" v-validate="'required|min:3'" data-vv-as="field" v-model="korlap_user" class="form-control" :class="{error: errors.has('korlap')}"><span class="error" v-if="errors.has('korlap')">{{errors.first('korlap')}}</span></div>
-=======
-                                                <div class="col-xs-9"><input type="text" name="korlap" v-validate="'required|min:3'" data-vv-as="koordinator" v-model="korlap" class="form-control" :class="{error: errors.has('korlap')}"><span class="error" v-if="errors.has('korlap')">{{errors.first('korlap')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                                <div class="col-xs-9"><input type="text" name="korlap" v-validate="'required|min:3'" data-vv-as="koordinator lapangan" v-model="korlap_user" class="form-control" :class="{error: errors.has('korlap')}"><span class="error" v-if="errors.has('korlap')">{{errors.first('korlap')}}</span></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="field" :class="{error: errors.has('koordinator')}">
                                                 <label class="control-label col-xs-3">Nama Koordinator</label>
-<<<<<<< HEAD
-                                                <div class="col-xs-9"><input type="text" name="koordinator" v-validate="'required|min:3'" data-vv-as="field" v-model="koordinator_user" class="form-control" :class="{error: errors.has('koordinator')}"><span class="error" v-if="errors.has('koordinator')">{{errors.first('koordinator')}}</span></div>
-=======
-                                                <div class="col-xs-9"><input type="text" name="koordinator" v-validate="'required|min:3'" data-vv-as="nama" v-model="koordinator" class="form-control" :class="{error: errors.has('koordinator')}"><span class="error" v-if="errors.has('koordinator')">{{errors.first('koordinator')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                                <div class="col-xs-9"><input type="text" name="koordinator" v-validate="'required|min:3'" data-vv-as="nama koordinator" v-model="koordinator_user" class="form-control" :class="{error: errors.has('koordinator')}"><span class="error" v-if="errors.has('koordinator')">{{errors.first('koordinator')}}</span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -106,11 +78,7 @@
                                         <div class="form-group">
                                             <div class="field" :class="{error: errors.has('koordinator')}">
                                                 <label class="control-label col-xs-3">Ref User/Kode Koordinator</label>
-<<<<<<< HEAD
-                                                <div class="col-xs-9"><input type="text" name="kode" v-model="kode_koord_user" v-validate="'required'" data-vv-as="field" class="form-control" :class="{error: errors.has('kode')}"><span class="error" v-if="errors.has('kode')">{{errors.first('kode')}}</span></div>
-=======
-                                                <div class="col-xs-9"><input type="text" name="kode" v-model="kode" v-validate="'required'" data-vv-as="kode" class="form-control" :class="{error: errors.has('kode')}"><span class="error" v-if="errors.has('kode')">{{errors.first('kode')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                                <div class="col-xs-9"><input type="text" name="kode" v-model="kode_koord_user" v-validate="'required'" data-vv-as="kode koordinator" class="form-control" :class="{error: errors.has('kode')}"><span class="error" v-if="errors.has('kode')">{{errors.first('kode')}}</span></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -437,11 +405,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-<<<<<<< HEAD
-                                        <div class="col-xs-9"><input type="text" v-model="id_update_petugas" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
-=======
-                                        <div class="col-xs-9"><input type="text" v-model="id_update" class="form-control" name="id_update" v-validate="'min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_petugas" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="Id User" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -708,13 +672,8 @@ import datePicker from 'vue-bootstrap-datetimepicker';
         this.getTokenAPI();
        },
         methods: {
-<<<<<<< HEAD
-            clear(){
-                this.waktu = ''
-=======
             Clearagent() {
                 document.getElementById("daftar-agent").reset()
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
             },
             close() {
                 this.$router.push('/')
@@ -966,15 +925,11 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         console.log(this.filterAgent)
                 });
             },
-<<<<<<< HEAD
             addUserAksesDb(){
                 // this.$validator.validateAll()
                 let getToken =  this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_user))
                 let akses = String(parseInt(this.akses))
-=======
-            addUserAkses(){
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
                 axios({
                 method: 'post',
                 url: 'https://149.129.242.191/v1/pos/user',
@@ -1003,7 +958,6 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     "Operation":"ADD"
                 }
                 }).then(response => {
-<<<<<<< HEAD
                     this.res = response.data
                     // console.log(this.res)
                     if (this.res.ResponseCode == '000000') {
@@ -1011,21 +965,15 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     } else {
                         alert(this.res.ResponseDesc)
                     }
-=======
                     alert(response.data.message)
                     window.location.reload(true)
                     console.log(response)
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
                 }).catch(error => {
                     console.log(error)
                 });
             },
             addDataAgentDb(){
-<<<<<<< HEAD
                 // this.$validator.validateAll()
-=======
-                // this.validateAll()
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
                 let getToken = this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_agent))
                 axios({
@@ -1063,16 +1011,13 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }).then(response => {
                             // alert('')
                             console.log(response)
-<<<<<<< HEAD
                             if (response.data.ResponseMessage == 'Success') {
                                 alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
                             }else{
                                 alert(response.data.ResponseMessage)
                             }
-=======
                             alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
                              window.location.reload(true)
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
                         }).catch(error => {
                             console.log(error)
                         }); 
@@ -1172,10 +1117,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         let datauserakses = response
                         this.deleteAgent = datauserakses
                         alert(this.deleteAgent.data.ResponseDesc + ' to Delete')
-<<<<<<< HEAD
-=======
                       window.location.reload(true)
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
                 });
             },
         updateUserAkses(){
