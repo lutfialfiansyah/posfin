@@ -858,7 +858,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         console.log(this.editAgent)
                             this.nama_agent = this.editAgent.NamaAgen
                             this.alamat_agent = this.editAgent.Alamat1
-                            this.alamat_agents = this.editAgent.Alamat1
+                            this.alamat_agents = this.editAgent.Alamat2
                             this.kota_agent = this.editAgent.Kota
                             this.kodepos = this.editAgent.KodePos
                             this.propinsi = this.editAgent.Propinsi
@@ -1009,7 +1009,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             // alert('')
                             console.log(response)
                             if (response.data.ResponseMessage == 'Success') {
-                                alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
+                                alert(response.data.ResponseMessage + ' => Kode Agent: ' + response.data.KodeAgen)
                             }else{
                                 alert(response.data.ResponseMessage)
                             }
@@ -1152,6 +1152,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 // this.$validator.validateAll()
                 let getToken = this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_agent))
+                console.log(this.lastdate_agent)
                 axios({
                         method: 'post',
                         url: 'https://149.129.242.191/v1/pos/agent/update',
@@ -1161,11 +1162,12 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             "ESB-JWT": "Token " + getToken,
                         },
                         data: {
-                            "TxnRefNo": "APPS01203902",
-                            "ChannelId": "APPS01",
+                            "TxnRefNo":"APPS01203902",
+                            "ChannelId":"APPS01",
                             "RequestTime":this.RequestTime(this.dateRequest),
-                            "ServiceCode": "UPDATE_AGENT",
+                            "ServiceCode":"UPDATE_AGENT",
                             "TipeAgen":"Agen",
+                            "KodeAgen": this.kode_agent,
                             "NamaAgen":this.nama_agent,
                             "Alamat1":this.alamat_agent,
                             "Alamat2":this.alamat_agents,
@@ -1186,10 +1188,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             
                         }
                         }).then(response => {
-                            // alert('')
                             console.log(response)
                             if (response.data.ResponseMessage == 'Success') {                              
-                                alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
+                                alert(response.data.ResponseMessage + 'to Update')
                             } else {
                                 alert(response.data.ResponseMessage)                                
                             }
