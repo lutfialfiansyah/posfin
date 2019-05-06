@@ -355,11 +355,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Password</label>
-<<<<<<< HEAD
-                                        <div class="col-xs-9"><input type="text" v-model="password_petugas" class="form-control" name="password" v-validate="'required|min:5'" data-vv-as="field" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
-=======
-                                        <div class="col-xs-9"><input type="text" v-model="password" class="form-control" name="password" v-validate="'required|min:5'" data-vv-as="password" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
->>>>>>> 4c68a4dfaf392abf726cd3d7a70f020cde650c28
+                                        <div class="col-xs-9"><input type="text" v-model="password_petugas" class="form-control" name="password" v-validate="'required|min:5'" data-vv-as="password" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID Terminal</label>
