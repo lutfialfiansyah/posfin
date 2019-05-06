@@ -14,6 +14,7 @@
                         <div class="form-login">
                             <label class="col-xs-3">Username</label>
                             <div class="col-xs-9"><input type="text" name="username" v-model="username" class="form-control"></div>
+                            <input type="hidden" ref="checkToken" :value="this.getToken">
                         </div>
                         <div class="form-login">
                             <label class="col-xs-3">Password</label>
@@ -37,36 +38,70 @@ import axios from 'axios'
         name: 'login',
         data: function () {
             return {
-            username: null,
-            password: null,
-            sukses: null,
-            errors: null
-            }
+                username: null,
+                password: null,
+                sukses: null,
+                getToken: '',
+                errors: ''
+                }
+            },
+            errors: function (resp) {
+            app.errors.push(resp.response.data.msg);
+            app.username = null;
+            app.password = null;
         },
-        errors: function (resp) {
-        app.errors.push(resp.response.data.msg);
-        app.username = null;
-        app.password = null;
-    },
         mounted() {
-            if (this.$session.has('2')) {
+            this.getTokenAPI()
+            if (this.$session.has('session-id')) {
                 this.$router.push('/')
             }
         },
-
         methods: {
+            getTokenAPI(){
+            axios({
+                method: 'post',
+                url: 'https://149.129.242.191/v1/pos/jwt-token',
+                crossdomain: true, 
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": 'Basic YWRtaW46Y2hhbmdlbWU=',
+                },
+                data: {
+                }
+                }).then(response => {
+                    let Token = response.data.Token
+                    this.getToken = Token
+                    console.log(this.getToken)
+                })
+            }, 
         login() {
             this.errors = []
-            if (this.username == null ) {
+            if (this.username == '' ) {
                 this.errors.push('Username Harus di isi !')
                 return false
-            } else if (this.password == null ) {
+            } else if (this.password == '' ) {
                 this.errors.push('Password harus di isi !')
                 return false
             }
             var app = this
-            app.$router.push('/')
-         }
+            let getToken = this.$refs.checkToken.value;
+            axios({
+                method: 'post',
+                url: 'https://149.129.242.191/v1/pos/login/boa',
+                data: {
+                username: this.username,
+                password: this.password
+                },
+                headers: {
+                    "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                }
+            }).then(function(res){
+                    app.$session.set('session-id', res.data.SessionId)
+                    app.$session.set('name', res.data.name)
+                    app.$router.push('/')
+                })
+            }
         }
     }
 </script>

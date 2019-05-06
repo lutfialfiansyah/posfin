@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <div>
+    <div v-if="this.$session.get('session-id')">
       <topbar-nav></topbar-nav>
       <router-view/>
       <footer-nav></footer-nav>
+    </div>
+    <div v-else>
+      <router-view/>
     </div>
   </div>
 </template>

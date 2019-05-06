@@ -432,14 +432,15 @@ import 'vue-select/dist/vue-select.css';
         components: {
         datePicker
         },
+        mounted() {
+            if (!this.$session.get('session-id')) {
+            this.$router.push({name: 'login'})
+            }
+        },
         methods: {
             close() {
                 this.$router.push('/')
             },
-            logout () {
-            this.$session.destroy()
-            this.$router.push('/login')
-            }
         },
     }
 </script>

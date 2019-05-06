@@ -623,6 +623,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
         mounted()
        {
         this.getTokenAPI();
+         if (!this.$session.get('session-id')) {
+            this.$router.push({name: 'login'})
+            }
        },
         methods: {
             Clearagent() {
@@ -838,7 +841,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 });
             },
             addDataAgentDb(){
-                // this.validateAll()
+                this.$validator.validateAll()
                 let getToken = this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_agent))
                 axios({
@@ -884,6 +887,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }); 
             },
             addDataRekening(){
+            this.validateAll()
             let getid = this.$refs.checkKodeRek.value;
             let getToken = this.$refs.checkToken.value;
             //    console.log(getToken)
