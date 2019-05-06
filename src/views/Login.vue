@@ -71,7 +71,7 @@ import axios from 'axios'
                 }).then(response => {
                     let Token = response.data.Token
                     this.getToken = Token
-                    console.log(this.getToken)
+                    // console.log(this.getToken)
                 })
             }, 
         login() {
