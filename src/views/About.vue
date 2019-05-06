@@ -28,13 +28,14 @@
 <script>
     export default {
         name: 'about',
+        mounted() {
+        if (!this.$session.get('session-id')) {
+            this.$router.push({name: 'login'})
+            }
+        },
         methods: {
             close() {
                 this.$router.push('/')
-            },
-            logout () {
-            this.$session.destroy()
-            this.$router.push('/login')
             },
         },
     }

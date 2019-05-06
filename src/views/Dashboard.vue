@@ -46,15 +46,32 @@
     export default {
         name: 'dashboard',
         mounted() {
-        if ( this.$session.get('token')) {
-        this.$router.push({name: 'dashboard'})
+        if (!this.$session.get('session-id')) {
+        this.$router.push({name: 'login'})
         }
       },
       methods: {
         logout () {
         this.$session.destroy()
         this.$router.push('/login')
-      }
-    },
+        },
+        getTokenAPI(){
+            axios({
+                method: 'post',
+                url: 'https://149.129.242.191/v1/pos/jwt-token',
+                crossdomain: true, 
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": 'Basic YWRtaW46Y2hhbmdlbWU=',
+                },
+                data: {
+                }
+                }).then(response => {
+                    let Token = response.data.Token
+                    this.getToken = Token
+                    console.log(response)
+                })
+            },
+      },
     }
 </script>
