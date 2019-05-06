@@ -955,13 +955,11 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 }
                 }).then(response => {
                     this.res = response.data
-                    // console.log(this.res)
                     if (this.res.ResponseCode == '000000') {
                         alert(this.res.ResponseDesc + ', Password : ' + this.res.Password)
                     } else {
                         alert(this.res.ResponseDesc)
                     }
-                    alert(response.data.message)
                     window.location.reload(true)
                     console.log(response)
                 }).catch(error => {
