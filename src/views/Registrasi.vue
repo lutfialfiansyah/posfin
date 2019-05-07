@@ -499,7 +499,7 @@
 </template>
 
 <script>
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
