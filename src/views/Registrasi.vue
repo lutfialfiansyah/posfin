@@ -1018,7 +1018,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }); 
             },
             addDataRekening(){
-            this.validateAll()
+                this.$validator.validateAll()
             let getid = this.$refs.checkKodeRek.value;
             let getToken = this.$refs.checkToken.value;
                axios({
