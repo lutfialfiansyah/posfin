@@ -1043,6 +1043,8 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         this.editakses = datauserakses
                         console.log(this.editakses)
                         alert(this.editakses.data.ResponseMessage)
+                        window.location.reload(true)
+
                 });
             },
               addDataPetugasDb(){
