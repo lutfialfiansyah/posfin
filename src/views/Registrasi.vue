@@ -253,7 +253,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" name="id_update" v-validate="'min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" name="id_update" v-validate="'min:3'" data-vv-as="IdUserUpdate" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -401,7 +401,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update_petugas" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="Id User" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_petugas" class="form-control" name="id_update" v-validate="'min:3'" data-vv-as="Id User" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -499,7 +499,7 @@
 </template>
 
 <script>
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
@@ -960,10 +960,10 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     this.res = response.data
                     if (this.res.ResponseCode == '000000') {
                         alert(this.res.ResponseDesc + ', Password : ' + this.res.Password)
+                        window.location.reload(true)
                     } else {
                         alert(this.res.ResponseDesc)
                     }
-                    window.location.reload(true)
                     console.log(response)
                 }).catch(error => {
                     console.log(error)
@@ -1006,15 +1006,13 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             "UserId":this.id_update_agent
                         }
                         }).then(response => {
-                            // alert('')
                             console.log(response)
                             if (response.data.ResponseMessage == 'Success') {
                                 alert(response.data.ResponseMessage + ' => Kode Agent: ' + response.data.KodeAgen)
+                                window.location.reload(true)
                             }else{
                                 alert(response.data.ResponseMessage)
                             }
-                            alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
-                             window.location.reload(true)
                         }).catch(error => {
                             console.log(error)
                         }); 
@@ -1023,7 +1021,6 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             this.validateAll()
             let getid = this.$refs.checkKodeRek.value;
             let getToken = this.$refs.checkToken.value;
-            //    console.log(getToken)
                axios({
                     method:'post',
                     url:'https://149.129.242.191/v1/pos/account/registration',
@@ -1085,6 +1082,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             console.log(response)
                             if (response.data.ResponseDesc == 'Success') {                                
                                 alert(response.data.ResponseDesc + ' Password Petugas : ' + response.data.Password)
+                                window.location.reload(true)
                             }else{
                                 alert(response.data.ResponseDesc)
                             }
@@ -1152,7 +1150,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 // this.$validator.validateAll()
                 let getToken = this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_agent))
-                console.log(this.lastdate_agent)
+                // console.log(this.lastdate_agent)
                 axios({
                         method: 'post',
                         url: 'https://149.129.242.191/v1/pos/agent/update',
@@ -1191,6 +1189,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             console.log(response)
                             if (response.data.ResponseMessage == 'Success') {                              
                                 alert(response.data.ResponseMessage + 'to Update')
+                                window.location.reload(true)
                             } else {
                                 alert(response.data.ResponseMessage)                                
                             }

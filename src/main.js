@@ -18,6 +18,18 @@ global.jQuery = require('jquery');
 var $ = global.jQuery;
 window.$ = $;
 
+// // At instance level
+// const instance = axios.create({
+//   httpsAgent: new https.Agent({  
+//     rejectUnauthorized: false
+//   })
+// });
+// instance.get('https://something.com/foo');
+
+// // At request level
+// const agent = new https.Agent({  
+//   rejectUnauthorized: false
+// });
 
 new Vue({
   router,
