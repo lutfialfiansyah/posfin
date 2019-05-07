@@ -62,7 +62,8 @@ import axios from 'axios'
             axios({
                 method: 'post',
                 url: 'https://149.129.242.191/v1/pos/jwt-token',
-                crossdomain: true, 
+                crossdomain: true,
+                httpsAgent: agent, 
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": 'Basic YWRtaW46Y2hhbmdlbWU=',
@@ -88,7 +89,8 @@ import axios from 'axios'
             let getToken = this.$refs.checkToken.value;
             axios({
                 method: 'post',
-                url: 'https://149.129.242.191/v1/pos/login/boa',
+                url: 'https://149.129.242.191/v1/pos/login/boa',                
+                httpsAgent: agent, 
                 data: {
                 username: this.username,
                 password: this.password
