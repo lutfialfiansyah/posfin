@@ -1188,7 +1188,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }).then(response => {
                             console.log(response)
                             if (response.data.ResponseMessage == 'Success') {                              
-                                alert(response.data.ResponseMessage + 'to Update')
+                                alert(response.data.ResponseMessage + ' to Update')
                                 window.location.reload(true)
                             } else {
                                 alert(response.data.ResponseMessage)                                

@@ -32,9 +32,7 @@
 </template>
 
 <script>
-
 import axios from 'axios'
-
     export default {
         name: 'login',
         data: function () {
@@ -63,7 +61,7 @@ import axios from 'axios'
                 method: 'post',
                 url: 'https://149.129.242.191/v1/pos/jwt-token',
                 crossdomain: true,
-                httpsAgent: agent, 
+                rejectUnauthorized: false,
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": 'Basic YWRtaW46Y2hhbmdlbWU=',
@@ -89,8 +87,7 @@ import axios from 'axios'
             let getToken = this.$refs.checkToken.value;
             axios({
                 method: 'post',
-                url: 'https://149.129.242.191/v1/pos/login/boa',                
-                httpsAgent: agent, 
+                url: 'https://149.129.242.191/v1/pos/login/boa',
                 data: {
                 username: this.username,
                 password: this.password
