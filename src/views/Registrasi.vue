@@ -8,16 +8,16 @@
             <h4>REGISTRASI <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
           </div>
           <div class="body-register">
-              <ul class="nav nav-tabs">
-                    <li class="active"><a  href="#1" data-toggle="tab">USER AKSES</a></li>
-                    <li><a  href="#2" data-toggle="tab">KOORDINATOR AGEN</a></li>
-                    <li><a  href="#3" data-toggle="tab">PENDAFTARAN AGENT</a></li>
-                    <li><a  href="#4" data-toggle="tab">PEMBUKAAN REKENING</a></li>
-                    <li><a  href="#5" data-toggle="tab">PETUGAS AGENCY</a></li>
-                    <li><a  href="#6" data-toggle="tab">DAFTAR AGENT</a></li>
+              <ul class="nav nav-tabs" id="myTab">
+                    <li class="active"><a  href="#user" data-toggle="tab">USER AKSES</a></li>
+                    <li><a  href="#koord" data-toggle="tab">KOORDINATOR AGEN</a></li>
+                    <li><a  href="#agent" data-toggle="tab">PENDAFTARAN AGENT</a></li>
+                    <li><a  href="#rek" data-toggle="tab">PEMBUKAAN REKENING</a></li>
+                    <li><a  href="#agency" data-toggle="tab">PETUGAS AGENCY</a></li>
+                    <li><a  href="#da" data-toggle="tab">DAFTAR AGENT</a></li>
               </ul>
               <div class="tab-content">
-                <div class="tab-pane fade in active" id="1">
+                <div class="tab-pane fade in active" id="user">
                     <div class="body-registrasi">
                         <h5>USER AKSES</h5>
                         <div class="row">
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="2">
+                <div class="tab-pane fade" id="koord">
                     <div class="body-registrasi">
                         <h5>KOORDINATOR AGEN</h5>
                         <div class="row">
@@ -174,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="3">
+                <div class="tab-pane fade" id="agent">
                     <div class="body-registrasi">
                         <h5>PENDAFTARAN AGENT</h5>
                         <div class="row">
@@ -268,7 +268,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="4">
+                <div class="tab-pane fade" id="rek">
                     <div class="body-registrasi">
                         <h5>PEMBUKAAN REKENING</h5>
                         <div class="row">
@@ -330,7 +330,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="5">
+                <div class="tab-pane fade" id="agency">
                     <div class="body-registrasi">
                         <h5>PENDAFTARAN PETUGAS</h5>
                         <div class="row">
@@ -416,7 +416,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="6">
+                <div class="tab-pane fade" id="da">
                     <div class="body-registrasi">
                          <h5>DAFTAR AGENT</h5>
                         <div class="row">
@@ -497,8 +497,18 @@
       </div>  
     </div>
 </template>
-
 <script>
+// $(document).ready(function(){
+	  $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    console.log(activeTab)
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+// });
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
@@ -894,7 +904,11 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             },
              InquiryFilter(){
             //    let getid = this.$refs.checkKodeAgentFilter.value;
-               let getToken = this.$refs.checkToken.value;
+                let filter = this.searchno            
+            if (filter == null) {
+                this.searchno = ""
+            }
+            let getToken = this.$refs.checkToken.value;
             //    console.log(getToken)
                axios({
                     method:'post',
