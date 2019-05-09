@@ -98,7 +98,7 @@ import axios from 'axios'
                 }
             }).then(function(res){
                     app.$session.set('session-id', res.data.SessionId)
-                    app.$session.set('name', res.data.name)
+                    app.$session.set('name', app.username)
                     app.$router.push('/')
                 })
             }
