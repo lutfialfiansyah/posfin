@@ -106,7 +106,7 @@
                                 <button type="button" class="btn-register">UBAH</button>
                                 <button type="button" class="btn-register">HAPUS</button>
                                 <button type="button" class="btn-register" v-on:click="addUserAksesDb()" :disabled="btntambahUser != true ? true :false">REKAM</button>
-                                <button type="button" class="btn-register" >BATAL</button>
+                                <button type="button" class="btn-register" id="btnbatal">BATAL</button>
                             </div>
                             </form>
                         </div>
@@ -355,7 +355,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Password</label>
-                                        <div class="col-xs-9"><input type="text" v-model="password_petugas" class="form-control" name="password" v-validate="'required|min:5'" data-vv-as="password" :class="{error: errors.has('password')}"><span class="error" v-if="errors.has('password')">{{errors.first('password')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="password_petugas" class="form-control"></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID Terminal</label>
@@ -367,7 +367,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><v-select v-model="status_petugas" :options="option" name="status" v-validate="'required'" data-vv-as="selected" :class="{error: errors.has('status')}"></v-select><span class="error" v-if="errors.has('status')">{{errors.first('status')}}</span></div>
+                                        <div class="col-xs-9"><v-select v-model="status_petugas" :options="option" name="status_petugas" v-validate="'required'" data-vv-as="selected" :class="{error: errors.has('status_petugas')}"></v-select><span class="error" v-if="errors.has('status_petugas')">{{errors.first('status_petugas')}}</span></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
@@ -497,18 +497,24 @@
       </div>  
     </div>
 </template>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>
-// $(document).ready(function(){
-	  $('a[data-toggle="tab"]').on('click', function(e) {
-        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+$(document).ready(function(){
+    $('#btnbatal').on('click',function(){
+        alert('aa');
+        $('#myTab a[href="#koord"]').show();
     });
-    var activeTab = window.localStorage.getItem('activeTab');
-    console.log(activeTab)
-    if (activeTab) {
-        $('#myTab a[href="' + activeTab + '"]').tab('show');
-        window.localStorage.removeItem("activeTab");
-    }
-// });
+	// $('a[data-toggle="tab"]').on('click', function(e) {
+    //     window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    // });
+    // var activeTab = window.localStorage.getItem('activeTab');
+    // console.log(activeTab)
+    // if (activeTab) {
+    //     $('#myTab a[href="' + activeTab + '"]').tab('show');
+    //     window.localStorage.removeItem("activeTab");
+    // }
+});
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
@@ -1086,7 +1092,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             "RequestTime":this.RequestTime(this.dateRequest),
                             "ServiceCode":"CREATE_PETUGAS_AGENCY",
                             "KodeAgent": this.kode_agent_petugas,
-                            "IdPetugas": this.id_petugas,
+                            "IdPetugas": String(this.id_petugas),
                             "NamaPetugas": this.nm_petugas,
                             "IdTerminal":this.id_terminal,
                             "TanggalRegistrasi": this.BackEndDateFormat(this.tglreg),
