@@ -501,19 +501,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
-    $('#btnbatal').on('click',function(){
-        alert('aa');
-        $('#myTab a[href="#koord"]').show();
-    });
-	// $('a[data-toggle="tab"]').on('click', function(e) {
-    //     window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    // $('#btnbatal').on('click',function(){
+    //     alert('aa');
+    //     $('#myTab a[href="#koord"]').show();
     // });
-    // var activeTab = window.localStorage.getItem('activeTab');
-    // console.log(activeTab)
-    // if (activeTab) {
-    //     $('#myTab a[href="' + activeTab + '"]').tab('show');
-    //     window.localStorage.removeItem("activeTab");
-    // }
+	$('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    console.log(activeTab)
+    if (activeTab) {
+        // $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
 });
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
