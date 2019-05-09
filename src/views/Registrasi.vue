@@ -8,16 +8,16 @@
             <h4>REGISTRASI <button type="button" class="close" v-on:click="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></h4>
           </div>
           <div class="body-register">
-              <ul class="nav nav-tabs">
-                    <li class="active"><a  href="#1" data-toggle="tab">USER AKSES</a></li>
-                    <li><a  href="#2" data-toggle="tab">KOORDINATOR AGEN</a></li>
-                    <li><a  href="#3" data-toggle="tab">PENDAFTARAN AGENT</a></li>
-                    <li><a  href="#4" data-toggle="tab">PEMBUKAAN REKENING</a></li>
-                    <li><a  href="#5" data-toggle="tab">PETUGAS AGENCY</a></li>
-                    <li><a  href="#6" data-toggle="tab">DAFTAR AGENT</a></li>
+              <ul class="nav nav-tabs" id="myTab">
+                    <li class="active"><a  href="#user" data-toggle="tab">USER AKSES</a></li>
+                    <li><a  href="#koord" data-toggle="tab">KOORDINATOR AGEN</a></li>
+                    <li><a  href="#agent" data-toggle="tab">PENDAFTARAN AGENT</a></li>
+                    <li><a  href="#rek" data-toggle="tab">PEMBUKAAN REKENING</a></li>
+                    <li><a  href="#agency" data-toggle="tab">PETUGAS AGENCY</a></li>
+                    <li><a  href="#da" data-toggle="tab">DAFTAR AGENT</a></li>
               </ul>
               <div class="tab-content">
-                <div class="tab-pane active" id="1">
+                <div class="tab-pane fade in active" id="user">
                     <div class="body-registrasi">
                         <h5>USER AKSES</h5>
                         <div class="row">
@@ -106,13 +106,13 @@
                                 <button type="button" class="btn-register">UBAH</button>
                                 <button type="button" class="btn-register">HAPUS</button>
                                 <button type="button" class="btn-register" v-on:click="addUserAksesDb()" :disabled="btntambahUser != true ? true :false">REKAM</button>
-                                <button type="button" class="btn-register">BATAL</button>
+                                <button type="button" class="btn-register" >BATAL</button>
                             </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="2">
+                <div class="tab-pane fade" id="koord">
                     <div class="body-registrasi">
                         <h5>KOORDINATOR AGEN</h5>
                         <div class="row">
@@ -159,7 +159,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" name="id_user" v-model="id_user" placeholder="12345" class="form-control" v-validate="'required|min:3'" data-vv-as="id user" :class="{error: errors.has('id_user')}"><span class="error" v-if="errors.has('id_user')">{{errors.first('id_user')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" name="id_user" v-model="id_user" class="form-control" v-validate="'required|min:3'" data-vv-as="id user" :class="{error: errors.has('id_user')}"><span class="error" v-if="errors.has('id_user')">{{errors.first('id_user')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="3">
+                <div class="tab-pane fade" id="agent">
                     <div class="body-registrasi">
                         <h5>PENDAFTARAN AGENT</h5>
                         <div class="row">
@@ -253,12 +253,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" name="id_update" v-validate="'min:3'" data-vv-as="field" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" :readonly="btntambahAgent" name="id_update" v-validate="'min:3'" data-vv-as="IdUserUpdate" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tombol-register">
-                                <button type="button" class="btn-register" @click="btntambahAgent=true" :disabled="btntambahAgent">TAMBAH</button>
+                                <button type="button" class="btn-register" v-on:click="getUserAgent" @click="btntambahAgent=true" :disabled="btntambahAgent">TAMBAH</button>
                                 <button type="button" class="btn-register" @click="updateAgentDb()" :disabled="editAgentRes != 'Success' ? true : false">UBAH</button>
                                 <button type="button" class="btn-register" @click="DeleteAgent()" :disabled="editAgentRes != 'Success' ? true : false">HAPUS</button>
                                 <button type="button" class="btn-register" @click="addDataAgentDb()" :disabled="btntambahAgent != true ? true :false">REKAM</button>
@@ -268,7 +268,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="4">
+                <div class="tab-pane fade" id="rek">
                     <div class="body-registrasi">
                         <h5>PEMBUKAAN REKENING</h5>
                         <div class="row">
@@ -330,7 +330,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="5">
+                <div class="tab-pane fade" id="agency">
                     <div class="body-registrasi">
                         <h5>PENDAFTARAN PETUGAS</h5>
                         <div class="row">
@@ -339,7 +339,7 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Kode Agent</label>
-                                        <div class="col-xs-7"><input type="text" ref="checkKodeAgentPetugas" v-model="kode_agent_petugas" v-on:keyup.enter="KodeAgentPetugasEnter" class="form-control"></div><p>ENTER</p>
+                                        <div class="col-xs-7"><input type="text" ref="checkKodeAgentPetugas" v-model="kode_agent_petugas" v-on:keyup.enter="KodeAgentPetugasEnter" class="form-control"  name="kd_agent" v-validate="'required'" data-vv-as="kode agent" :class="{error: errors.has('kd_agent')}"><span class="error" v-if="errors.has('kd_agent')">{{errors.first('kd_agent')}}</span></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Agent</label>
@@ -363,11 +363,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Hak Akses</label>
-                                        <div class="col-xs-9"><v-select v-model="akses_petugas" :options="opti" name="status" v-validate="'required'" data-vv-as="selected" :class="{error: errors.has('status')}"></v-select><span class="error" v-if="errors.has('status')">{{errors.first('status')}}</span></div>
+                                        <div class="col-xs-9"><v-select v-model="akses_petugas" :options="opti" name="akses_petugas" v-validate="'required'" data-vv-as="selected" :class="{error: errors.has('akses_petugas')}"></v-select><span class="error" v-if="errors.has('akses_petugas')">{{errors.first('akses_petugas')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><v-select v-model="status_petugas" :options="option"></v-select></div>
+                                        <div class="col-xs-9"><v-select v-model="status_petugas" :options="option" name="status" v-validate="'required'" data-vv-as="selected" :class="{error: errors.has('status')}"></v-select><span class="error" v-if="errors.has('status')">{{errors.first('status')}}</span></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
@@ -393,15 +393,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">HDD Serial Number</label>
-                                        <div class="col-xs-9"><input type="text" v-model="hdd" class="form-control" name="id_update" v-validate="'required|min:3'" data-vv-as="hdd" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="hdd" class="form-control" name="hdd" v-validate="'required|min:3'" data-vv-as="hdd" :class="{error: errors.has('hdd')}"><span class="error" v-if="errors.has('hdd')">{{errors.first('hdd')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Email Address</label>
-                                        <div class="col-xs-9"><input type="text" v-model="email_petugas" class="form-control" name="email" v-validate="'required|email'" data-vv-as="email" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="email_petugas" class="form-control" name="email" v-validate="'required|email'" data-vv-as="email" :class="{error: errors.has('email')}"><span class="error" v-if="errors.has('email')">{{errors.first('email')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update_petugas" class="form-control" name="id_update" v-validate="'min:3'" data-vv-as="Id User" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_petugas" class="form-control" :readonly="btntambahPetugas" name="id_update_petugas" v-validate="'required|min:3'" data-vv-as="Id User" :class="{error: errors.has('id_update_petugas')}"><span class="error" v-if="errors.has('id_update_petugas')">{{errors.first('id_update_petugas')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -416,7 +416,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="6">
+                <div class="tab-pane fade" id="da">
                     <div class="body-registrasi">
                          <h5>DAFTAR AGENT</h5>
                         <div class="row">
@@ -497,9 +497,18 @@
       </div>  
     </div>
 </template>
-
 <script>
-
+// $(document).ready(function(){
+	  $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    console.log(activeTab)
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+// });
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
@@ -671,6 +680,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             }
        },
         methods: {
+            getUserAgent(){
+               this.id_update_agent = this.$session.get('name')
+            },
             Clearagent() {
                 document.getElementById("daftar-agent").reset()
             },
@@ -716,6 +728,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             }, 
             IdRandomPetugas(){
                 this.id_petugas = this.randomNumber()
+                this.id_update_petugas = this.$session.get('name')
             },
             IdRandomUser(){
                 this.id_user = this.randomNumber()
@@ -858,7 +871,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         console.log(this.editAgent)
                             this.nama_agent = this.editAgent.NamaAgen
                             this.alamat_agent = this.editAgent.Alamat1
-                            this.alamat_agents = this.editAgent.Alamat1
+                            this.alamat_agents = this.editAgent.Alamat2
                             this.kota_agent = this.editAgent.Kota
                             this.kodepos = this.editAgent.KodePos
                             this.propinsi = this.editAgent.Propinsi
@@ -891,7 +904,11 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             },
              InquiryFilter(){
             //    let getid = this.$refs.checkKodeAgentFilter.value;
-               let getToken = this.$refs.checkToken.value;
+                let filter = this.searchno            
+            if (filter == null) {
+                this.searchno = ""
+            }
+            let getToken = this.$refs.checkToken.value;
             //    console.log(getToken)
                axios({
                     method:'post',
@@ -916,6 +933,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 }).then(response => {
                         let datauserakses = response
                         this.filterAgent = datauserakses.data.Agents
+                        if (this.filterAgent == null) {
+                            alert('Data Tidak Ditemukan')
+                        }
                         // this.editAgentRes = datauserakses.data.ResponseDesc
                         // if (this.editAgentRes != "Success") {
                             // alert(this.editAgentRes)
@@ -925,7 +945,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 });
             },
             addUserAksesDb(){
-                // this.$validator.validateAll()
+                this.$validator.validateAll()
                 let getToken =  this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_user))
                 let akses = String(parseInt(this.akses))
@@ -958,14 +978,12 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 }
                 }).then(response => {
                     this.res = response.data
-                    // console.log(this.res)
                     if (this.res.ResponseCode == '000000') {
                         alert(this.res.ResponseDesc + ', Password : ' + this.res.Password)
+                        window.location.reload(true)
                     } else {
                         alert(this.res.ResponseDesc)
                     }
-                    alert(response.data.message)
-                    window.location.reload(true)
                     console.log(response)
                 }).catch(error => {
                     console.log(error)
@@ -999,33 +1017,30 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             "Email":this.email_agent,
                             "KontakPerson":this.pic_agent,
                             "NoTelpKontakPerson":this.telp_pic,
-                            "KoordinatorAgen":"00000208",
-                            "KoordinatorLapangan":"0000948",
-                            "MainAgen":"843",
+                            "KoordinatorAgen":"",
+                            "KoordinatorLapangan":"",
+                            "MainAgen":"",
                             "StatusActive":status,
                             "WaktuRegional":this.waktu,
                             "DateLastUpdate":this.BackEndDateFormat(this.lastdate_agent),
                             "UserId":this.id_update_agent
                         }
                         }).then(response => {
-                            // alert('')
                             console.log(response)
                             if (response.data.ResponseMessage == 'Success') {
-                                alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
+                                alert(response.data.ResponseMessage + ' => Kode Agent: ' + response.data.KodeAgen)
+                                window.location.reload(true)
                             }else{
                                 alert(response.data.ResponseMessage)
                             }
-                            alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
-                             window.location.reload(true)
                         }).catch(error => {
                             console.log(error)
                         }); 
             },
             addDataRekening(){
-            this.validateAll()
+                this.$validator.validateAll()
             let getid = this.$refs.checkKodeRek.value;
             let getToken = this.$refs.checkToken.value;
-            //    console.log(getToken)
                axios({
                     method:'post',
                     url:'https://149.129.242.191/v1/pos/account/registration',
@@ -1048,10 +1063,12 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         this.editakses = datauserakses
                         console.log(this.editakses)
                         alert(this.editakses.data.ResponseMessage)
+                        window.location.reload(true)
+
                 });
             },
               addDataPetugasDb(){
-                // this.$validator.validateAll()
+                this.$validator.validateAll()
                 let getToken = this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_petugas))
                 let hakakses = String(parseInt(this.akses_petugas))
@@ -1087,6 +1104,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             console.log(response)
                             if (response.data.ResponseDesc == 'Success') {                                
                                 alert(response.data.ResponseDesc + ' Password Petugas : ' + response.data.Password)
+                                window.location.reload(true)
                             }else{
                                 alert(response.data.ResponseDesc)
                             }
@@ -1154,6 +1172,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 // this.$validator.validateAll()
                 let getToken = this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_agent))
+                // console.log(this.lastdate_agent)
                 axios({
                         method: 'post',
                         url: 'https://149.129.242.191/v1/pos/agent/update',
@@ -1163,11 +1182,12 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             "ESB-JWT": "Token " + getToken,
                         },
                         data: {
-                            "TxnRefNo": "APPS01203902",
-                            "ChannelId": "APPS01",
+                            "TxnRefNo":"APPS01203902",
+                            "ChannelId":"APPS01",
                             "RequestTime":this.RequestTime(this.dateRequest),
-                            "ServiceCode": "UPDATE_AGENT",
+                            "ServiceCode":"UPDATE_AGENT",
                             "TipeAgen":"Agen",
+                            "KodeAgen": this.kode_agent,
                             "NamaAgen":this.nama_agent,
                             "Alamat1":this.alamat_agent,
                             "Alamat2":this.alamat_agents,
@@ -1188,10 +1208,10 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             
                         }
                         }).then(response => {
-                            // alert('')
                             console.log(response)
                             if (response.data.ResponseMessage == 'Success') {                              
-                                alert(response.data.ResponseMessage + ' => Kode: ' + response.data.KodeAgen)
+                                alert(response.data.ResponseMessage + ' to Update')
+                                window.location.reload(true)
                             } else {
                                 alert(response.data.ResponseMessage)                                
                             }

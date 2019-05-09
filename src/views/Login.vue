@@ -33,7 +33,6 @@
 
 <script>
 import axios from 'axios'
-
     export default {
         name: 'login',
         data: function () {
@@ -61,7 +60,8 @@ import axios from 'axios'
             axios({
                 method: 'post',
                 url: 'https://149.129.242.191/v1/pos/jwt-token',
-                crossdomain: true, 
+                crossdomain: true,
+                rejectUnauthorized: false,
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": 'Basic YWRtaW46Y2hhbmdlbWU=',
@@ -98,7 +98,7 @@ import axios from 'axios'
                 }
             }).then(function(res){
                     app.$session.set('session-id', res.data.SessionId)
-                    app.$session.set('name', res.data.name)
+                    app.$session.set('name', app.username)
                     app.$router.push('/')
                 })
             }
