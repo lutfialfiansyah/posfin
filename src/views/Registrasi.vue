@@ -260,14 +260,16 @@
                                         <div class="col-xs-5"><v-select v-model="koor_agent" :options="opsi_koor"></v-select></div><button type="button" class="btn-refresh-reg">REFRESH</button>
                                     </div>
                                     <div class="form-group">
-                                        <div class="field" :class="{error: errors.has('waktu')}">
+                                        <div class="field" :class="{error: errors.has('waktu_agent')}">
                                             <label class="control-label col-xs-3">Waktu Regional</label>
-                                            <div class="col-xs-9"><v-select v-model="waktu" :options="opsi_waktu" name="waktu" v-validate="'required'" data-vv-as="waktu" :class="{error: errors.has('waktu')}"></v-select><span class="error" v-if="errors.has('waktu')">{{errors.first('waktu')}}</span></div>
+                                            <div class="col-xs-9"><v-select v-model="waktu" :options="opsi_waktu" name="waktu_agent" v-validate="'required'" data-vv-as="waktu" :class="{error: errors.has('waktu_agent')}"></v-select><span class="error" v-if="errors.has('waktu_agent')">{{errors.first('waktu_agent')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-3">Status Aktif</label>
-                                        <div class="col-xs-9"><v-select v-model="status_agent" :options="option" title="0 - Aktif"></v-select></div>
+                                        <div class="field" :class="{error: errors.has('status_agent')}">
+                                            <label class="control-label col-xs-3">Status Aktif</label>
+                                            <div class="col-xs-9"><v-select v-model="status_agent" :options="option" title="0 - Aktif" name="status_agent" v-validate="'required'" data-vv-as="status" :class="{error: errors.has('status_agent')}"></v-select><span class="error" v-if="errors.has('status_agent')">{{errors.first('status_agent')}}</span></div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">KPRK POS</label>
@@ -283,7 +285,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" :readonly="btntambahAgent" name="id_update" v-validate="'min:3'" data-vv-as="IdUserUpdate" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" :readonly="btntambahAgent || kode_agent.lenght > 6" name="id_update" v-validate="'min:3'" data-vv-as="IdUserUpdate" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -352,9 +354,9 @@
                               <div class="tombol-register">
                                 <button type="button" class="btn-register">TAMBAH</button>
                                 <button type="button" class="btn-register" disabled="disabled">UBAH</button>
-                                <button type="button" class="btn-register" disabled="disabled">HAPUS</button>
+                                <button type="button" class="btn-register" @click="DeleteRekening()">HAPUS</button>
                                 <button type="button" class="btn-register" ref="btnupdtRek" :disabled="vaBank == undefined || vaBank == 0 ? false : true" @click="addDataRekening()">REKAM</button>
-                                <button type="button" class="btn-register">BATAL</button>
+                                <button type="button" class="btn-register" v-on:click="Clearrekening">BATAL</button>
                             </div>
                             </form>
                         </div>
@@ -377,7 +379,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID PETUGAS</label>
-                                        <div class="col-xs-7"><input type="text" v-model="id_petugas" class="form-control" ></div><p>ENTER</p>
+                                        <div class="col-xs-7"><input type="text" v-model="id_petugas" class="form-control" v-on:keyup.enter="IdPetugasEnter"></div><p>ENTER</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Nama Petugas</label>
@@ -423,22 +425,22 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">HDD Serial Number</label>
-                                        <div class="col-xs-9"><input type="text" v-model="hdd" class="form-control" name="hdd" v-validate="'required|min:3'" data-vv-as="hdd" :class="{error: errors.has('hdd')}"><span class="error" v-if="errors.has('hdd')">{{errors.first('hdd')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="hdd" class="form-control" name="hdd_petugas" v-validate="'required|min:3'" data-vv-as="hdd_petugas" :class="{error: errors.has('hdd_petugas')}"><span class="error" v-if="errors.has('hdd_petugas')">{{errors.first('hdd_petugas')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">Email Address</label>
-                                        <div class="col-xs-9"><input type="text" v-model="email_petugas" class="form-control" name="email" v-validate="'required|email'" data-vv-as="email" :class="{error: errors.has('email')}"><span class="error" v-if="errors.has('email')">{{errors.first('email')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="email_petugas" class="form-control" name="email_petugas" v-validate="'required|email'" data-vv-as="email_petugas" :class="{error: errors.has('email_petugas')}"><span class="error" v-if="errors.has('email_petugas')">{{errors.first('email_petugas')}}</span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update_petugas" class="form-control" :readonly="btntambahPetugas" name="id_update_petugas" v-validate="'min:3'" data-vv-as="IdUserUpdate" :class="{error: errors.has('id_update_petugas')}"><span class="error" v-if="errors.has('id_update_petugas')">{{errors.first('id_update_petugas')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_petugas" class="form-control" :readonly="btntambahPetugas || id_petugas.length > 4" name="id_update_petugas" v-validate="'min:3'" data-vv-as="IdUserUpdate" :class="{error: errors.has('id_update_petugas')}"><span class="error" v-if="errors.has('id_update_petugas')">{{errors.first('id_update_petugas')}}</span></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tombol-register">
                                 <button type="button" class="btn-register" @click="btntambahPetugas=true" :disabled="btntambahPetugas" v-on:click="IdRandomPetugas()">TAMBAH</button>
-                                <button type="button" class="btn-register" :disabled="true">UBAH</button>
-                                <button type="button" class="btn-register" :disabled="true">HAPUS</button>
+                                <button type="button" class="btn-register" @click="updatePetugasDb()" :disabled="agent_petugas == '000000' ? false : true">UBAH</button>
+                                <button type="button" class="btn-register" @click="deletePetugasDb()" :disabled="agent_petugas == '000000' ? false : true">HAPUS</button>
                                 <button type="button" class="btn-register" @click="addDataPetugasDb()" :disabled="btntambahPetugas != true ? true :false">REKAM</button>
                                 <button type="button" class="btn-register" v-on:click="Clearpetugas" @click="enabledBtn">BATAL</button>
                             </div>
@@ -530,17 +532,17 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>
-$(document).ready(function(){
-	$('a[data-toggle="tab"]').on('click', function(e) {
-        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
-    });
-    var activeTab = window.localStorage.getItem('activeTab');
-    console.log(activeTab)
-    if (activeTab) {
-        $('#myTab a[href="' + activeTab + '"]').tab('show');
-        window.localStorage.removeItem("activeTab");
-    }
-});
+// $(document).ready(function(){
+// 	$('a[data-toggle="tab"]').on('click', function(e) {
+//         window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+//     });
+//     var activeTab = window.localStorage.getItem('activeTab');
+//     console.log(activeTab)
+//     if (activeTab) {
+//         $('#myTab a[href="' + activeTab + '"]').tab('show');
+//         window.localStorage.removeItem("activeTab");
+//     }
+// });
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
@@ -627,6 +629,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 lastdate_user:'',
                 lastakses_user:'',
                 status_user:'',
+                agent_petugas:'',
                 options: {
                 format: 'DD/MM/YYYY',
                 useCurrent: false,
@@ -721,13 +724,44 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                this.id_update_agent = this.$session.get('name')
             },
             Clearagent() {
+                $('.vs__clear').click();
+                // $('.vs__selected').text('"-"');
                 document.getElementById("daftar-agent").reset()
+                this.kode_agent = ''
+                this.nama_agent = ''
+                this.alamat_agent = ''
+                this.alamat_agents = ''
+                this.kota_agent = ''
+                this.kodepos = ''
+                this.propinsi = ''
+                this.telp = ''
+                this.email_agent = ''
+                this.pic_agent = ''
+                this.telp_pic = ''
+                this.nm_kprk = ''
                 this.id_update_agent = ''
             },
             Clearpetugas() {
                 document.getElementById("form-petugas").reset()
+                $('.vs__clear').click();
+                this.kode_agent_petugas = ''
+                this.nm_petugas = ''
+                this.password_petugas = ''
+                this.id_terminal = ''
+                this.hdd = ''
+                this.email_petugas = ''
                 this.id_petugas = ''
                 this.id_update_petugas = ''
+            },
+            Clearrekening() {
+                document.getElementById("form-petugas").reset()
+                $('.vs__clear').click();
+                this.kode_agent_rekening = ''
+                this.nama_rekening = ''
+                this.alamat1_rekening = ''
+                this.alamat2_rekening = ''
+                this.account = ''
+                this.vaBank = ''
             },
             close() {
                 this.$router.push('/')
@@ -799,14 +833,60 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }
                 }).then(response => {
                         let datauserakses = response
+                        this.agent_petugas = datauserakses.data.ResponseCode
                         this.dataagent = datauserakses
-                        console.log(this.dataagent)
+                        // console.log(this.agent_petugas)
                         if (this.dataagent.data.ResponseCode == '000000') {
                             this.nama_agent_petugas = this.dataagent.data.NamaAgen
                         }else{
                             alert(this.dataagent.data.ResponseDesc)
                         }
                     });
+            },
+            IdPetugasEnter(){
+                this.id_update_petugas = this.$session.get('name')
+            //         let getid = this.$refs.checkKodeAgentPetugas.value;
+            //         let getToken = this.$refs.checkToken.value;
+            //    axios({
+            //         method:'post',
+            //         url:'https://149.129.242.191/v1/pos/petugas/inquiry',
+            //         crossdomain: true, 
+            //         headers: {
+            //             "Content-Type": 'application/json',
+            //             "ESB-JWT": "Token " + getToken,
+            //         },
+            //         data: {
+            //             "TxnRefNo":"INQ0003",
+            //             "ChannelId":"BOA",
+            //             "RequestTime":"20190224120000",
+            //             "ServiceCode":"INQUIRY_AGENT",
+            //             "KodeAgen":getid,
+            //             "KodeMainAgent":"",
+            //             "InquiryType":"1"
+            //             }
+            //     }).then(response => {
+            //             let datauserakses = response
+            //             this.agent_petugas = datauserakses.data.ResponseCode
+            //             this.dataagent = datauserakses
+            //             // console.log(this.agent_petugas)
+            //             if (this.dataagent.data.ResponseCode == '000000') {
+            //                 this.nm_petugas = this.dataagent.data.NamaAgen
+            //                 this.password_petugas = this.dataagent.data.NamaAgen
+            //                 this.id_terminal = this.dataagent.data.NamaAgen
+            //                 this.akses_petugas = this.dataagent.data.NamaAgen
+            //                 this.status_petugas = this.dataagent.data.NamaAgen
+            //                 this.tglexptugas = this.dataagent.data.NamaAgen
+            //                 this.tglexppassword = this.dataagent.data.NamaAgen
+            //                 this.tglreg = this.dataagent.data.NamaAgen
+            //                 this.lastdate_petugas = this.dataagent.data.NamaAgen
+            //                 this.lastakses_petugas = this.dataagent.data.NamaAgen
+            //                 this.hdd = this.dataagent.data.NamaAgen
+            //                 this.email_petugas = this.dataagent.data.NamaAgen
+            //                 this.id_update_petugas = this.dataagent.data.NamaAgen
+            //             }else{
+            //                 alert(this.dataagent.data.ResponseDesc)
+            //             }
+            //         });
             },
             getKodeAkses(){
                 axios({
@@ -871,10 +951,13 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         this.editakses = datauserakses
                         this.vaBank = datauserakses.data.Accounts
                         console.log(this.editakses)
-                       
-                        this.nama_rekening = this.editakses.data.NamaAgen
-                        this.alamat1_rekening = this.editakses.data.Alamat1
-                        this.alamat2_rekening = this.editakses.data.Alamat2
+                        if (this.editakses.data.ResponseCode == '000001') {
+                            alert(this.editakses.data.ResponseDesc)
+                        }else{
+                            this.nama_rekening = this.editakses.data.NamaAgen
+                            this.alamat1_rekening = this.editakses.data.Alamat1
+                            this.alamat2_rekening = this.editakses.data.Alamat2
+                        }
                 });
             },
             InquiryAgent(){
@@ -1161,8 +1244,69 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 }).then(response => {
                         let datauserakses = response
                         this.deleteAgent = datauserakses
-                        alert(this.deleteAgent.data.ResponseDesc + ' to Delete')
-                      window.location.reload(true)
+                         if (this.deleteAgent.data.ResponseCode == '000000') {
+                            alert(this.deleteAgent.data.ResponseDesc + ' to Delete')                            
+                            window.location.reload(true)
+                        }else{
+                            alert(this.deleteAgent.data.ResponseDesc)
+                        }
+                });
+            },
+            DeleteRekening(){
+            let getToken = this.$refs.checkToken.value;
+               axios({
+                    method:'post',
+                    url:'https://149.129.242.191/v1/pos/delete-pembukaan-rekening',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data:{
+                        "TxnRefNo":"APPS01203903",
+                        "ChannelId":"APPS01",
+                        "RequestTime":"20190224120000",
+                        "ServiceCode":"DELETE_PEMBUKAAN_REKENING",
+                        "KodeAgent": this.kode_agent_rekening
+                    }
+                }).then(response => {
+                        let datauserakses = response
+                        this.deleteRek = datauserakses
+                        if (this.deleteRek.data.ResponseCode == '000000') {
+                            alert(this.deleteRek.data.ResponseDesc + ' to Delete')                            
+                            window.location.reload(true)
+                        }else{
+                            alert(this.deleteRek.data.ResponseDesc)
+                        }
+                });
+            },
+            deletePetugasDb(){
+            let getToken = this.$refs.checkToken.value;
+               axios({
+                    method:'post',
+                    url:'https://149.129.242.191/v1/pos/delete-petugas-agency',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data:{
+                    "TxnRefNo":"APPS01203904",
+                    "ChannelId":"APPS01",
+                    "RequestTime":"20190224120000",
+                    "ServiceCode":"DELETE_PETUGAS_AGENCY",
+                    "KodeAgent": this.kode_agent_petugas,
+                    "IdPetugas": this.id_petugas
+                    }
+                }).then(response => {
+                        let datauserakses = response
+                        this.deleteRek = datauserakses
+                        if (this.deleteRek.data.ResponseCode == '000000') {
+                            alert(this.deleteRek.data.ResponseDesc + ' to Delete')                            
+                            window.location.reload(true)
+                        }else{
+                            alert(this.deleteRek.data.ResponseDesc)
+                        }
                 });
             },
         updateUserAkses(){
@@ -1225,8 +1369,8 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             "Email":this.email_agent,
                             "KontakPerson":this.pic_agent,
                             "NoTelpKontakPerson":this.telp_pic,
-                            "KoordinatorAgen":"00000208",
-                            "KoordinatorLapangan":"0000948",
+                            "KoordinatorAgen":"",
+                            "KoordinatorLapangan":"",
                             "MainAgen":"843",
                             "StatusActive":status,
                             "WaktuRegional":this.waktu,
@@ -1241,6 +1385,54 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                                 window.location.reload(true)
                             } else {
                                 alert(response.data.ResponseMessage)                                
+                            }
+                        }).catch(error => {
+                            console.log(error)
+                        }); 
+            },
+            updatePetugasDb(){
+                this.$validator.validateAll()
+                let getToken = this.$refs.checkToken.value;
+                let hakakses = String(parseInt(this.akses_petugas))
+                let status = String(parseInt(this.status_petugas))
+                // console.log(this.lastdate_agent)
+                axios({
+                        method: 'post',
+                        url: 'https://149.129.242.191/v1/pos/edit-petugas-agency',
+                        crossdomain: true, 
+                        headers: {
+                            "Content-Type": 'application/json',
+                            "ESB-JWT": "Token " + getToken,
+                        },
+                        data: {
+                             "TxnRefNo":"APPS01203902",
+                            "ChannelId":"APPS01",
+                            "RequestTime":this.RequestTime(this.dateRequest),
+                            "ServiceCode":"EDIT_PETUGAS_AGENCY",
+                            "KodeAgent": this.kode_agent_petugas,
+                            "IdPetugas": String(this.id_petugas),
+                            "NamaPetugas": this.nm_petugas,
+                            "Password": this.password_petugas,
+                            "IdTerminal":this.id_terminal,
+                            "TanggalRegistrasi": this.BackEndDateFormat(this.tglreg),
+                            "TanggalKadaluarsa": this.BackEndDateFormat(this.tglexptugas),
+                            "TanggalKadaluarsaPassword": this.BackEndDateFormat(this.tglexppassword),
+                            "Email": this.email_petugas,
+                            "HddSerialNumber": this.hdd,
+                            "StatusAktif":status,
+                            "LastAccess": this.BackEndDateFormat(this.lastakses_petugas),
+                            "UserId": this.id_update_petugas,
+                            "LastUpdate": this.BackEndDateFormat(this.lastdate_petugas),
+                            "HakAkses": hakakses
+                        }
+                        }).then(response => {
+                            console.log(response)
+                            if (response.data.ResponseCode == '000000') {                              
+                                alert(response.data.ResponseDesc + ' to Update')
+                                // this.Clearpetugas()
+                                window.location.reload(true)
+                            } else {
+                                alert(response.data.ResponseDesc)                                
                             }
                         }).catch(error => {
                             console.log(error)
