@@ -785,7 +785,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             getTokenAPI(){
             axios({
                 method: 'post',
-                url: 'https://149.129.242.191/v1/pos/jwt-token',
+                url: 'https://gtw-stg.posfin.id/v1/pos/jwt-token',
                 crossdomain: true, 
                 headers: {
                     "Content-Type": 'application/json',
@@ -816,7 +816,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             //    console.log()
                axios({
                     method:'post',
-                    url:'https://149.129.242.191/v1/pos/agent/inquiry',
+                    url:'https://gtw-stg.posfin.id/v1/pos/agent/inquiry',
                     crossdomain: true, 
                     headers: {
                         "Content-Type": 'application/json',
@@ -849,7 +849,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             //         let getToken = this.$refs.checkToken.value;
             //    axios({
             //         method:'post',
-            //         url:'https://149.129.242.191/v1/pos/petugas/inquiry',
+            //         url:'https://gtw-stg.posfin.id/v1/pos/petugas/inquiry',
             //         crossdomain: true, 
             //         headers: {
             //             "Content-Type": 'application/json',
@@ -931,7 +931,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             let getToken = this.$refs.checkToken.value;
                axios({
                     method:'post',
-                    url:'https://149.129.242.191/v1/pos/agent/inquiry',
+                    url:'https://gtw-stg.posfin.id/v1/pos/agent/inquiry',
                     crossdomain: true, 
                     headers: {
                         "Content-Type": 'application/json',
@@ -965,7 +965,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                let getToken = this.$refs.checkToken.value;
                axios({
                     method:'post',
-                    url:'https://149.129.242.191/v1/pos/agent/inquiry',
+                    url:'https://gtw-stg.posfin.id/v1/pos/agent/inquiry',
                     crossdomain: true, 
                     headers: {
                         "Content-Type": 'application/json',
@@ -1029,7 +1029,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             let getToken = this.$refs.checkToken.value;
                axios({
                     method:'post',
-                    url:'https://149.129.242.191/v1/pos/agent/inquiry/list',
+                    url:'https://gtw-stg.posfin.id/v1/pos/agent/inquiry/list',
                     crossdomain: true, 
                     headers: {
                         "Content-Type": 'application/json',
@@ -1063,7 +1063,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 let akses = String(parseInt(this.akses))
                 axios({
                 method: 'post',
-                url: 'https://149.129.242.191/v1/pos/user',
+                url: 'https://gtw-stg.posfin.id/v1/pos/user',
                 crossdomain: true, 
                  headers: {
                             "Content-Type": 'application/json',
@@ -1107,7 +1107,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 let status = String(parseInt(this.status_agent))
                 axios({
                         method: 'post',
-                        url: 'https://149.129.242.191/v1/pos/agent/registration',
+                        url: 'https://gtw-stg.posfin.id/v1/pos/agent/registration',
                         crossdomain: true, 
                         headers: {
                             "Content-Type": 'application/json',
@@ -1155,7 +1155,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             let getToken = this.$refs.checkToken.value;
                axios({
                     method:'post',
-                    url:'https://149.129.242.191/v1/pos/account/registration',
+                    url:'https://gtw-stg.posfin.id/v1/pos/account/registration',
                     crossdomain: true, 
                     headers: {
                         "Content-Type": 'application/json',
@@ -1186,7 +1186,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 let hakakses = String(parseInt(this.akses_petugas))
                 axios({
                         method: 'post',
-                        url: 'https://149.129.242.191/v1/pos/create-petugas-agency',
+                        url: 'https://gtw-stg.posfin.id/v1/pos/create-petugas-agency',
                         crossdomain: true, 
                         headers: {
                             "Content-Type": 'application/json',
@@ -1228,7 +1228,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             let getToken = this.$refs.checkToken.value;
                axios({
                     method:'post',
-                    url:'https://149.129.242.191/v1/pos/agent/delete',
+                    url:'https://gtw-stg.posfin.id/v1/pos/agent/delete',
                     crossdomain: true, 
                     headers: {
                         "Content-Type": 'application/json',
@@ -1256,7 +1256,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             let getToken = this.$refs.checkToken.value;
                axios({
                     method:'post',
-                    url:'https://149.129.242.191/v1/pos/delete-pembukaan-rekening',
+                    url:'https://gtw-stg.posfin.id/v1/pos/delete-pembukaan-rekening',
                     crossdomain: true, 
                     headers: {
                         "Content-Type": 'application/json',
@@ -1284,7 +1284,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             let getToken = this.$refs.checkToken.value;
                axios({
                     method:'post',
-                    url:'https://149.129.242.191/v1/pos/delete-petugas-agency',
+                    url:'https://gtw-stg.posfin.id/v1/pos/delete-petugas-agency',
                     crossdomain: true, 
                     headers: {
                         "Content-Type": 'application/json',
@@ -1346,7 +1346,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 // console.log(this.lastdate_agent)
                 axios({
                         method: 'post',
-                        url: 'https://149.129.242.191/v1/pos/agent/update',
+                        url: 'https://gtw-stg.posfin.id/v1/pos/agent/update',
                         crossdomain: true, 
                         headers: {
                             "Content-Type": 'application/json',
@@ -1398,7 +1398,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 // console.log(this.lastdate_agent)
                 axios({
                         method: 'post',
-                        url: 'https://149.129.242.191/v1/pos/edit-petugas-agency',
+                        url: 'https://gtw-stg.posfin.id/v1/pos/edit-petugas-agency',
                         crossdomain: true, 
                         headers: {
                             "Content-Type": 'application/json',
