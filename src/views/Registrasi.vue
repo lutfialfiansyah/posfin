@@ -439,8 +439,8 @@
                             </div>
                             <div class="tombol-register">
                                 <button type="button" class="btn-register" @click="btntambahPetugas=true" :disabled="btntambahPetugas" v-on:click="IdRandomPetugas()">TAMBAH</button>
-                                <button type="button" class="btn-register" @click="updatePetugasDb()" :disabled="agent_petugas == '000000' ? false : true">UBAH</button>
-                                <button type="button" class="btn-register" @click="deletePetugasDb()" :disabled="agent_petugas == '000000' ? false : true">HAPUS</button>
+                                <button type="button" class="btn-register" @click="updatePetugasDb()" :disabled="code_Petugas == '000000' ? false : true">UBAH</button>
+                                <button type="button" class="btn-register" @click="deletePetugasDb()" :disabled="code_Petugas == '000000' ? false : true">HAPUS</button>
                                 <button type="button" class="btn-register" @click="addDataPetugasDb()" :disabled="btntambahPetugas != true ? true :false">REKAM</button>
                                 <button type="button" class="btn-register" v-on:click="Clearpetugas" @click="enabledBtn">BATAL</button>
                             </div>
@@ -630,6 +630,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 lastakses_user:'',
                 status_user:'',
                 agent_petugas:'',
+                code_Petugas:'',
                 options: {
                 format: 'DD/MM/YYYY',
                 useCurrent: false,
@@ -845,48 +846,49 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             },
             IdPetugasEnter(){
                 this.id_update_petugas = this.$session.get('name')
-            //         let getid = this.$refs.checkKodeAgentPetugas.value;
-            //         let getToken = this.$refs.checkToken.value;
-            //    axios({
-            //         method:'post',
-            //         url:'https://gtw-stg.posfin.id/v1/pos/petugas/inquiry',
-            //         crossdomain: true, 
-            //         headers: {
-            //             "Content-Type": 'application/json',
-            //             "ESB-JWT": "Token " + getToken,
-            //         },
-            //         data: {
-            //             "TxnRefNo":"INQ0003",
-            //             "ChannelId":"BOA",
-            //             "RequestTime":"20190224120000",
-            //             "ServiceCode":"INQUIRY_AGENT",
-            //             "KodeAgen":getid,
-            //             "KodeMainAgent":"",
-            //             "InquiryType":"1"
-            //             }
-            //     }).then(response => {
-            //             let datauserakses = response
-            //             this.agent_petugas = datauserakses.data.ResponseCode
-            //             this.dataagent = datauserakses
-            //             // console.log(this.agent_petugas)
-            //             if (this.dataagent.data.ResponseCode == '000000') {
-            //                 this.nm_petugas = this.dataagent.data.NamaAgen
-            //                 this.password_petugas = this.dataagent.data.NamaAgen
-            //                 this.id_terminal = this.dataagent.data.NamaAgen
-            //                 this.akses_petugas = this.dataagent.data.NamaAgen
-            //                 this.status_petugas = this.dataagent.data.NamaAgen
-            //                 this.tglexptugas = this.dataagent.data.NamaAgen
-            //                 this.tglexppassword = this.dataagent.data.NamaAgen
-            //                 this.tglreg = this.dataagent.data.NamaAgen
-            //                 this.lastdate_petugas = this.dataagent.data.NamaAgen
-            //                 this.lastakses_petugas = this.dataagent.data.NamaAgen
-            //                 this.hdd = this.dataagent.data.NamaAgen
-            //                 this.email_petugas = this.dataagent.data.NamaAgen
-            //                 this.id_update_petugas = this.dataagent.data.NamaAgen
-            //             }else{
-            //                 alert(this.dataagent.data.ResponseDesc)
-            //             }
-            //         });
+                    let getid = this.$refs.checkKodeAgentPetugas.value;
+                    let getToken = this.$refs.checkToken.value;
+               axios({
+                    method:'post',
+                    url:'https://gtw-stg.posfin.id/v1/pos/inquiry-petugas-agency',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data: {
+                        "TxnRefNo":"APPS01203904",
+                        "ChannelId":"BOA",
+                        "RequestTime":this.RequestTime(this.dateRequest),
+                        "ServiceCode":"INQUIRY_PETUGAS_AGENCY",
+                        "KodeAgent": this.kode_agent_petugas,
+                        "IdPetugas": this.id_petugas,
+                        "Type":"Single"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.code_Petugas = datauserakses.data.ResponseCode
+                        this.userpetugas = datauserakses.data.Users[0]
+                        console.log(this.userpetugas)
+                        if (this.code_Petugas == '000000') {
+                            this.nm_petugas = this.userpetugas.NamaPetugas
+                            this.password_petugas = this.userpetugas.Password
+                            this.id_terminal = this.userpetugas.IdTerminal
+                            this.akses_petugas = this.userpetugas.HakAkses
+                            this.status_petugas = this.userpetugas.StatusAktif
+                            this.tglexptugas = this.FrontEndDateFormat(this.userpetugas.TanggalKadaluarsa)
+                            this.tglexppassword = this.FrontEndDateFormat(this.userpetugas.TanggalKadaluarsaPassword)
+                            this.tglreg = this.FrontEndDateFormat(this.userpetugas.TanggalRegistrasi)
+                            this.lastdate_petugas = (this.userpetugas.LastUpdate)
+                            this.lastakses_petugas = this.FrontEndDateFormat(this.userpetugas.LastAccess)
+                            this.hdd = this.userpetugas.HddSerialNumber
+                            this.email_petugas = this.userpetugas.Email
+                            this.id_update_petugas = this.userpetugas.IdUserUpdate
+
+                        }else{
+                            alert(datauserakses.data.ResponseDesc)
+                        }
+                    });
             },
             getKodeAkses(){
                 axios({
@@ -940,7 +942,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     data: {
                         "TxnRefNo":"INQ0003",
                         "ChannelId":"BOA",
-                        "RequestTime":"20190224120000",
+                        "RequestTime":this.RequestTime(this.dateRequest),
                         "ServiceCode":"INQUIRY_AGENT",
                         "KodeAgen":getid,
                         "KodeMainAgent":"",

@@ -59,7 +59,7 @@ import axios from 'axios'
             getTokenAPI(){
             axios({
                 method: 'post',
-                url: 'https://149.129.242.191/v1/pos/jwt-token',
+                url: 'https://gtw-stg.posfin.id/v1/pos/jwt-token',
                 crossdomain: true,
                 rejectUnauthorized: false,
                 headers: {
@@ -87,7 +87,7 @@ import axios from 'axios'
             let getToken = this.$refs.checkToken.value;
             axios({
                 method: 'post',
-                url: 'https://149.129.242.191/v1/pos/login/boa',
+                url: 'https://gtw-stg.posfin.id/v1/pos/login/boa',
                 data: {
                 username: this.username,
                 password: this.password
