@@ -722,7 +722,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 this.btntambahPetugas = false;
             },
             getUserAgent(){
-               this.id_update_agent = this.$session.get('name')
+               this.id_update_agent = String(this.$session.get('name'))
             },
             Clearagent() {
                 $('.vs__clear').click();
@@ -806,7 +806,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             }, 
             IdRandomPetugas(){
                 this.id_petugas = this.randomNumber()
-                this.id_update_petugas = this.$session.get('name')
+                this.id_update_petugas = String(this.$session.get('name'))
             },
             IdRandomUser(){
                 this.id_user = this.randomNumber()
@@ -845,7 +845,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                     });
             },
             IdPetugasEnter(){
-                this.id_update_petugas = this.$session.get('name')
+                this.id_update_petugas = String(this.$session.get('name'))
                     let getid = this.$refs.checkKodeAgentPetugas.value;
                     let getToken = this.$refs.checkToken.value;
                axios({
