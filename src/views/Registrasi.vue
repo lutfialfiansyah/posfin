@@ -836,7 +836,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         let datauserakses = response
                         this.agent_petugas = datauserakses.data.ResponseCode
                         this.dataagent = datauserakses
-                        // console.log(this.agent_petugas)
+                        console.log(this.dataagent)
                         if (this.dataagent.data.ResponseCode == '000000') {
                             this.nama_agent_petugas = this.dataagent.data.NamaAgen
                         }else{
@@ -874,8 +874,8 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             this.nm_petugas = this.userpetugas.NamaPetugas
                             this.password_petugas = this.userpetugas.Password
                             this.id_terminal = this.userpetugas.IdTerminal
-                            this.akses_petugas = this.userpetugas.HakAkses
-                            this.status_petugas = this.userpetugas.StatusAktif
+                            // this.akses_petugas = this.userpetugas.HakAkses
+                            // this.status_petugas = this.userpetugas.StatusAktif
                             this.tglexptugas = this.FrontEndDateFormat(this.userpetugas.TanggalKadaluarsa)
                             this.tglexppassword = this.FrontEndDateFormat(this.userpetugas.TanggalKadaluarsaPassword)
                             this.tglreg = this.FrontEndDateFormat(this.userpetugas.TanggalRegistrasi)
@@ -884,6 +884,28 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                             this.hdd = this.userpetugas.HddSerialNumber
                             this.email_petugas = this.userpetugas.Email
                             this.id_update_petugas = this.userpetugas.IdUserUpdate
+                            if (this.userpetugas.HakAkses == '1001') {
+                                this.akses_petugas =  this.userpetugas.HakAkses + ' - Petugas Agen'                                
+                            }else if (this.userpetugas.HakAkses == '1002') {
+                                this.akses_petugas =  this.userpetugas.HakAkses + ' - Petugas Koordinator'                                                                
+                            }else if (this.userpetugas.HakAkses == '1003') {
+                                this.akses_petugas =  this.userpetugas.HakAkses + ' - Petugas Admin'                                                                                            
+                            }                            
+                             if (this.userpetugas.StatusAktif == 0) {
+                                this.status_petugas =  this.userpetugas.StatusAktif + ' - Aktif'
+                            }else if (this.userpetugas.StatusAktif == 1){
+                                this.status_petugas =  this.userpetugas.StatusAktif + ' - Sedang Login'
+                            }else if (this.userpetugas.StatusAktif == 2){
+                                this.status_petugas =  this.userpetugas.StatusAktif + ' - Cetak Backsheet'
+                            }else if (this.userpetugas.StatusAktif == 3){
+                                this.status_petugas =  this.userpetugas.StatusAktif + ' - Blokir'
+                            }else if (this.userpetugas.StatusAktif == 4){
+                                this.status_petugas =  this.userpetugas.StatusAktif + ' - Expire'
+                            }else if (this.userpetugas.StatusAktif == 5){
+                                this.status_petugas =  this.userpetugas.StatusAktif + ' - Belum Validasi'
+                            }else if (this.userpetugas.StatusAktif == 6){
+                                this.status_petugas =  this.userpetugas.StatusAktif + ' - Sudah Validasi'
+                            }
 
                         }else{
                             alert(datauserakses.data.ResponseDesc)
