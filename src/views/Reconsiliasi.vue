@@ -12,39 +12,118 @@
             <div class="row">
                 <form class="form-horizontal">
                     <div class="col-md-12 col-sm-12 korlap">
-                    <div class="col-md-3 col-sm-3 lapkor">
-                        <p>Jenis Laporan</p>
-                        <div class="radio-korlap">
-                            <input type="radio" id="rekap" v-model="rekap" name="selector" value="1">
-                            <label for="rekap">Rekap</label>
-                        </div>
-                        <div class="radio-korlap">
-                            <input type="radio" id="detail" v-model="rekap" name="selector" value="2"> 
-                            <label for="detail">Detail </label>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="saldo">
+                                <div class="col-md-3 col-sm-3 lapkor">
+                                    <p>Jenis Laporan</p>
+                                    <div class="radio-korlap">
+                                        <input type="radio" id="rekap" v-model="rekap" name="selector" value="Rekap">
+                                        <label for="rekap">Rekap</label>
+                                        <input type="hidden" ref="checkToken" :value="this.getToken">
+                                    </div>
+                                    <div class="radio-korlap">
+                                        <input type="radio" id="detail" v-model="rekap" name="selector" value="Detail"> 
+                                        <label for="detail">Detail </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-2">Kode Agent</label>
+                                        <div class="col-xs-4"><v-select v-model="select" :options="option" :disabled="rekap == 'Rekap'"></v-select></div>
+                                            <button class="btn-refresh-recon">REFRESH USER / AMBIL DAFTAR AGENT</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-2">Tanggal</label>
+                                        <div class="col-xs-4"><date-picker v-model="startdate" :config="options"></date-picker></div><button type="button" class="btn-tampilkan" v-on:click="tampilsaldo">TAMPILKAN</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="agen">
+                                <div class="col-md-3 col-sm-3 lapkor">
+                                    <p>Jenis Laporan</p>
+                                    <div class="radio-korlap">
+                                        <input type="radio" id="rekap" v-model="rekap" name="selector" value="Rekap">
+                                        <label for="rekap">Rekap</label>
+                                        <input type="hidden" ref="checkToken" :value="this.getToken">
+                                    </div>
+                                    <div class="radio-korlap">
+                                        <input type="radio" id="detail" v-model="rekap" name="selector" value="Detail"> 
+                                        <label for="detail">Detail </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-2">Kode Agent</label>
+                                        <div class="col-xs-4"><v-select v-model="select" :options="option" :disabled="rekap == 'Rekap'"></v-select></div>
+                                            <button class="btn-refresh-recon">REFRESH USER / AMBIL DAFTAR AGENT</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-2">Tanggal1</label>
+                                        <div class="col-xs-4"><date-picker v-model="startdate" :config="options"></date-picker></div><button type="button" class="btn-tampilkan" v-on:click="tampilsaldo">TAMPILKAN</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="koran">
+                                <div class="col-md-3 col-sm-3 lapkor">
+                                    <p>Jenis Laporan</p>
+                                    <div class="radio-korlap">
+                                        <input type="radio" id="rekap" v-model="rekap" name="selector" value="Rekap">
+                                        <label for="rekap">Rekap</label>
+                                        <input type="hidden" ref="checkToken" :value="this.getToken">
+                                    </div>
+                                    <div class="radio-korlap">
+                                        <input type="radio" id="detail" v-model="rekap" name="selector" value="Detail"> 
+                                        <label for="detail">Detail </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-2">Kode Agent</label>
+                                        <div class="col-xs-4"><v-select v-model="select" :options="option" :disabled="rekap == 'Rekap'"></v-select></div>
+                                            <button class="btn-refresh-recon">REFRESH USER / AMBIL DAFTAR AGENT</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-2">Tanggal2</label>
+                                        <div class="col-xs-4"><date-picker v-model="startdate" :config="options"></date-picker></div><button type="button" class="btn-tampilkan" v-on:click="tampilsaldo">TAMPILKAN</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="rek">
+                                <div class="col-md-3 col-sm-3 lapkor">
+                                    <p>Jenis Laporan</p>
+                                    <div class="radio-korlap">
+                                        <input type="radio" id="rekap" v-model="rekap" name="selector" value="Rekap">
+                                        <label for="rekap">Rekap</label>
+                                        <input type="hidden" ref="checkToken" :value="this.getToken">
+                                    </div>
+                                    <div class="radio-korlap">
+                                        <input type="radio" id="detail" v-model="rekap" name="selector" value="Detail"> 
+                                        <label for="detail">Detail </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-2">Kode Agent</label>
+                                        <div class="col-xs-4"><v-select v-model="select" :options="option" :disabled="rekap == 'Rekap'"></v-select></div>
+                                            <button class="btn-refresh-recon">REFRESH USER / AMBIL DAFTAR AGENT</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-2">Tanggal3</label>
+                                        <div class="col-xs-4"><date-picker v-model="startdate" :config="options"></date-picker></div><button type="button" class="btn-tampilkan" v-on:click="tampilsaldo">TAMPILKAN</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-8 col-sm-8">
-                        <div class="form-group">
-                            <label class="control-label col-xs-2">Kode Agent</label>
-                            <div class="col-xs-4"><v-select v-model="select" :options="option" :disabled="rekap == 1"></v-select></div>
-                                <button class="btn-refresh-recon">REFRESH USER / AMBIL DAFTAR AGENT</button>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-xs-2">Tanggal</label>
-                            <div class="col-xs-4"><date-picker v-model="startdate" :config="options"></date-picker></div><button class="btn-tampilkan">TAMPILKAN</button>
-                        </div>
-                    </div>
-                    
-                </div>
                 </form>
             </div>
           </div>
           <div class="menu-recon">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a  href="#1" data-toggle="tab">REKON SALDO AKHIR</a></li>
-                    <li><a  href="#2" data-toggle="tab">TRANSAKSI AGENCY</a></li>
-                    <li><a  href="#3" data-toggle="tab">REKENING KORAN</a></li>
-                    <li><a  href="#4" data-toggle="tab">TRANSAKSI DAN REKENING KORAN</a></li>
+                    <li class="active"><a  href="#1" data-target="#1, #saldo" data-toggle="tab">REKON SALDO AKHIR</a></li>
+                    <li><a  href="#2" data-target="#2, #agen" data-toggle="tab">TRANSAKSI AGENCY</a></li>
+                    <li><a  href="#3" data-target="#3, #koran" data-toggle="tab">REKENING KORAN</a></li>
+                    <li><a  href="#4" data-target="#4, #rek" data-toggle="tab">TRANSAKSI DAN REKENING KORAN</a></li>
                 </ul>
           </div>
           <div class="tab-content">
@@ -77,15 +156,15 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
-                                                    <td>617</td>
-                                                    <td>612</td>
+                                                <tr v-for="(saldo,index) in filtersaldo">
+                                                    <td>{{ index + 1 }}</td>
+                                                    <td>{{ saldo.KodeAgent }}</td>
+                                                    <td>{{ saldo.NoAccount }}</td>
+                                                    <td>{{ saldo.SaldoAwal }}</td>
+                                                    <td>{{ saldo.DepositTransaksi }}</td>
+                                                    <td>{{ saldo.SaldoAkhir }}</td>
+                                                    <td>{{ saldo.SaldoTransaksi }}</td>
+                                                    <td>{{ saldo.Selisih }}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -400,18 +479,35 @@
 </template>
 
 <script>
+$('.nav-tabs li a').click(function (e) {     
+    //get selected href
+    var href = $(this).attr('href');    
+    
+    //set all nav tabs to inactive
+    $('.nav-tabs li').removeClass('active');
+    
+    //get all nav tabs matching the href and set to active
+    $('.nav-tabs li a[href="'+href+'"]').closest('li').addClass('active');
+
+    //active tab
+    $('.tab-pane').removeClass('active');
+    $('.tab-pane'+href).addClass('active');
+});
+
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
 import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
 import 'vue-select/dist/vue-select.css';
+import moment from 'moment';
 
     export default {
         name: 'reconsiliasi',
         data() {
             return {
                 rekap: null,
-                kode_agent: null,
-                nama_agent: null,
+                detail: null,
+                filtersaldo: [],
+                getToken: null,
                 select: null,
                 startdate: new Date(),
                 options: {
@@ -433,6 +529,7 @@ import 'vue-select/dist/vue-select.css';
         datePicker
         },
         mounted() {
+            this.getTokenAPI();
             if (!this.$session.get('session-id')) {
             this.$router.push({name: 'login'})
             }
@@ -441,6 +538,64 @@ import 'vue-select/dist/vue-select.css';
             close() {
                 this.$router.push('/')
             },
+             getUserAgent(){
+               String(this.$session.get('name'))
+            },
+            BackEndDateFormat: function(date) {
+        		return moment(date, 'DD/MM/YYYY').format('YYYYMMDDHHmmss');
+            },
+            FrontEndDateFormat: function(date) {
+        		return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+            },
+            getTokenAPI(){
+            axios({
+                method: 'post',
+                url: 'https://gtw-stg.posfin.id/v1/pos/jwt-token',
+                crossdomain: true, 
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": 'Basic YWRtaW46Y2hhbmdlbWU=',
+                },
+                data: {
+                }
+                }).then(response => {
+                    let Token = response.data.Token
+                    this.getToken = Token
+                    console.log(response)
+                }).catch(error => {
+                    console.log(error)
+                }); 
+              },
+            tampilsaldo(){
+                let getToken = this.$refs.checkToken.value;
+                let getUserAgent = String(this.$session.get('name'))
+                // alert(this.BackEndDateFormat(this.startdate))
+               axios({
+                    method:'post',
+                    url:'https://gtw-stg.posfin.id/v1/pos/rekonsiliasi/saldo-akhir',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data: {
+                        "TxnRefNo":"APPS01203902",
+                        "ChannelId":"APPS01",
+                        "ServiceCode": "REKON_SALDO_AKHIR",
+                        "RequestTime":"20190224120000",
+                        "JenisLaporan": this.rekap,
+                        "UserId": getUserAgent,
+                        "Tanggal": this.BackEndDateFormat(this.startdate),
+                        "Page": 1,
+                        "Limit": 10,
+                        "IsPaging": "Y"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.filtersaldo = datauserakses.data.Result
+                        console.log(this.filtersaldo)
+                    });
+            }   
         },
     }
 </script>

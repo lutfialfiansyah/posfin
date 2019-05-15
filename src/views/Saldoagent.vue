@@ -16,7 +16,6 @@
                     <li class="active"><a  href="#2" data-toggle="tab">LAPORAN TOP UP</a></li>
                     <li><a  href="#" data-toggle="tab" class="disabledTab">LAPORAN OVERBOOKING</a></li>
                     <li><a  href="#4" data-toggle="tab">REK. KORAN MAIN AGEN</a></li>
-                    <li><a  href="#5" data-toggle="tab">LAPORAN DEPOSIT</a></li>
               </ul>
              
               <div class="tab-content">
@@ -277,68 +276,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="5">
-                    <div class="body-registrasi">
-                        <h5>LAPORAN DEPOSIT</h5>
-                        <div class="row">
-                            <form class="form-horizontal">
-                              <div class="col-md-12 col-sm-12">
-                                  <div class="top">
-                                      <div class="form-group">
-                                            <label class="control-label col-xs-1 laptgl">Tanggal</label>
-                                            <div class="col-sm-3"><date-picker v-model="startdate" :config="options"></date-picker></div><label class="control-label col-xs-1 laptgls">s.d</label><div class="col-sm-3"><date-picker v-model="lastdate" :config="options"></date-picker> </div><button class="btn-tampil-topup">TAMPILKAN</button>
-                                      </div>
-                                  </div>
-                              </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="lap-korlap">
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="panel">
-                                <div class="panel-heading active" role="tab" id="heading7">
-                                    <h3 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="true" aria-controls="collapse7">
-                                            <h4>REK. KORAN MAIN AGEN</h4>
-                                        </a>
-                                    </h3>
-                                </div>
-                                <div id="collapse7" class="panel-collapse collapsein" role="tabpanel" aria-labelledby="heading7">
-                                    <div class="panel-body">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>NO</th>
-                                                    <th>TANGGAL</th>
-                                                    <th>KDAGENT</th>
-                                                    <th>ACCOUNT BUFFER</th>
-                                                    <th>BESAR UANG</th>
-                                                    <th>NOREF</th>
-                                                    <th>JAM</th>
-                                                    <th>BESAR UANG</th>
-                                                    <th>KETERANGAN</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2166</td>
-                                                <td>9332459</td>
-                                                <td>619</td>
-                                                <td>612</td>
-                                                <td>619</td>
-                                                <td>617</td>
-                                                <td>612</td>
-                                                <td> Ket</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
               </div>
           </div>
         </div>  

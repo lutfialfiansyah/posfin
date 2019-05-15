@@ -287,7 +287,9 @@ button[disabled], html input[disabled] {
     font-size: 11px;
     padding: 7px 8px 0;
 }
-
+.main-header .navbar-nav > li > a.disabled {
+    background-color: #d9d9d9;
+}
 .main-header .navbar-nav > li > p {
     font-family: HelveticaNeue-Medium;
     font-size: 11px;
