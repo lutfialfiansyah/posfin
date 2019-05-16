@@ -9,8 +9,8 @@
           </div>
           <div class="body-register">
               <ul class="nav nav-tabs" id="myTab">
-                    <li class="disabled"><a href="#user" >USER AKSES</a></li>
-                    <li class="disabled"><a href="#koord" >KOORDINATOR AGEN</a></li>
+                    <li class="disabled"><a href="#" >USER AKSES</a></li>
+                    <li class="disabled"><a href="#" >KOORDINATOR AGEN</a></li>
                     <li class="active"><a  href="#agent" data-toggle="tab">PENDAFTARAN AGENT</a></li>
                     <li><a  href="#rek" data-toggle="tab">PEMBUKAAN REKENING</a></li>
                     <li><a  href="#agency" data-toggle="tab">PETUGAS AGENCY</a></li>
