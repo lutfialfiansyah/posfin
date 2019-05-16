@@ -9,15 +9,15 @@
           </div>
           <div class="body-register">
               <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a  href="#user" data-toggle="tab">USER AKSES</a></li>
-                    <li><a  href="#koord" data-toggle="tab">KOORDINATOR AGEN</a></li>
-                    <li><a  href="#agent" data-toggle="tab">PENDAFTARAN AGENT</a></li>
+                    <li class="disabled"><a href="#user" >USER AKSES</a></li>
+                    <li class="disabled"><a href="#koord" >KOORDINATOR AGEN</a></li>
+                    <li class="active"><a  href="#agent" data-toggle="tab">PENDAFTARAN AGENT</a></li>
                     <li><a  href="#rek" data-toggle="tab">PEMBUKAAN REKENING</a></li>
                     <li><a  href="#agency" data-toggle="tab">PETUGAS AGENCY</a></li>
                     <li><a  href="#da" data-toggle="tab">DAFTAR AGENT</a></li>
               </ul>
               <div class="tab-content">
-                <div class="tab-pane fade in active" id="user">
+                <div class="tab-pane" id="user">
                     <div class="body-registrasi">
                         <h5>USER AKSES</h5>
                         <div class="row">
@@ -182,7 +182,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="agent">
+                <div class="tab-pane fade in active" id="agent">
                     <div class="body-registrasi">
                         <h5>PENDAFTARAN AGENT</h5>
                         <div class="row">
