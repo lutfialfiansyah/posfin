@@ -123,7 +123,7 @@
                     <li class="active"><a  href="#1" data-target="#1, #saldo" data-toggle="tab">REKON SALDO AKHIR</a></li>
                     <li><a  href="#2" data-target="#2, #agen" data-toggle="tab">TRANSAKSI AGENCY</a></li>
                     <li><a  href="#3" data-target="#3, #koran" data-toggle="tab">REKENING KORAN</a></li>
-                    <li><a  href="#4" data-target="#4, #rek" data-toggle="tab">TRANSAKSI DAN REKENING KORAN</a></li>
+                    <li class="disabled"><a  href="#">TRANSAKSI DAN REKENING KORAN</a></li>
                 </ul>
           </div>
           <div class="tab-content">
