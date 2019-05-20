@@ -534,6 +534,11 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            <paginate
+                                                :page-count="this.filterdata.TotalPage == undefined ? 0 : this.filterdata.TotalPage"
+                                                :container-class="'pagination'"
+                                                :click-handler="clickCallback">
+                                            </paginate>
                                         </div>
                                     </div>
                                 </div>
@@ -541,7 +546,7 @@
                         </div>
                     </div>   
                 </div>
-                
+
              </div>
           </div>
       </div>  
@@ -561,11 +566,13 @@
 //         window.localStorage.removeItem("activeTab");
 //     }
 // });
+
 import axios from 'axios'
 import datePicker from 'vue-bootstrap-datetimepicker';
  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
  import 'vue-select/dist/vue-select.css';
  import moment from 'moment';
+
 
     export default {
         name: 'registrasi',
@@ -683,6 +690,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 submitagent:false,
                 submitrek:false,
                 submitpetugas:false,
+                filterdata:[],
                 reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
                   option: [
                     '0 - Aktif',
@@ -739,6 +747,43 @@ import datePicker from 'vue-bootstrap-datetimepicker';
             }
        },
         methods: {
+            clickCallback: function(pageNum) {
+                console.log(pageNum)
+                     let filter = this.searchno            
+            if (filter == null) {
+                this.searchno = ""
+            }
+            let getToken = this.$refs.checkToken.value;
+               axios({
+                    method:'post',
+                    url:'https://gtw-stg.posfin.id/v1/pos/agent/inquiry/list',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data: {
+                        "TxnRefNo":"APPS01203902",
+                        "ChannelId":"APPS01",
+                        "RequestTime":"20190224120000",
+                        "ServiceCode":"INQUIRY_LIST_AGENT",
+                        "KodeMainAgent":"",
+                        "Filter": this.searchno,
+                        "FilterValue":this.searchVal,
+                        "Page":pageNum,
+                        "Limit":10,
+                        "IsPaging":"Y"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.filterdata = response.data
+                        this.filterAgent = datauserakses.data.Agents
+                        if (this.filterAgent == null) {
+                            alert('Data Tidak Ditemukan')
+                        }
+                        console.log(this.filterdata)
+                });
+            },
             enabledBtn(){
                 this.btntambahUser = false;
                 this.btntambahAgent = false;
@@ -1121,11 +1166,12 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }
                 }).then(response => {
                         let datauserakses = response
+                        this.filterdata = response.data
                         this.filterAgent = datauserakses.data.Agents
                         if (this.filterAgent == null) {
                             alert('Data Tidak Ditemukan')
                         }
-                        console.log(this.filterAgent)
+                        console.log(this.filterdata)
                 });
             },
             addUserAksesDb(){
