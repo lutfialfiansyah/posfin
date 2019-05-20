@@ -196,13 +196,13 @@
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('nama_agent')}">
                                             <label class="control-label col-xs-3">Nama Agent</label>
-                                            <div class="col-xs-9"><input type="text" v-model="nama_agent" class="form-control" name="nama_agent" :autofocus="btntambahAgent" v-validate="'required|min:3'" data-vv-as="nama agent" :class="{ 'is-invalid error': submitagent && errors.has('nama_agent') }"><span class="error invalid-feedback" v-if="submitagent && errors.has('nama_agent')">{{errors.first('nama_agent')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="nama_agent" class="form-control" name="nama_agent" :autofocus="btntambahAgent" v-validate="'required|min:3'" data-vv-as="nama agent" :class="{ 'is-invalid error': submitagent && errors.has('nama_agent') }"><span id="error-agent" class="error invalid-feedback" v-if="submitagent && errors.has('nama_agent')">{{errors.first('nama_agent')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('alamat_agent')}">
                                             <label class="control-label col-xs-3">Alamat</label>
-                                            <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control" name="alamat_agent" v-validate="'required|min:3'" data-vv-as="alamat agent" :class="{'is-invalid error': submitagent && errors.has('alamat_agent')}"><span class="error invalid-feedback" v-if="submitagent && errors.has('alamat_agent')">{{errors.first('alamat_agent')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="alamat_agent" class="form-control" name="alamat_agent" v-validate="'required|min:3'" data-vv-as="alamat agent" :class="{'is-invalid error': submitagent && errors.has('alamat_agent')}"><span id="error-agent" class="error invalid-feedback" v-if="submitagent && errors.has('alamat_agent')">{{errors.first('alamat_agent')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -212,31 +212,31 @@
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('kota_agent')}">
                                             <label class="control-label col-xs-3">Kota</label>
-                                            <div class="col-xs-9"><input type="text" v-model="kota_agent" class="form-control" name="kota_agent" v-validate="'required|min:3'" data-vv-as="kota agent" :class="{'is-invalid error': submitagent && errors.has('kota_agent')}"><span class="error invalid-feedback" v-if="submitagent && errors.has('kota_agent')">{{errors.first('kota_agent')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="kota_agent" class="form-control" name="kota_agent" v-validate="'required|min:3'" data-vv-as="kota agent" :class="{'is-invalid error': submitagent && errors.has('kota_agent')}"><span id="error-agent" class="error invalid-feedback" v-if="submitagent && errors.has('kota_agent')">{{errors.first('kota_agent')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('kodepos')}">
                                             <label class="control-label col-xs-3">Kode Pos</label>
-                                            <div class="col-xs-9"><input type="text" v-model="kodepos" class="form-control" name="kodepos" v-validate="'required|max:5'" data-vv-as="kodepos" :class="{'is-invalid error': submitagent && errors.has('kodepos')}"><span class="error" v-if="submitagent && errors.has('kodepos')">{{errors.first('kodepos')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="kodepos" class="form-control" name="kodepos" v-validate="'required|max:5'" data-vv-as="kodepos" :class="{'is-invalid error': submitagent && errors.has('kodepos')}"><span id="error-agent" class="error" v-if="submitagent && errors.has('kodepos')">{{errors.first('kodepos')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('propinsi')}">
                                             <label class="control-label col-xs-3">Propinsi</label>
-                                            <div class="col-xs-9"><input type="text" v-model="propinsi" class="form-control" name="propinsi" v-validate="'required|min:3'" data-vv-as="propinsi" :class="{'is-invalid error': submitagent && errors.has('propinsi')}"><span class="error" v-if="submitagent && errors.has('propinsi')">{{errors.first('propinsi')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="propinsi" class="form-control" name="propinsi" v-validate="'required|min:3'" data-vv-as="propinsi" :class="{'is-invalid error': submitagent && errors.has('propinsi')}"><span id="error-agent" class="error" v-if="submitagent && errors.has('propinsi')">{{errors.first('propinsi')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('telp')}">
                                             <label class="control-label col-xs-3">No. Telp/HP</label>
-                                            <div class="col-xs-9"><input type="text" v-model="telp" class="form-control" name="telp" v-validate="'required|min:10|max:12'" data-vv-as="telp" :class="{'is-invalid error': submitagent && errors.has('telp')}"><span class="error" v-if="submitagent && errors.has('telp')">{{errors.first('telp')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="telp" class="form-control" name="telp" v-validate="'required|min:10|max:12'" data-vv-as="telp" :class="{'is-invalid error': submitagent && errors.has('telp')}"><span id="error-agent" class="error" v-if="submitagent && errors.has('telp')">{{errors.first('telp')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('email_agent')}">
                                             <label class="control-label col-xs-3">Email Address</label>
-                                            <div class="col-xs-9"><input type="text" v-model="email_agent" class="form-control" name="email_agent" v-validate="'required|email'" data-vv-as="email agent" :class="{'is-invalid error': submitagent && errors.has('email_agent')}"><span class="error" v-if="submitagent && errors.has('email_agent')">{{errors.first('email_agent')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="email_agent" class="form-control" name="email_agent" v-validate="'required|email'" data-vv-as="email agent" :class="{'is-invalid error': submitagent && errors.has('email_agent')}"><span id="error-agent" class="error" v-if="submitagent && errors.has('email_agent')">{{errors.first('email_agent')}}</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -244,13 +244,13 @@
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('pic_agent')}">
                                             <label class="control-label col-xs-3">Kontak Person</label>
-                                            <div class="col-xs-9"><input type="text" v-model="pic_agent" class="form-control" name="pic_agent" v-validate="'required|min:3'" data-vv-as="pic agent" :class="{'is-invalid error': submitagent && errors.has('pic_agent')}"><span class="error" v-if="submitagent && errors.has('pic_agent')">{{errors.first('pic_agent')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="pic_agent" class="form-control" name="pic_agent" v-validate="'required|min:3'" data-vv-as="pic agent" :class="{'is-invalid error': submitagent && errors.has('pic_agent')}"><span id="error-agent" class="error" v-if="submitagent && errors.has('pic_agent')">{{errors.first('pic_agent')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('telp_pic')}">
                                             <label class="control-label col-xs-3">No. Telpon Kontak Person</label>
-                                            <div class="col-xs-9"><input type="text" v-model="telp_pic" class="form-control" name="telp_pic" v-validate="'required|min:10|max:12'" data-vv-as="telp pic" :class="{'is-invalid error': submitagent && errors.has('telp_pic')}"><span class="error" v-if="submitagent && errors.has('telp_pic')">{{errors.first('telp_pic')}}</span></div>
+                                            <div class="col-xs-9"><input type="text" v-model="telp_pic" class="form-control" name="telp_pic" v-validate="'required|min:10|max:12'" data-vv-as="telp pic" :class="{'is-invalid error': submitagent && errors.has('telp_pic')}"><span id="error-agent" class="error" v-if="submitagent && errors.has('telp_pic')">{{errors.first('telp_pic')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -260,13 +260,13 @@
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('waktu_agent')}">
                                             <label class="control-label col-xs-3">Waktu Regional</label>
-                                            <div class="col-xs-9"><v-select v-model="waktu" :options="opsi_waktu" name="waktu_agent" v-validate="'required'" data-vv-as="waktu" :class="{'is-invalid error': submitagent && errors.has('waktu_agent')}"></v-select><span class="error" v-if="submitagent && errors.has('waktu_agent')">{{errors.first('waktu_agent')}}</span></div>
+                                            <div class="col-xs-9"><v-select v-model="waktu" :options="opsi_waktu" name="waktu_agent" v-validate="'required'" data-vv-as="waktu" :class="{'is-invalid error': submitagent && errors.has('waktu_agent')}"></v-select><span id="error-agent" class="error" v-if="submitagent && errors.has('waktu_agent')">{{errors.first('waktu_agent')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="field" :class="{error: submitagent && errors.has('status_agent')}">
                                             <label class="control-label col-xs-3">Status Aktif</label>
-                                            <div class="col-xs-9"><v-select v-model="status_agent" :options="option" title="0 - Aktif" name="status_agent" v-validate="'required'" data-vv-as="status" :class="{'is-invalid error': submitagent && errors.has('status_agent')}"></v-select><span class="error" v-if="submitagent && errors.has('status_agent')">{{errors.first('status_agent')}}</span></div>
+                                            <div class="col-xs-9"><v-select v-model="status_agent" :options="option" title="0 - Aktif" name="status_agent" v-validate="'required'" data-vv-as="status" :class="{'is-invalid error': submitagent && errors.has('status_agent')}"></v-select><span id="error-agent" class="error" v-if="submitagent && errors.has('status_agent')">{{errors.first('status_agent')}}</span></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -283,7 +283,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-xs-3">ID User Update</label>
-                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" :readonly="btntambahAgent || kode_agent.lenght > 6" name="id_update" v-validate="'min:3'" data-vv-as="IdUserUpdate" :class="{error: errors.has('id_update')}"><span class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
+                                        <div class="col-xs-9"><input type="text" v-model="id_update_agent" class="form-control" :readonly="btntambahAgent || kode_agent.lenght > 6" name="id_update" v-validate="'min:3'" data-vv-as="IdUserUpdate" :class="{error: errors.has('id_update')}"><span id="error-agent" class="error" v-if="errors.has('id_update')">{{errors.first('id_update')}}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -1179,6 +1179,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 this.$validator.validate().then(valid => {
                 let getToken = this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_agent))
+                if ($('#error-agent').length) {
+                    alert('Please input correctly !')
+                }else{
                 axios({
                         method: 'post',
                         url: 'https://gtw-stg.posfin.id/v1/pos/agent/registration',
@@ -1222,6 +1225,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }).catch(error => {
                             console.log(error)
                         }); 
+                        }
                     });
 
             },
@@ -1245,7 +1249,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         "ServiceCode":"CREATE_ACCT_AGENT",
                         "KodeAgen": getid,
                         "KodeMainAgent": "0000001",
-                        "UserId":"01"
+                        "UserId":String(this.$session.get('name'))
                         }
                 }).then(response => {
                         let datauserakses = response
@@ -1364,7 +1368,7 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         this.deleteRek = datauserakses
                         if (this.deleteRek.data.ResponseCode == '000000') {
                             alert(this.deleteRek.data.ResponseDesc + ' to Delete')                            
-                            window.location.reload(true)
+                            this.Clearrekening();
                         }else{
                             alert(this.deleteRek.data.ResponseDesc)
                         }
@@ -1435,6 +1439,9 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                 this.$validator.validate().then(valid => {
                 let getToken = this.$refs.checkToken.value;
                 let status = String(parseInt(this.status_agent))
+                if ($('#error-agent').length) {
+                    alert('Please input correctly !')
+                }else{
                 axios({
                         method: 'post',
                         url: 'https://gtw-stg.posfin.id/v1/pos/agent/update',
@@ -1480,7 +1487,8 @@ import datePicker from 'vue-bootstrap-datetimepicker';
                         }).catch(error => {
                             console.log(error)
                         }); 
-                    });
+                    }  
+                });
             },
             updatePetugasDb(){
                 this.submitpetugas = true;
