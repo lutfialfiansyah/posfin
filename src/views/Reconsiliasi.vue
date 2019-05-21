@@ -42,12 +42,12 @@
                                 <div class="col-md-3 col-sm-3 lapkor">
                                     <p>Jenis Laporan</p>
                                     <div class="radio-korlap">
-                                        <input type="radio" id="rekap" v-model="rekap" name="selector" value="Rekap">
+                                        <input type="radio" id="rekap" v-model="rekaptrans" name="selector" value="Rekap">
                                         <label for="rekap">Rekap</label>
                                         <input type="hidden" ref="checkToken" :value="this.getToken">
                                     </div>
                                     <div class="radio-korlap">
-                                        <input type="radio" id="detail" v-model="rekap" name="selector" value="Detail"> 
+                                        <input type="radio" id="detail" v-model="rekaptrans" name="selector" value="Detail"> 
                                         <label for="detail">Detail </label>
                                     </div>
                                 </div>
@@ -58,8 +58,8 @@
                                             <button class="btn-refresh-recon">REFRESH USER / AMBIL DAFTAR AGENT</button>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-2">Tanggal1</label>
-                                        <div class="col-xs-4"><date-picker v-model="startdate" :config="options"></date-picker></div><button type="button" class="btn-tampilkan" v-on:click="tampilsaldo">TAMPILKAN</button>
+                                        <label class="control-label col-xs-2">Tanggal</label>
+                                        <div class="col-xs-4"><date-picker v-model="startdatetrans" :config="options"></date-picker></div><button type="button" class="btn-tampilkan" v-on:click="tampilTransaksi">TAMPILKAN</button>
                                     </div>
                                 </div>
                             </div>
@@ -67,12 +67,12 @@
                                 <div class="col-md-3 col-sm-3 lapkor">
                                     <p>Jenis Laporan</p>
                                     <div class="radio-korlap">
-                                        <input type="radio" id="rekap" v-model="rekap" name="selector" value="Rekap">
+                                        <input type="radio" id="rekap" v-model="rekapkoran" name="selector" value="Rekap">
                                         <label for="rekap">Rekap</label>
                                         <input type="hidden" ref="checkToken" :value="this.getToken">
                                     </div>
                                     <div class="radio-korlap">
-                                        <input type="radio" id="detail" v-model="rekap" name="selector" value="Detail"> 
+                                        <input type="radio" id="detail" v-model="rekapkoran" name="selector" value="Detail"> 
                                         <label for="detail">Detail </label>
                                     </div>
                                 </div>
@@ -83,8 +83,8 @@
                                             <button class="btn-refresh-recon">REFRESH USER / AMBIL DAFTAR AGENT</button>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-xs-2">Tanggal2</label>
-                                        <div class="col-xs-4"><date-picker v-model="startdate" :config="options"></date-picker></div><button type="button" class="btn-tampilkan" v-on:click="tampilsaldo">TAMPILKAN</button>
+                                        <label class="control-label col-xs-2">Tanggal</label>
+                                        <div class="col-xs-4"><date-picker v-model="startdate_rekkoran" :config="options"></date-picker></div><button type="button" class="btn-tampilkan" v-on:click="tampilRekKoran">TAMPILKAN</button>
                                     </div>
                                 </div>
                             </div>
@@ -209,19 +209,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
-                                                    <td>617</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
+                                                <tr v-for="(datarekap,index) in filtertransR">
+                                                    <td>{{ index + 1 }}</td>
+                                                    <td>{{ datarekap.Nosi }}</td>
+                                                    <td>{{ datarekap.Loket }}</td>
+                                                    <td>{{ datarekap.KodeAgent }}</td>
+                                                    <td>{{ FrontEndDateFormat(datarekap.Tanggal) }}</td>
+                                                    <td>{{ datarekap.Jam }}</td>
+                                                    <td>{{ datarekap.UserId }}</td>
+                                                    <td>{{ datarekap.KodeMitra }}</td>
+                                                    <td>{{ datarekap.IdPelanggan }}</td>
+                                                    <td>{{ datarekap.BesarUang }}</td>
+                                                    <td>{{ datarekap.NoRef }}</td>
+                                                    <td>{{ datarekap.OptionalField }}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -260,19 +260,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
-                                                    <td>617</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
+                                                <tr v-for="(datarekap,index) in filtertransD">
+                                                    <td>{{ index + 1 }}</td>
+                                                    <td>{{ datarekap.Nosi }}</td>
+                                                    <td>{{ datarekap.Loket }}</td>
+                                                    <td>{{ datarekap.KodeAgent }}</td>
+                                                    <td>{{ FrontEndDateFormat(datarekap.Tanggal) }}</td>
+                                                    <td>{{ datarekap.Jam }}</td>
+                                                    <td>{{ datarekap.UserId }}</td>
+                                                    <td>{{ datarekap.KodeMitra }}</td>
+                                                    <td>{{ datarekap.IdPelanggan }}</td>
+                                                    <td>{{ datarekap.BesarUang }}</td>
+                                                    <td>{{ datarekap.NoRef }}</td>
+                                                    <td>{{ datarekap.OptionalField }}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -314,16 +314,16 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
-                                                    <td>617</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
+                                                <tr v-for="(datakoran,index) in filterkoranR">
+                                                    <td>{{ index + 1 }}</td>
+                                                    <td>{{ datakoran.AccountBuffer }}</td>
+                                                    <td>{{ datakoran.NoRef }}</td>
+                                                    <td>{{ datakoran.JenisTransaksi }}</td>
+                                                    <td>{{ datakoran.Jam }}</td>
+                                                    <td>{{ datakoran.UserId }}</td>
+                                                    <td>{{ datakoran.BesarUangDebet }}</td>
+                                                    <td>{{ datakoran.BesarUangKredit }}</td>
+                                                    <td>{{ datakoran.Keterangan }}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -359,16 +359,16 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>2166</td>
-                                                    <td>9332459</td>
-                                                    <td>619</td>
-                                                    <td>612</td>
-                                                    <td>619</td>
-                                                    <td>617</td>
-                                                    <td>612</td>
-                                                    <td>612</td>
+                                                <tr v-for="(datakoran,index) in filterkoranD">
+                                                    <td>{{ index + 1 }}</td>
+                                                    <td>{{ datakoran.AccountBuffer }}</td>
+                                                    <td>{{ datakoran.NoRef }}</td>
+                                                    <td>{{ datakoran.JenisTransaksi }}</td>
+                                                    <td>{{ datakoran.Jam }}</td>
+                                                    <td>{{ datakoran.UserId }}</td>
+                                                    <td>{{ datakoran.BesarUangDebet }}</td>
+                                                    <td>{{ datakoran.BesarUangKredit }}</td>
+                                                    <td>{{ datakoran.Keterangan }}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -505,11 +505,20 @@ import moment from 'moment';
         data() {
             return {
                 rekap: null,
+                rekaptrans: null,
+                rekapkoran: null,
                 detail: null,
                 filtersaldo: [],
+                filtertrans: [],
+                filtertransR: [],
+                filtertransD: [],
+                filterkoranR: [],
+                filterkoranD: [],
                 getToken: null,
                 select: null,
                 startdate: new Date(),
+                startdatetrans: new Date(),
+                startdate_rekkoran: new Date(),
                 options: {
                 format: 'DD/MM/YYYY',
                 useCurrent: false,
@@ -593,9 +602,127 @@ import moment from 'moment';
                 }).then(response => {
                         let datauserakses = response
                         this.filtersaldo = datauserakses.data.Result
-                        console.log(this.filtersaldo)
+                        // console.log(this.filtersaldo)
                     });
-            }   
-        },
+            },
+            tampilTransaksi(){
+                let getToken = this.$refs.checkToken.value;
+                let getUserAgent = String(this.$session.get('name'))
+                // alert(this.BackEndDateFormat(this.startdatetrans))
+                if (this.rekaptrans == 'Rekap') {
+                axios({
+                    method:'post',
+                    url:'https://gtw-stg.posfin.id/v1/pos/rekonsiliasi/transaksi-agency',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data:{
+                        "TxnRefNo": "APPS01203902",
+                        "ChannelId": "APPS01",
+                        "ServiceCode": "REKON_TRX_AGENCY",
+                        "RequestTime": "20190224120000",
+                        "JenisLaporan": "Rekap",
+                        "UserId": getUserAgent,
+                        "Tanggal": this.BackEndDateFormat(this.startdatetrans),
+                        "Page": 1,
+                        "Limit": 10,
+                        "IsPaging": "Y"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.filtertransR = datauserakses.data.Result
+                        // console.log(this.filtertransR)
+                    });
+                } else {
+                axios({
+                    method:'post',
+                    url:'https://gtw-stg.posfin.id/v1/pos/rekonsiliasi/transaksi-agency',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data:{
+                        "TxnRefNo": "APPS01203902",
+                        "ChannelId": "APPS01",
+                        "ServiceCode": "REKON_TRX_AGENCY",
+                        "RequestTime": "20190224120000",
+                        "JenisLaporan": "Detail",
+                        "UserId": getUserAgent,
+                        "Tanggal": this.BackEndDateFormat(this.startdatetrans),
+                        "Page": 1,
+                        "Limit": 10,
+                        "IsPaging": "Y"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.filtertransD = datauserakses.data.Result
+                        // console.log(this.filtertransD)
+                    });
+                }
+            },
+             tampilRekKoran(){
+                let getToken = this.$refs.checkToken.value;
+                let getUserAgent = String(this.$session.get('name'))
+                // alert(this.BackEndDateFormat(this.startdatetrans))
+                if (this.rekapkoran == 'Rekap') {
+                axios({
+                    method:'post',
+                    url:'https://gtw-stg.posfin.id/v1/pos/rekonsiliasi/rekening-koran',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data:
+                        {
+                        "TxnRefNo": "APPS01203902",
+                        "ChannelId": "APPS01",
+                        "ServiceCode": "REKON_REKENING_KORAN",
+                        "RequestTime": "20190224120000",
+                        "JenisLaporan": "Rekap",
+                        "UserId": getUserAgent,
+                        "Tanggal": this.BackEndDateFormat(this.startdate_rekkoran),
+                        "Page": 1,
+                        "Limit": 10,
+                        "IsPaging": "Y"
+                        }
+                    }).then(response => {
+                        let datauserakses = response
+                        this.filterkoranR = datauserakses.data.Result
+                        // console.log(this.filterkoranR)
+                    });
+                } else {
+                axios({
+                    method:'post',
+                    url:'https://gtw-stg.posfin.id/v1/pos/rekonsiliasi/rekening-koran',
+                    crossdomain: true, 
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "ESB-JWT": "Token " + getToken,
+                    },
+                    data:{
+                        "TxnRefNo": "APPS01203902",
+                        "ChannelId": "APPS01",
+                        "ServiceCode": "REKON_REKENING_KORAN",
+                        "RequestTime": "20190224120000",
+                        "JenisLaporan": "Detail",
+                        "UserId": getUserAgent,
+                        "Tanggal": this.BackEndDateFormat(this.startdate_rekkoran),
+                        "Page": 1,
+                        "Limit": 10,
+                        "IsPaging": "Y"
+                        }
+                }).then(response => {
+                        let datauserakses = response
+                        this.filterkoranD = datauserakses.data.Result
+                        // console.log(this.filterkoranD)
+                    });
+                }
+            },     
+        }
+       
     }
 </script>
